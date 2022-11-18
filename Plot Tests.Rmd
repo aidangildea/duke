@@ -1,0 +1,42 @@
+---
+title: "plot"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+```{r}
+library(ggplot2)
+```
+
+
+```{r iris}
+summary(iris)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot <- ggplot2::ggplot(iris, ggplot2::aes(Sepal.Length, Sepal.Width)) +
+  ggplot2::geom_point(ggplot2::aes(colour = Species)) +
+  ggplot2::labs(title = "This Title is in Duke Royal Blue!", caption = "This caption is in Duke Navy Blue!", x = "This is copper!", y = "This is Persimmon!")
+
+plot + theme_duke()
+```
+
+```{r}
+plot2 <- ggplot(iris, aes(x=Petal.Length)) +
+  geom_histogram() +
+  labs(title = "Royal Blue", caption = "Navy Blue")
+
+plot2 + theme_duke()
+```
+
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
