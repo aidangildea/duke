@@ -34,7 +34,7 @@ theme_duke<- function(base_size = 11, base_family = "",
       # match legend key to background
       legend.key       = ggplot2::element_rect(fill = "white", colour = NA),
       # change title color
-      plot.title =  ggplot2::element_text(family ="Helvetica", colour = "#00539B",
+      plot.title =  ggplot2::element_text(family ="Times", colour = "#00539B",
                                           size = 15),
       plot.caption =  ggplot2::element_text(colour = "#012169", hjust = .9),
       axis.title.x =   ggplot2::element_text(colour = "#C84E00"),
