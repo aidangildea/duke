@@ -21,12 +21,13 @@ theme_duke(
 \item{base_rect_size}{the base rect}
 }
 \value{
-a plot
+a plot with Duke colors
 }
 \description{
 Theme Duke
 }
 \examples{
-plot <- ggplot2::ggplot(cars, ggplot2::aes(speed, dist)) + ggplot2::geom_point() + ggplot2::labs(title = "Duke Blue")
+plot <- ggplot2::ggplot(cars, ggplot2::aes(speed, dist)) +
+ggplot2::geom_point() + ggplot2::labs(title = "Duke Blue")
 plot + theme_duke()
 }

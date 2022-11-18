@@ -7,9 +7,10 @@
 #'
 #' @return a plot with Duke colors
 #' @export
-#'
+#' @importFrom ggplot2 '%+replace%'
 #' @examples
-#' plot <- ggplot2::ggplot(cars, ggplot2::aes(speed, dist)) + ggplot2::geom_point() + ggplot2::labs(title = "Duke Blue")
+#' plot <- ggplot2::ggplot(cars, ggplot2::aes(speed, dist)) +
+#' ggplot2::geom_point() + ggplot2::labs(title = "Duke Blue")
 #' plot + theme_duke()
 theme_duke<- function(base_size = 11, base_family = "",
                      base_line_size = base_size / 22,
