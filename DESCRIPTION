@@ -14,7 +14,8 @@ Imports:
     showtext,
     sysfonts,
     systemfonts
-URL: https://github.com/aidangildea/dukecvd
+URL: https://github.com/aidangildea/dukecvd,
+    https://aidangildea.github.io/dukecvd/
 BugReports: https://github.com/aidangildea/dukecvd/issues
 Depends: 
     R (>= 2.10)
