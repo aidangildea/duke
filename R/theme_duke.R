@@ -9,7 +9,7 @@
 #' @export
 #' @importFrom ggplot2 '%+replace%'
 #' @importFrom sysfonts 'font_add'
-#' @importFrom showtext 'showtext.auto'
+#' @importFrom showtext 'showtext_auto'
 #' @examples
 #' plot <- ggplot2::ggplot(cars, ggplot2::aes(speed, dist)) +
 #' ggplot2::geom_point() + ggplot2::labs(title = "Duke Blue")
