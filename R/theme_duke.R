@@ -23,7 +23,9 @@ theme_duke<- function(base_size = 11, base_family = "",
                      regular = "EBGaramond-Regular.ttf")
   sysfonts::font_add(family = "opensans",
                      regular = "OpenSans-Regular.ttf")
-  showtext::showtext.auto()
+  sysfonts::font_add(family = "hyperlegible",
+                     regular = "Atkinson-Hyperlegible-Regular-102.otf")
+  showtext::showtext_auto()
   # Starts with theme_grey and then modify some parts
   ggplot2::theme_grey(
     base_size = base_size,
@@ -47,7 +49,7 @@ theme_duke<- function(base_size = 11, base_family = "",
       # change title color
       plot.title =  ggplot2::element_text(family ="Garamond 3 LT", face = "bold", colour = "#00539B",
                                           size = 15),
-      plot.caption =  ggplot2::element_text(family ="opensans", colour = "#012169", hjust = .9),
+      plot.caption =  ggplot2::element_text(family ="hyperlegible", colour = "#012169", hjust = .9),
       axis.title.x =   ggplot2::element_text(family ="opensans", colour = "#C84E00"),
       axis.title.y =  ggplot2::element_text(family ="opensans", colour = "#E89923"),
 

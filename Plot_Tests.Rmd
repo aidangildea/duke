@@ -21,7 +21,7 @@ summary(iris)
 
 ## Including Plots
 
-You can also embed plots, for example:
+Let's try building some visualizations with theme_duke().
 
 ```{r pressure, echo=FALSE}
 plot <- ggplot2::ggplot(iris, ggplot2::aes(Sepal.Length, Sepal.Width)) +
