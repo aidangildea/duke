@@ -2,3 +2,5 @@
 
 export(theme_duke)
 importFrom(ggplot2,'%+replace%')
+importFrom(showtext,'showtext.auto')
+importFrom(sysfonts,'font_add')

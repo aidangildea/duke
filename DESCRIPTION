@@ -1,5 +1,5 @@
 Package: dukecvd
-Title: Makes color blind friendly visualizations with Duke's Official Colors
+Title: Makes color blind friendly visualizations with Duke's official colors
 Version: 0.0.0.9000
 Authors@R: 
     person("Aidan", "Gildea", , "aidan.gildea@duke.edu", role = c("aut", "cre"))
@@ -10,6 +10,11 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
 Imports: 
     ggplot2,
-    grid
+    grid,
+    showtext,
+    sysfonts,
+    systemfonts
 URL: https://github.com/aidangildea/dukecvd
 BugReports: https://github.com/aidangildea/dukecvd/issues
+Depends: 
+    R (>= 2.10)

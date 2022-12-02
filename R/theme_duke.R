@@ -8,6 +8,8 @@
 #' @return a plot with Duke colors
 #' @export
 #' @importFrom ggplot2 '%+replace%'
+#' @importFrom sysfonts 'font_add'
+#' @importFrom showtext 'showtext.auto'
 #' @examples
 #' plot <- ggplot2::ggplot(cars, ggplot2::aes(speed, dist)) +
 #' ggplot2::geom_point() + ggplot2::labs(title = "Duke Blue")
@@ -15,6 +17,13 @@
 theme_duke<- function(base_size = 11, base_family = "",
                      base_line_size = base_size / 22,
                      base_rect_size = base_size / 22) {
+  sysfonts::font_add(family = "Garamond 3 LT",
+           regular = "Garamond3LTStd.otf")
+  sysfonts::font_add(family = "EBGaramond",
+                     regular = "EBGaramond-Regular.ttf")
+  sysfonts::font_add(family = "opensans",
+                     regular = "OpenSans-Regular.ttf")
+  showtext::showtext.auto()
   # Starts with theme_grey and then modify some parts
   ggplot2::theme_grey(
     base_size = base_size,
@@ -33,12 +42,14 @@ theme_duke<- function(base_size = 11, base_family = "",
       strip.background = ggplot2::element_rect(fill = "grey85", colour = "grey20"),
       # match legend key to background
       legend.key       = ggplot2::element_rect(fill = "white", colour = NA),
+      legend.text = ggplot2::element_text(family = "EBGaramond"),
+      legend.title = ggplot2::element_text(family = "EBGaramond"),
       # change title color
-      plot.title =  ggplot2::element_text(family ="Times", colour = "#00539B",
+      plot.title =  ggplot2::element_text(family ="Garamond 3 LT", face = "bold", colour = "#00539B",
                                           size = 15),
-      plot.caption =  ggplot2::element_text(colour = "#012169", hjust = .9),
-      axis.title.x =   ggplot2::element_text(colour = "#C84E00"),
-      axis.title.y =  ggplot2::element_text(colour = "#E89923"),
+      plot.caption =  ggplot2::element_text(family ="opensans", colour = "#012169", hjust = .9),
+      axis.title.x =   ggplot2::element_text(family ="opensans", colour = "#C84E00"),
+      axis.title.y =  ggplot2::element_text(family ="opensans", colour = "#E89923"),
 
       complete = TRUE
     )
