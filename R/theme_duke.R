@@ -8,7 +8,7 @@
 #' @return a plot with Duke colors
 #' @export
 #' @importFrom ggplot2 '%+replace%'
-#' @importFrom sysfonts 'font_add'
+#' @importFrom sysfonts 'font_add', 'font_files'
 #' @importFrom showtext 'showtext_auto'
 #' @examples
 #' plot <- ggplot2::ggplot(cars, ggplot2::aes(speed, dist)) +
@@ -17,14 +17,36 @@
 theme_duke<- function(base_size = 11, base_family = "",
                      base_line_size = base_size / 22,
                      base_rect_size = base_size / 22) {
-  sysfonts::font_add(family = "Garamond 3 LT",
-           regular = "Garamond3LTStd.otf")
-  sysfonts::font_add(family = "EBGaramond",
-                     regular = "EBGaramond-Regular.ttf")
-  sysfonts::font_add(family = "opensans",
-                     regular = "OpenSans-Regular.ttf")
-  sysfonts::font_add(family = "hyperlegible",
-                     regular = "Atkinson-Hyperlegible-Regular-102.otf")
+  # Downloading fonts
+  # If error occurs, custom error message is printed
+  tryCatch(sysfonts::font_add(family = "Garamond 3 LT Std",
+                     regular = "Garamond3LTStd.otf"),
+           error = function(e) {print("Garamond 3 LT needs to be downloaded to your system.")})
+  tryCatch(sysfonts::font_add(family = "EBGaramond",
+                     regular = "EBGaramond-Regular.ttf"),
+           error = function(e) {print("EB Garamond needs to be downloaded to your system.")})
+  tryCatch(sysfonts::font_add(family = "opensans",
+                     regular = "OpenSans-Regular.ttf"),
+           error = function(e) {print("OpenSans needs to be downloaded to your system.")})
+  tryCatch(sysfonts::font_add(family = "hyperlegible",
+                     regular = "Atkinson-Hyperlegible-Regular-102.otf"),
+           error = function(e) {print("Atkinson-Hyperlegible needs to be downloaded to your system.")})
+
+  fonts <- as.data.frame(sysfonts::font_files()$family)
+
+  if(any(fonts == "Garamond 3 LT Std1")) {
+    title <- "Garamond 3 LT Std" } else {title <- "sans"
+    warning("Garamond 3 LT Std needs to be downloaded to your system.")}
+  if(any(fonts == "EB Garamond1")) {
+    legend <- "EBGaramond" } else {legend <- "sans"
+    warning("EB Garamond needs to be downloaded to your system.")}
+  if(any(fonts == "Open Sans1")) {
+    axis <- "opensans" } else {axis <- "sans"
+    warning("Open Sans needs to be downloaded to your system.")}
+  if(any(fonts == "Atkinson Hyperlegible1")) {
+    caption <- "hyperlegible" } else {caption <- "sans"
+    warning("Atkinson-Hyperlegible needs to be downloaded to your system.")}
+
   showtext::showtext_auto()
   # Starts with theme_grey and then modify some parts
   ggplot2::theme_grey(
@@ -44,15 +66,17 @@ theme_duke<- function(base_size = 11, base_family = "",
       strip.background = ggplot2::element_rect(fill = "grey85", colour = "grey20"),
       # match legend key to background
       legend.key       = ggplot2::element_rect(fill = "white", colour = NA),
-      legend.text = ggplot2::element_text(family = "EBGaramond"),
-      legend.title = ggplot2::element_text(family = "EBGaramond"),
+      legend.text = ggplot2::element_text(family = legend),
+      legend.title = ggplot2::element_text(family = legend),
       # change title color
-      plot.title =  ggplot2::element_text(family ="Garamond 3 LT", face = "bold", colour = "#00539B",
+      plot.title =  ggplot2::element_text(family = title, face = "bold", colour = "#00539B",
                                           size = 15),
-      plot.caption =  ggplot2::element_text(family ="hyperlegible", colour = "#012169", hjust = .9),
-      axis.title.x =   ggplot2::element_text(family ="opensans", colour = "#C84E00"),
-      axis.title.y =  ggplot2::element_text(family ="opensans", colour = "#E89923"),
+      plot.caption =  ggplot2::element_text(family = caption, colour = "#012169", hjust = .9),
+      axis.title.x =   ggplot2::element_text(family = axis, colour = "#C84E00"),
+      axis.title.y =  ggplot2::element_text(family = axis, colour = "#E89923"),
 
       complete = TRUE
     )
 }
+
+
