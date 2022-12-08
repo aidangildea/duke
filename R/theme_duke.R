@@ -34,16 +34,16 @@ theme_duke<- function(base_size = 11, base_family = "",
 
   fonts <- as.data.frame(sysfonts::font_files()$family)
 
-  if(any(fonts == "Garamond 3 LT Std1")) {
+  if(any(fonts == "Garamond 3 LT Std")) {
     title <- "Garamond 3 LT Std" } else {title <- "sans"
     warning("Garamond 3 LT Std needs to be downloaded to your system.")}
-  if(any(fonts == "EB Garamond1")) {
+  if(any(fonts == "EB Garamond")) {
     legend <- "EBGaramond" } else {legend <- "sans"
     warning("EB Garamond needs to be downloaded to your system.")}
-  if(any(fonts == "Open Sans1")) {
+  if(any(fonts == "Open Sans")) {
     axis <- "opensans" } else {axis <- "sans"
     warning("Open Sans needs to be downloaded to your system.")}
-  if(any(fonts == "Atkinson Hyperlegible1")) {
+  if(any(fonts == "Atkinson Hyperlegible")) {
     caption <- "hyperlegible" } else {caption <- "sans"
     warning("Atkinson-Hyperlegible needs to be downloaded to your system.")}
 

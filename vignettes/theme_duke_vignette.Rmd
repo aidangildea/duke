@@ -1,0 +1,95 @@
+---
+title: "theme_duke"
+author: "Aidan Gildea"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+This vignette is intended to demonstrate the breadth of `theme_duke()` and its
+various applications. Similar to the other functions within the `theme()`, this function
+can be applied to all `ggplot2` visualizations. 
+
+## Plot Examples
+
+For these visualizations, we will use the R dummy data set `palmerpenguins`.
+
+```{r penguins}
+#install.packages("palmerpenguins")
+library(palmerpenguins)
+library(dukecvd)
+library(ggplot2)
+attach(penguins)
+```
+
+## Using `theme_duke()` on scatter plots
+
+```{r scatter}
+plot <- ggplot2::ggplot(penguins, ggplot2::aes(bill_length_mm, flipper_length_mm)) +
+  ggplot2::geom_point(ggplot2::aes(colour = species)) +
+  ggplot2::labs(title = "Bill Length vs. Flipper Length", caption = "There are three different species of penguins.", x = "Bill Length (mm)", y = "Flipper Length (mm)")
+
+plot + theme_duke()
+```
+
+
+## Using `theme_duke()` on bar plots
+
+```{r bar}
+plot <- ggplot2::ggplot(penguins, ggplot2::aes(species)) +
+  ggplot2::geom_bar(ggplot2::aes(color = species)) +
+  ggplot2::labs(title = "Species Count", caption = "There are three different species of penguins.", x = "Species", y = "Count")
+
+plot + theme_duke()
+```
+
+## Using `theme_duke()` on histograms
+
+```{r hist}
+plot <- ggplot2::ggplot(penguins, ggplot2::aes(body_mass_g)) +
+  ggplot2::geom_histogram() +
+  ggplot2::labs(title = "Distribution of Penguin Body Mass", caption = "There are three different species of penguins.", x = "Body Mass (g)", y = "Count")
+
+plot + theme_duke()
+```
+
+## Using `theme_duke()` on box plots
+
+```{r box}
+plot <- ggplot2::ggplot(penguins, ggplot2::aes(sex, body_mass_g)) +
+  ggplot2::geom_boxplot() +
+  ggplot2::labs(title = "Comparison of Body Mass By Sex", x = "Sex", y = "Body Mass (g)")
+
+plot + theme_duke()
+```
+
+## Using `theme_duke()` on density plots
+
+```{r density}
+plot <- ggplot2::ggplot(penguins, ggplot2::aes(bill_depth_mm)) +
+  ggplot2::geom_density() +
+  ggplot2::labs(title = "Density of Penguin Bill Depth", x = "Bill Depth (mm)", y = "Densiy")
+
+plot + theme_duke()
+```
+
+
+## Using `theme_duke()` on jitter plot
+
+```{r jitter}
+plot <- ggplot2::ggplot(penguins, ggplot2::aes(year, body_mass_g)) +
+  ggplot2::geom_jitter() +
+  ggplot2::labs(title = "Comparison of Body Mass By Year", x = "Year", y = "Body Mass (g)")
+
+plot + theme_duke()
+```
