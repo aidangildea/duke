@@ -56,7 +56,7 @@ plot
 
 Then, simply convert your visualization to Duke official colors by calling `theme_duke()`.
 
-```{r theme duke}
+```{r themeduke}
 plot + theme_duke()
 ```
 

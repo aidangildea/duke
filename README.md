@@ -58,7 +58,7 @@ calling `theme_duke()`.
 plot + theme_duke()
 ```
 
-<img src="man/figures/README-theme duke-1.png" width="100%" />
+<img src="man/figures/README-themeduke-1.png" width="100%" />
 
 ## Questions
 
