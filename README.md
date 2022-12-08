@@ -27,7 +27,7 @@ devtools::install_github("aidangildea/dukecvd")
 
 This package is fully integrated with ggplot2, and therefore, allows you
 to customize several visualization features. By adding aesthetic
-functions such as `theme_duke()` and `scale_color_duke` to your
+functions such as `theme_duke()` and `scale_color_duke()` to your
 visualizations, you can easily implement Duke official colors in a color
 blind friendly way.
 
