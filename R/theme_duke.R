@@ -8,7 +8,8 @@
 #' @return a plot with Duke colors
 #' @export
 #' @importFrom ggplot2 '%+replace%'
-#' @importFrom sysfonts 'font_add', 'font_files'
+#' @importFrom sysfonts 'font_add'
+#' @importFrom sysfonts 'font_files'
 #' @importFrom showtext 'showtext_auto'
 #' @examples
 #' plot <- ggplot2::ggplot(cars, ggplot2::aes(speed, dist)) +
@@ -20,7 +21,7 @@ theme_duke<- function(base_size = 11, base_family = "",
   # Downloading fonts
   # If error occurs, custom error message is printed
   tryCatch(sysfonts::font_add(family = "Garamond 3 LT Std",
-                     regular = "Garamond3LTStd1.otf"),
+                     regular = "Garamond3LTStd.otf"),
            error = function(e) {warning("Garamond 3 LT Std is not available on your system. Please download and install for custom font functionality.\n")})
   tryCatch(sysfonts::font_add(family = "EBGaramond",
                      regular = "EBGaramond-Regular.ttf"),
@@ -34,7 +35,7 @@ theme_duke<- function(base_size = 11, base_family = "",
 
   fonts <- as.data.frame(sysfonts::font_files()$family)
 
-  if(any(fonts == "Garamond 3 LT Std1")) {
+  if(any(fonts == "Garamond 3 LT Std")) {
     title <- "Garamond 3 LT Std" } else {title <- "sans"
     warning("Defaulting to sans font.")}
   if(any(fonts == "EB Garamond")) {

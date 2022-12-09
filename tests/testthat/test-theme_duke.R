@@ -9,7 +9,7 @@ test_that("using theme_duke produces desired stylistic changes", {
 
   # Adding theme_duke() makes the plot title have Garamond 3 LT font
   p <- p + theme_duke()
-  expect_true(p$theme$plot.title$family == "Garamond 3 LT")
+  expect_true(p$theme$plot.title$family == "Garamond 3 LT Std")
 
   # Adding theme_duke() makes the caption have Hyperlegible font
   p <- p + theme_duke()
