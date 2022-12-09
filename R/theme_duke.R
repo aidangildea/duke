@@ -57,7 +57,7 @@ theme_duke<- function(base_size = 11, base_family = "",
   ) %+replace%
     ggplot2::theme(
       # white background and dark border
-      panel.background = ggplot2::element_rect(fill = "white", colour = NA),
+      panel.background = ggplot2::element_rect(fill = "#F3F2F1", colour = NA),
       panel.border     = ggplot2::element_rect(fill = NA, colour = "grey20"),
       # make gridlines dark, same contrast with white as in theme_grey
       panel.grid = ggplot2::element_line(colour = "#00539B", size = .2),
@@ -68,7 +68,6 @@ theme_duke<- function(base_size = 11, base_family = "",
       legend.key       = ggplot2::element_rect(fill = "white", colour = NA),
       legend.text = ggplot2::element_text(family = legend),
       legend.title = ggplot2::element_text(family = legend),
-      # change title color
       plot.title =  ggplot2::element_text(family = title, face = "bold", colour = "#00539B",
                                           size = 15),
       plot.caption =  ggplot2::element_text(family = caption, colour = "#012169", hjust = .9),
