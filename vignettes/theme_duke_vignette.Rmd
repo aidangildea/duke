@@ -12,7 +12,9 @@ vignette: >
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  fig.width = 8,
+  fig.asp = .618
 )
 ```
 
@@ -47,7 +49,7 @@ plot + theme_duke()
 
 ```{r bar}
 plot <- ggplot2::ggplot(penguins, ggplot2::aes(species)) +
-  ggplot2::geom_bar(ggplot2::aes(color = species)) +
+  ggplot2::geom_bar(ggplot2::aes(fill = species)) +
   ggplot2::labs(title = "Species Count", caption = "There are three different species of penguins.", x = "Species", y = "Count")
 
 plot + theme_duke()
@@ -56,8 +58,10 @@ plot + theme_duke()
 ## Using `theme_duke()` on histograms
 
 ```{r hist}
+## if one variable, do we want fill to be duke blue
+## have scale_color that would give custom colors to different dists.
 plot <- ggplot2::ggplot(penguins, ggplot2::aes(body_mass_g)) +
-  ggplot2::geom_histogram() +
+  ggplot2::geom_histogram(ggplot2::aes(fill = species)) +
   ggplot2::labs(title = "Distribution of Penguin Body Mass", caption = "There are three different species of penguins.", x = "Body Mass (g)", y = "Count")
 
 plot + theme_duke()

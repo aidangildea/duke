@@ -20,32 +20,32 @@ theme_duke<- function(base_size = 11, base_family = "",
   # Downloading fonts
   # If error occurs, custom error message is printed
   tryCatch(sysfonts::font_add(family = "Garamond 3 LT Std",
-                     regular = "Garamond3LTStd.otf"),
-           error = function(e) {print("Garamond 3 LT needs to be downloaded to your system.")})
+                     regular = "Garamond3LTStd1.otf"),
+           error = function(e) {warning("Garamond 3 LT Std is not available on your system. Please download and install for custom font functionality.\n")})
   tryCatch(sysfonts::font_add(family = "EBGaramond",
                      regular = "EBGaramond-Regular.ttf"),
-           error = function(e) {print("EB Garamond needs to be downloaded to your system.")})
+           error = function(e) {warning("EB Garamond is not available on your system. Please download and install for custom font functionality.\n")})
   tryCatch(sysfonts::font_add(family = "opensans",
                      regular = "OpenSans-Regular.ttf"),
-           error = function(e) {print("OpenSans needs to be downloaded to your system.")})
+           error = function(e) {warning("OpenSans is not available on your system. Please download and install for custom font functionality.\n")})
   tryCatch(sysfonts::font_add(family = "hyperlegible",
                      regular = "Atkinson-Hyperlegible-Regular-102.otf"),
-           error = function(e) {print("Atkinson-Hyperlegible needs to be downloaded to your system.")})
+           error = function(e) {warning("Atkinson-Hyperlegible is not available on your system. Please download and install for custom font functionality.\n")})
 
   fonts <- as.data.frame(sysfonts::font_files()$family)
 
-  if(any(fonts == "Garamond 3 LT Std")) {
+  if(any(fonts == "Garamond 3 LT Std1")) {
     title <- "Garamond 3 LT Std" } else {title <- "sans"
-    warning("Garamond 3 LT Std needs to be downloaded to your system.")}
+    warning("Defaulting to sans font.")}
   if(any(fonts == "EB Garamond")) {
     legend <- "EBGaramond" } else {legend <- "sans"
-    warning("EB Garamond needs to be downloaded to your system.")}
+    warning("Defaulting to sans font.")}
   if(any(fonts == "Open Sans")) {
     axis <- "opensans" } else {axis <- "sans"
-    warning("Open Sans needs to be downloaded to your system.")}
+    warning("Defaulting to sans font.")}
   if(any(fonts == "Atkinson Hyperlegible")) {
     caption <- "hyperlegible" } else {caption <- "sans"
-    warning("Atkinson-Hyperlegible needs to be downloaded to your system.")}
+    warning("Defaulting to sans font.")}
 
   showtext::showtext_auto()
   # Starts with theme_grey and then modify some parts
