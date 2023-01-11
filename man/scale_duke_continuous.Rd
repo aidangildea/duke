@@ -30,13 +30,13 @@ scale_duke_continuous(
 \item{aesthetics}{String or vector of strings detailing what aesthetic features this continuous scale can apply to.}
 }
 \value{
-a visualization with continous duke color scale
+a visualization with continuous duke color scale
 }
 \description{
 Apply continuous color scale
 }
 \examples{
 # Default example from Hatteras to Duke Royal Blue
-plot3 <- ggplot(iris, aes(x=Petal.Length, y = Petal.Width)) + geom_point()
+plot3 <- ggplot2::ggplot(iris, ggplot2::aes(x=Petal.Length, y = Petal.Width)) + ggplot2::geom_point()
 plot3 + scale_duke_continuous()
 }

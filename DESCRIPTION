@@ -15,7 +15,8 @@ Imports:
     scales,
     showtext,
     sysfonts,
-    systemfonts
+    systemfonts,
+    tibble
 URL: https://github.com/aidangildea/dukecvd,
     https://aidangildea.github.io/dukecvd/
 BugReports: https://github.com/aidangildea/dukecvd/issues

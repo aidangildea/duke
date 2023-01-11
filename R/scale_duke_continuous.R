@@ -7,16 +7,13 @@
 #' @param na.value Color used for NA values.
 #' @param guide Type of legend. "colorbar" for continuous scale, "legend" for discrete scale.
 #' @param aesthetics String or vector of strings detailing what aesthetic features this continuous scale can apply to.
-#' @inheritParams scales::seq_gradient_pal
-#' @inheritParams ggplot2
-#' @inheritParams tibble::tibble
 #'
-#' @return a visualization with continous duke color scale
+#' @return a visualization with continuous duke color scale
 #' @export
 #'
 #' @examples
 #' # Default example from Hatteras to Duke Royal Blue
-#' plot3 <- ggplot(iris, aes(x=Petal.Length, y = Petal.Width)) + geom_point()
+#' plot3 <- ggplot2::ggplot(iris, ggplot2::aes(x=Petal.Length, y = Petal.Width)) + ggplot2::geom_point()
 #' plot3 + scale_duke_continuous()
 scale_duke_continuous <- function(..., low = "#E2E6ED", high = "#00539B", space = "Lab",
                                   na.value = "#B5B5B5", guide = "colourbar", aesthetics = c("colour", "color")){
