@@ -36,7 +36,13 @@ plot2 <- ggplot(iris, aes(x=Petal.Length)) +
   geom_histogram() +
   labs(title = "Royal Blue", caption = "Navy Blue")
 
+plot3 <- ggplot(iris, aes(x=Petal.Length, y = Petal.Width, color = Petal.Length)) +
+  geom_point() +
+  labs(title = "Royal Blue", caption = "Navy Blue")
+
 plot2 + theme_duke()
+
+plot3 + scale_duke_continuous()
 ```
 
 

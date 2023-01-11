@@ -61,8 +61,8 @@ theme_duke<- function(base_size = 11, base_family = "",
       panel.background = ggplot2::element_rect(fill = "#F3F2F1", colour = NA),
       panel.border     = ggplot2::element_rect(fill = NA, colour = "grey20"),
       # make gridlines dark, same contrast with white as in theme_grey
-      panel.grid = ggplot2::element_line(colour = "#00539B", size = .2),
-      panel.grid.minor = ggplot2::element_line(colour = "#00539B", size = .2),
+      panel.grid = ggplot2::element_line(colour = "#00539B", linewidth = .2),
+      panel.grid.minor = ggplot2::element_line(colour = "#00539B", linewidth = .2),
       # contour strips to match panel contour
       strip.background = ggplot2::element_rect(fill = "grey85", colour = "grey20"),
       # match legend key to background

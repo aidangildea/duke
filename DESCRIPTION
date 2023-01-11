@@ -12,6 +12,7 @@ Imports:
     ggplot2,
     grid,
     pkgdown,
+    scales,
     showtext,
     sysfonts,
     systemfonts
