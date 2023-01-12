@@ -1,6 +1,6 @@
 #' Apply continuous color scale
 #'
-#' @param ... Arguments passes on to [continuous_scale](http://127.0.0.1:65374/help/library/ggplot2/help/continuous_scale).
+#' @param ... Arguments passed on to [continuous_scale](http://127.0.0.1:65374/help/library/ggplot2/help/continuous_scale).
 #' @param low Low end of color gradient.
 #' @param high High end of color gradient.
 #' @param space Color space in which to calculate gradient.
