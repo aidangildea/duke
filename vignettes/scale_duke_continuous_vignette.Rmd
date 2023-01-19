@@ -41,4 +41,4 @@ plot <- ggplot2::ggplot(penguins, ggplot2::aes(bill_length_mm, flipper_length_mm
 plot + scale_duke_continuous()
 ```
 
-
+## Using `scale_duke_continuous()` on scatter plots
