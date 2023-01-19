@@ -20,3 +20,9 @@
 
 # Granite
 #B5B5B5
+
+# Dandelion
+#FFD960
+
+# Piedmont
+#A1B70D
