@@ -32,7 +32,7 @@ plot + theme_duke()
 ```
 
 ```{r}
-plot2 <- ggplot(iris, aes(x=Petal.Length)) +
+plot2 <- ggplot(iris, aes(x=Petal.Length, fill = Species)) +
   geom_histogram() +
   labs(title = "Royal Blue", caption = "Navy Blue")
 
@@ -40,9 +40,18 @@ plot3 <- ggplot(iris, aes(x=Petal.Length, y = Petal.Width, color = Petal.Length)
   geom_point() +
   labs(title = "Royal Blue", caption = "Navy Blue")
 
+plot4 <- ggplot(iris, aes(x=Species, fill = Species)) +
+  geom_bar() +
+  labs(title = "Royal Blue", caption = "Navy Blue")
+
 plot2 + theme_duke()
 
-plot3 + scale_duke_continuous()
+# Work up from here
+plot3 + 
+  theme_minimal() +
+  scale_duke_continuous()
+
+plot4 + scale_duke_discrete()
 ```
 
 

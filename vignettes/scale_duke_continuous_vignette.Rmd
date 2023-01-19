@@ -10,15 +10,15 @@ vignette: >
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  fig.width = 8,
+  fig.asp = .618
 )
 ```
 
 This vignette is intended to demonstrate the breadth of `scale_duke_continuous()` and its
 various applications. Similar to the other existing color scale functions, this function
 can be applied to all `ggplot2` visualizations. 
-
-# Load necessary packages
 
 For these visualizations, we will use the R dummy data set `palmerpenguins`.
 
@@ -29,9 +29,9 @@ library(ggplot2)
 attach(penguins)
 ```
 
-## Plot Examples
+# Plot Examples
 
-# Using `scale_duke_continuous()` on scatter plots
+## Using `scale_duke_continuous()` on scatter plots
 
 ```{r scatterplot}
 plot <- ggplot2::ggplot(penguins, ggplot2::aes(bill_length_mm, flipper_length_mm)) +

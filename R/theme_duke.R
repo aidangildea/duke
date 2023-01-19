@@ -50,7 +50,7 @@ theme_duke<- function(base_size = 11, base_family = "",
 
   showtext::showtext_auto()
   # Starts with theme_grey and then modify some parts
-  ggplot2::theme_grey(
+  ggplot2::theme_minimal(
     base_size = base_size,
     base_family = base_family,
     base_line_size = base_line_size,
