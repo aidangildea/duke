@@ -1,4 +1,4 @@
-Package: dukecvd
+Package: duke
 Title: Makes color blind friendly visualizations with Duke's official colors
 Version: 0.0.0.9000
 Authors@R: 
@@ -10,21 +10,20 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Imports: 
     ggplot2,
-    grid,
-    pkgdown,
     scales,
     showtext,
     sysfonts,
-    systemfonts,
     tibble
-URL: https://github.com/aidangildea/dukecvd,
-    https://aidangildea.github.io/dukecvd/
-BugReports: https://github.com/aidangildea/dukecvd/issues
+URL: https://github.com/aidangildea/duke,
+    https://aidangildea.github.io/duke/
+BugReports: https://github.com/aidangildea/duke/issues
 Depends: 
     R (>= 2.10)
 Suggests: 
     knitr,
     rmarkdown,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    palmerpenguins,
+    ggmosaic
 Config/testthat/edition: 3
 VignetteBuilder: knitr

@@ -4,7 +4,7 @@ author: "Aidan Gildea"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteIndexEntry{theme_duke}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -28,7 +28,7 @@ For these visualizations, we will use the R dummy data set `palmerpenguins`.
 ```{r penguins}
 #install.packages("palmerpenguins")
 library(palmerpenguins)
-library(dukecvd)
+library(duke)
 library(ggplot2)
 attach(penguins)
 ```
@@ -36,7 +36,7 @@ attach(penguins)
 ## Using `theme_duke()` on scatter plots
 
 ```{r scatter}
-plot <- ggplot2::ggplot(penguins, ggplot2::aes(bill_length_mm, flipper_length_mm)) +
+plot <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(bill_length_mm, flipper_length_mm)) +
   ggplot2::geom_point(ggplot2::aes(colour = species)) +
   ggplot2::labs(title = "Bill Length vs. Flipper Length", caption = "There are three different species of penguins.", x = "Bill Length (mm)", y = "Flipper Length (mm)")
 
@@ -48,7 +48,7 @@ plot +
 ## Using `theme_duke()` on bar plots
 
 ```{r bar}
-plot <- ggplot2::ggplot(penguins, ggplot2::aes(species)) +
+plot <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(species)) +
   ggplot2::geom_bar(ggplot2::aes(fill = species)) +
   ggplot2::labs(title = "Species Count", caption = "There are three different species of penguins.", x = "Species", y = "Count")
 
@@ -60,7 +60,7 @@ plot + theme_duke()
 ```{r hist}
 ## if one variable, do we want fill to be duke blue
 ## have scale_color that would give custom colors to different dists.
-plot <- ggplot2::ggplot(penguins, ggplot2::aes(body_mass_g)) +
+plot <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(body_mass_g)) +
   ggplot2::geom_histogram(ggplot2::aes(fill = species)) +
   ggplot2::labs(title = "Distribution of Penguin Body Mass", caption = "There are three different species of penguins.", x = "Body Mass (g)", y = "Count")
 
@@ -70,7 +70,7 @@ plot + theme_duke()
 ## Using `theme_duke()` on box plots
 
 ```{r box}
-plot <- ggplot2::ggplot(penguins, ggplot2::aes(sex, body_mass_g)) +
+plot <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(sex, body_mass_g)) +
   ggplot2::geom_boxplot() +
   ggplot2::labs(title = "Comparison of Body Mass By Sex", x = "Sex", y = "Body Mass (g)")
 
@@ -80,7 +80,7 @@ plot + theme_duke()
 ## Using `theme_duke()` on density plots
 
 ```{r density}
-plot <- ggplot2::ggplot(penguins, ggplot2::aes(bill_depth_mm)) +
+plot <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(bill_depth_mm)) +
   ggplot2::geom_density() +
   ggplot2::labs(title = "Density of Penguin Bill Depth", x = "Bill Depth (mm)", y = "Densiy")
 
@@ -91,7 +91,7 @@ plot + theme_duke()
 ## Using `theme_duke()` on jitter plot
 
 ```{r jitter}
-plot <- ggplot2::ggplot(penguins, ggplot2::aes(year, body_mass_g)) +
+plot <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(year, body_mass_g)) +
   ggplot2::geom_jitter() +
   ggplot2::labs(title = "Comparison of Body Mass By Year", x = "Year", y = "Body Mass (g)")
 

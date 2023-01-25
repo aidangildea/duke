@@ -27,7 +27,7 @@ For these visualization, we will use the R dummy data set `palmerpenguins`.
 ```{r penguins}
 #install.packages("palmerpenguins")
 library(palmerpenguins)
-library(dukecvd)
+library(duke)
 library(ggplot2)
 library(ggmosaic)
 attach(penguins)
@@ -36,7 +36,7 @@ attach(penguins)
 ## Using `scale_duke_discrete()` on bar plots
 
 ```{r bar plot}
-plot <- ggplot(penguins, aes(x=species, fill = species)) +
+plot <- ggplot(palmerpenguins::penguins, aes(x=species, fill = species)) +
   geom_bar() +
   labs(title = "Distribution of Penguin Species", caption = "(Colors from left to right) \n Duke Royal Blue, Duke Navy Blue, Copper", x = "Species", y = "Count") +
   theme(legend.position = "none")
@@ -48,8 +48,8 @@ plot +
 ## Using `scale_duke_discrete()` on mosaic plots 
 
 ```{r mosaic plot}
-plot2 <- ggplot(data = penguins) +
-  geom_mosaic(aes(x=product(sex, island), fill = sex)) +
+plot2 <- ggplot(data = palmerpenguins::penguins) +
+  ggmosaic::geom_mosaic(aes(x=product(sex, island), fill = sex)) +
   labs(title = "Penguin Sex vs. Island", x = "Island", y = "Penguin Sex", caption = "(Color from top to bottom) \n Granite, Duke Navy Blue, Duke Royal Blue")
 
 plot2 +
@@ -58,7 +58,7 @@ plot2 +
 ## Using `scale_duke_discrete()` on scatter plots 
 
 ```{r scatter plot}
-plot3 <- ggplot(penguins, aes(x=bill_length_mm, y = bill_depth_mm)) +
+plot3 <- ggplot(palmerpenguins::penguins, aes(x=bill_length_mm, y = bill_depth_mm)) +
   geom_point(aes(color = species)) +
   labs(title = "Bill Length vs. Bill Depth", caption = "(Colors used) \n Duke Royal Blue, Duke Navy Blue, Copper", x = "Bill Length (mm)", y = "Bill Depth (mm)")
 
@@ -68,7 +68,7 @@ plot3 +
 ## Using `scale_duke_discrete()` on histogram plots 
 
 ```{r histogram}
-plot4 <- ggplot2::ggplot(penguins, aes(body_mass_g)) +
+plot4 <- ggplot2::ggplot(palmerpenguins::penguins, aes(body_mass_g)) +
   geom_histogram(ggplot2::aes(fill = species), alpha = 0.8) +
   labs(title = "Distribution of Penguin Body Mass", caption = "(Colors used) \n Duke Royal Blue, Duke Navy Blue, Copper", x = "Body Mass (g)", y = "Count")
 

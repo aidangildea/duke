@@ -10,10 +10,12 @@
 #'
 #' @return a visualization with continuous duke color scale
 #' @export
+#' @importFrom tibble 'tibble'
 #'
 #' @examples
 #' # Default example from Hatteras to Duke Royal Blue
-#' plot3 <- ggplot2::ggplot(iris, ggplot2::aes(x=Petal.Length, y = Petal.Width)) + ggplot2::geom_point()
+#' plot3 <- ggplot2::ggplot(iris, ggplot2::aes(x=Petal.Length, y = Petal.Width)) +
+#'   ggplot2::geom_point()
 #' plot3 + scale_duke_continuous()
 scale_duke_continuous <- function(..., low = "#E2E6ED", high = "#00539B", space = "Lab",
                                   na.value = "#B5B5B5", guide = "colourbar", aesthetics = c("colour", "color")){

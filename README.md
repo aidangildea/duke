@@ -1,26 +1,26 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# dukecvd
+# duke
 
 <!-- badges: start -->
 <!-- badges: end -->
 
 ## Overview
 
-The goal of dukecvd is to generate visualizations with Duke’s official
+The goal of duke is to generate visualizations with Duke’s official
 suite of colors in a color blind friendly way. This package is
 integrated with ggplot2 and its visualization tools.
 
 ## Installation
 
 ``` r
-# Install dukecvd directly:
-install.packages("dukecvd")
+# Install duke directly:
+install.packages("duke")
 
 # Or alternatively, install development version from GitHub
 # install.packages("devtools")
-devtools::install_github("aidangildea/dukecvd")
+devtools::install_github("aidangildea/duke")
 ```
 
 ## Usage
@@ -41,7 +41,7 @@ use a scatter plot.
 
 ``` r
 library(ggplot2)
-library(dukecvd)
+library(duke)
 plot <- ggplot2::ggplot(iris, ggplot2::aes(Sepal.Length, Sepal.Width)) +
   ggplot2::geom_point(ggplot2::aes(colour = Species)) +
   ggplot2::labs(title = "Title", caption = "Caption", x = "X Var", y = "Y Var")

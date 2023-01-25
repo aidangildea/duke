@@ -17,8 +17,6 @@ scale_duke_discrete(
 \item{na.value}{Color used for NA values}
 
 \item{aesthetics}{String or vector of strings detailing what aesthetic features this disrete scale can apply to.}
-
-\item{pal}{Palette function}
 }
 \value{
 a visualization with discrete duke color scale

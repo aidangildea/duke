@@ -1,4 +1,4 @@
-^dukecvd\.Rproj$
+^duke\.Rproj$
 ^\.Rproj\.user$
 ^LICENSE\.md$
 ^README\.Rmd$
@@ -6,3 +6,5 @@
 ^docs$
 ^pkgdown$
 ^\.github$
+^Color_Guide.R
+^Plot_Tests.Rmd

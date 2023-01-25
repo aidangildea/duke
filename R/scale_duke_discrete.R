@@ -2,7 +2,6 @@
 #' Partial code for this function can be attributed to [ggthemes](https://github.com/jrnold/ggthemes/blob/main/R/colorblind.R).
 #'
 #' @param ... Arguments passed on to `discrete_scale`.
-#' @param pal Palette function
 #' @param na.value Color used for NA values
 #' @param aesthetics String or vector of strings detailing what aesthetic features this disrete scale can apply to.
 #'

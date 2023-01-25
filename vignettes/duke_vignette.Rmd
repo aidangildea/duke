@@ -1,0 +1,144 @@
+---
+title: "duke_vignette"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{duke_vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width = 8,
+  fig.asp = .618
+)
+```
+
+```{r setup}
+library(duke)
+library(palmerpenguins)
+library(ggmosaic)
+library(ggplot2)
+attach(penguins)
+```
+
+This vignette aims to comprehensively demonstrate the use and functionality of the package `duke`. `duke` is fully integrated with the `ggplot2` and allows for the creation of Duke official branded visualizations that are color blind friendly. 
+
+## Scatter Plot
+
+```{r scatter}
+plot1 <- ggplot(palmerpenguins::penguins, aes(x=bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(color = species)) +
+  labs(title = "Bill Length vs. Bill Depth", caption = "(Colors used) \n Duke Royal Blue, Duke Navy Blue, Copper", x = "Bill Length (mm)", y = "Bill Depth (mm)")
+
+plot1 + 
+  scale_duke_discrete() +
+  theme_duke()
+
+plot1 + 
+  scale_duke_discrete() +
+  theme_minimal()
+```
+
+
+## Bar Plot
+
+```{r bar}
+plot2 <- ggplot(palmerpenguins::penguins, aes(x=species, fill = species)) +
+  geom_bar() +
+  labs(title = "Distribution of Penguin Species", caption = "(Colors from left to right) \n Duke Royal Blue, Duke Navy Blue, Copper", x = "Species", y = "Count") +
+  theme(legend.position = "none")
+
+plot2 +
+  scale_duke_discrete() +
+  theme_duke()
+
+plot2 + 
+  scale_duke_discrete() +
+  theme_minimal()
+```
+
+## Histogram
+
+```{r hist}
+plot3 <- ggplot2::ggplot(palmerpenguins::penguins, aes(body_mass_g)) +
+  geom_histogram(ggplot2::aes(fill = species), alpha = 0.8) +
+  labs(title = "Distribution of Penguin Body Mass", caption = "(Colors used) \n Duke Royal Blue, Duke Navy Blue, Copper", x = "Body Mass (g)", y = "Count")
+
+plot3 + 
+  scale_duke_discrete() +
+  theme_duke()
+
+plot3 + 
+  scale_duke_discrete() +
+  theme_minimal()
+```
+
+## Box Plot
+
+```{r box}
+plot4 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(sex, body_mass_g)) +
+  ggplot2::geom_boxplot() +
+  ggplot2::labs(title = "Comparison of Body Mass By Sex", x = "Sex", y = "Body Mass (g)")
+
+plot4 + 
+  theme_duke()
+
+plot4 +
+  theme_minimal()
+```
+
+## Density Plot
+
+```{r density}
+plot5 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(bill_depth_mm)) +
+  ggplot2::geom_density(ggplot2::aes(fill = species)) +
+  ggplot2::labs(title = "Density of Penguin Bill Depth", x = "Bill Depth (mm)", y = "Densiy")
+
+plot5 + 
+  scale_duke_discrete() +
+  theme_duke()
+
+plot5 + 
+  scale_duke_discrete() +
+  theme_minimal()
+```
+
+## Jitter Plot
+
+```{r jitter}
+plot6 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(year, body_mass_g)) +
+  ggplot2::geom_jitter(ggplot2::aes(color = species)) +
+  ggplot2::labs(title = "Comparison of Body Mass By Year", x = "Year", y = "Body Mass (g)")
+
+plot6 + 
+  scale_duke_discrete() +
+  theme_duke()
+
+plot6 + 
+  scale_duke_discrete() +
+  theme_minimal()
+```
+
+
+## Mosaic Plot 
+
+```{r mosaic plot}
+plot7 <- ggplot(data = palmerpenguins::penguins) +
+  ggmosaic::geom_mosaic(aes(x=ggmosaic::product(sex, island), fill = sex)) +
+  labs(title = "Penguin Sex vs. Island", x = "Island", y = "Penguin Sex", caption = "(Color from top to bottom) \n Granite, Duke Navy Blue, Duke Royal Blue")
+
+plot7 +
+  scale_duke_discrete() +
+  theme_duke()
+
+plot7 +
+  scale_duke_discrete() +
+  theme_minimal()
+
+```
+
+
+
