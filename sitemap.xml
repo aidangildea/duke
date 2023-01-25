@@ -1,24 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://aidangildea.github.io/dukecvd/404.html</loc>
+    <loc>https://aidangildea.github.io/duke/404.html</loc>
   </url>
   <url>
-    <loc>https://aidangildea.github.io/dukecvd/LICENSE-text.html</loc>
+    <loc>https://aidangildea.github.io/duke/LICENSE-text.html</loc>
   </url>
   <url>
-    <loc>https://aidangildea.github.io/dukecvd/LICENSE.html</loc>
+    <loc>https://aidangildea.github.io/duke/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://aidangildea.github.io/dukecvd/authors.html</loc>
+    <loc>https://aidangildea.github.io/duke/articles/duke_vignette.html</loc>
   </url>
   <url>
-    <loc>https://aidangildea.github.io/dukecvd/index.html</loc>
+    <loc>https://aidangildea.github.io/duke/articles/index.html</loc>
   </url>
   <url>
-    <loc>https://aidangildea.github.io/dukecvd/reference/index.html</loc>
+    <loc>https://aidangildea.github.io/duke/articles/scale_duke_continuous_vignette.html</loc>
   </url>
   <url>
-    <loc>https://aidangildea.github.io/dukecvd/reference/theme_duke.html</loc>
+    <loc>https://aidangildea.github.io/duke/articles/scale_duke_discrete_vignette.html</loc>
+  </url>
+  <url>
+    <loc>https://aidangildea.github.io/duke/articles/theme_duke_vignette.html</loc>
+  </url>
+  <url>
+    <loc>https://aidangildea.github.io/duke/authors.html</loc>
+  </url>
+  <url>
+    <loc>https://aidangildea.github.io/duke/index.html</loc>
+  </url>
+  <url>
+    <loc>https://aidangildea.github.io/duke/reference/duke_pal.html</loc>
+  </url>
+  <url>
+    <loc>https://aidangildea.github.io/duke/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>https://aidangildea.github.io/duke/reference/scale_duke_continuous.html</loc>
+  </url>
+  <url>
+    <loc>https://aidangildea.github.io/duke/reference/scale_duke_discrete.html</loc>
+  </url>
+  <url>
+    <loc>https://aidangildea.github.io/duke/reference/theme_duke.html</loc>
   </url>
 </urlset>
