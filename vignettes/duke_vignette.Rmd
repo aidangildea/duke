@@ -140,5 +140,144 @@ plot7 +
 
 ```
 
+# Label Plot
+```{r label}
+plot8 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(bill_length_mm, bill_depth_mm, fill = island)) +
+  ggplot2::geom_label(aes(label = island)) +
+  ggplot2::labs(title = "Bill Length/Depth by Island", x = "Bill Length (mm)", y = "Bill Depth (mm)")
 
+plot8 + 
+  scale_duke_discrete() +
+  theme_duke()
 
+plot8 + 
+  scale_duke_discrete() +
+  theme_minimal()
+```
+
+# Quantile Plot
+
+```{r quantile}
+plot9 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(bill_length_mm, bill_depth_mm, color = species)) +
+  ggplot2::geom_quantile() +
+  ggplot2::labs(title = "Bill Length/Depth Quantiles", x = "Bill Length (mm)", y = "Bill Depth (mm)")
+
+plot9 + 
+  scale_duke_discrete() +
+  theme_duke()
+
+plot9 + 
+  scale_duke_discrete() +
+  theme_minimal()
+```
+
+# Area Plot
+```{r area}
+plot10 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(body_mass_g, fill = species)) +
+  ggplot2::geom_area(stat = "bin") +
+  ggplot2::labs(title = "Area of Body Mass Index", x = "BMI")
+
+plot10 + 
+  scale_duke_discrete() +
+  theme_duke()
+
+plot10 + 
+  scale_duke_discrete() +
+  theme_minimal()
+```
+
+# Dot Plot
+
+```{r dotpot}
+plot11 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(body_mass_g)) +
+  ggplot2::geom_dotplot(aes(fill=species)) +
+  ggplot2::labs(title = "Dotplot of BMI", x = "BMI")
+
+plot11 + 
+  scale_duke_discrete() +
+  theme_duke()
+
+plot11 + 
+  scale_duke_discrete() +
+  theme_minimal()
+```
+
+# Frequency Polynomial Plot
+
+```{r freqplot}
+plot12 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(body_mass_g)) +
+  ggplot2::geom_freqpoly(aes(color=species)) +
+  ggplot2::labs(title = "Frequency Polynomial Plot of BMI", x = "BMI")
+
+plot12 + 
+  scale_duke_discrete() +
+  theme_duke()
+
+plot12 + 
+  scale_duke_discrete() +
+  theme_minimal()
+```
+
+# Column Plot
+
+```{r colplot}
+plot13 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(species, body_mass_g, color = species)) +
+  ggplot2::geom_col() +
+  ggplot2::labs(title = "BMI By Species of BMI", x = "Species", y = "BMI")
+
+plot13 + 
+  scale_duke_discrete() +
+  theme_duke()
+
+plot13 + 
+  scale_duke_discrete() +
+  theme_minimal()
+```
+
+# Violin Plot
+
+```{r violinplot}
+plot14 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(species, body_mass_g, fill = species)) +
+  geom_violin(scale = "area") +
+  ggplot2::labs(title = "BMI By Species", x = "Species", y = "BMI")
+
+plot14 + 
+  scale_duke_discrete() +
+  theme_duke()
+
+plot14 + 
+  scale_duke_discrete() +
+  theme_minimal()
+```
+
+# Count Plot
+
+```{r countplot}
+plot15 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(species, island, color = species)) +
+  geom_count() +
+  ggplot2::labs(title = "Species Count by Island", x = "Species", y = "Island")
+
+plot15 + 
+  scale_duke_discrete() +
+  theme_duke()
+
+plot15 + 
+  scale_duke_discrete() +
+  theme_minimal()
+```
+
+# Step Plot
+
+```{r stepplot}
+plot16 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(year, body_mass_g, color = species)) +
+  geom_step()
+  ggplot2::labs(title = "BMI By Species", x = "Species", y = "BMI")
+
+plot16 + 
+  scale_duke_discrete() +
+  theme_duke()
+
+plot16 + 
+  scale_duke_discrete() +
+  theme_minimal()
+```
