@@ -271,7 +271,7 @@ plot15 +
 ```{r stepplot}
 plot16 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(year, body_mass_g, color = species)) +
   geom_step()
-  ggplot2::labs(title = "BMI By Species", x = "Species", y = "BMI")
+  ggplot2::labs(title = "BMI By Year", x = "Year", y = "BMI")
 
 plot16 + 
   scale_duke_discrete() +
