@@ -54,6 +54,11 @@ plot1 <- ggplot(palmerpenguins::penguins, aes(x=bill_length_mm, y = bill_depth_m
   geom_point(aes(color = species)) +
   labs(title = "Bill Length vs. Bill Depth", caption = "(Colors used) \n Duke Royal Blue, Duke Navy Blue, Copper", x = "Bill Length (mm)", y = "Bill Depth (mm)")
 
+ggplot(palmerpenguins::penguins, aes(x=bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(color = species)) +
+  theme_minimal() +
+  labs(title = "Bill Length vs. Bill Depth", subtitle = "This is the subtitle", caption = "(Colors used) \n Duke Royal Blue, Duke Navy Blue, Copper", x = "Bill Length (mm)", y = "Bill Depth (mm)")
+
 plot1 + 
   scale_duke_discrete() +
   theme_duke()
@@ -321,16 +326,9 @@ plot16 +
 # Coordinate Polar
 
 ```{r coordpol}
-plot17 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(island, fill = island)) +
-  coord_polar(theta = "x", direction=1 )
-  ggplot2::labs(title = "Species Count by Island", x = "Species", y = "Island")
-
-plot17 + 
-  scale_duke_discrete() +
-  theme_duke()
-
-plot17 + 
-  scale_duke_discrete() +
-  theme_minimal()
+plot1 +
+  facet_wrap(~species) +
+  theme_bw() +
+  scale_duke_discrete()
 ```
 

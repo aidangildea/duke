@@ -7,8 +7,8 @@
 #' @examples
 #' duke_pal()
 duke_pal <- function() {
-  values <- c("#00539B", "#012169", "#C84E00", "#E89923", "#262626",
-                       "#F3F2F1", "#FFD960", "#A1B70D")
+  values <- c("#00539B", "#339898", "#C84E00", "#A1B70D", "#E89923",
+                       "#993399", "#012169", "#262626")
   f <- scales::manual_pal(values)
   attr(f, "max_n") <- length(values)
   f

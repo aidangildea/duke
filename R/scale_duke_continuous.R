@@ -18,7 +18,7 @@
 #'   ggplot2::geom_point()
 #' plot3 + scale_duke_continuous()
 scale_duke_continuous <- function(..., low = "#E2E6ED", high = "#00539B", space = "Lab",
-                                  na.value = "#B5B5B5", guide = "colourbar", aesthetics = c("colour", "color")){
+                                  na.value = "#666666", guide = "colourbar", aesthetics = c("colour", "color")){
   ggplot2::continuous_scale(aesthetics, "duke", scales::seq_gradient_pal(low, high, space),
                    na.value = na.value, guide = guide, ...)
 }
