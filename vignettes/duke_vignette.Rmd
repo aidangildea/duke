@@ -26,9 +26,30 @@ attach(penguins)
 
 This vignette aims to comprehensively demonstrate the use and functionality of the package `duke`. `duke` is fully integrated with the `ggplot2` and allows for the creation of Duke official branded visualizations that are color blind friendly. 
 
-## Scatter Plot
+## Scatter Plot - Continuous Color
 
-```{r scatter}
+```{r scatter c}
+plot <- ggplot(palmerpenguins::penguins, aes(x=bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(color = body_mass_g)) +
+  labs(title = "Bill Length vs. Bill Depth", x = "Bill Length (mm)", y = "Bill Depth (mm)")
+
+plot + 
+  scale_duke_continuous() +
+  theme_duke()
+  
+plot + 
+  geom_point(shape = species) +
+  scale_duke_continuous() +
+  theme_duke()
+
+plot + 
+  scale_duke_continuous() +
+  theme_minimal()
+```
+
+## Scatter Plot - Discrete Color
+
+```{r scatter d}
 plot1 <- ggplot(palmerpenguins::penguins, aes(x=bill_length_mm, y = bill_depth_mm)) +
   geom_point(aes(color = species)) +
   labs(title = "Bill Length vs. Bill Depth", caption = "(Colors used) \n Duke Royal Blue, Duke Navy Blue, Copper", x = "Bill Length (mm)", y = "Bill Depth (mm)")
@@ -106,9 +127,9 @@ plot5 +
   theme_minimal()
 ```
 
-## Jitter Plot
+## Jitter Plot - Discrete Color
 
-```{r jitter}
+```{r jitter d}
 plot6 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(year, body_mass_g)) +
   ggplot2::geom_jitter(ggplot2::aes(color = species)) +
   ggplot2::labs(title = "Comparison of Body Mass By Year", x = "Year", y = "Body Mass (g)")
@@ -119,6 +140,21 @@ plot6 +
 
 plot6 + 
   scale_duke_discrete() +
+  theme_minimal()
+```
+## Jitter Plot - Discrete Color
+
+```{r jitter c}
+plot6.1 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(year, body_mass_g)) +
+  ggplot2::geom_jitter(ggplot2::aes(color = bill_length_mm)) +
+  ggplot2::labs(title = "Comparison of Body Mass By Year", x = "Year", y = "Body Mass (g)")
+
+plot6.1 + 
+  scale_duke_continuous() +
+  theme_duke()
+
+plot6.1 + 
+  scale_duke_continuous() +
   theme_minimal()
 ```
 
@@ -262,6 +298,38 @@ plot15 +
   theme_duke()
 
 plot15 + 
+  scale_duke_discrete() +
+  theme_minimal()
+```
+
+# Step Plot
+
+```{r stepplot}
+plot16 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(year, body_mass_g, color = species)) +
+  geom_step()
+  ggplot2::labs(title = "BMI By Year", x = "Year", y = "BMI")
+
+plot16 + 
+  scale_duke_discrete() +
+  theme_duke()
+
+plot16 + 
+  scale_duke_discrete() +
+  theme_minimal()
+```
+
+# Coordinate Polar
+
+```{r coordpol}
+plot17 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(island, fill = island)) +
+  coord_polar(theta = "x", direction=1 )
+  ggplot2::labs(title = "Species Count by Island", x = "Species", y = "Island")
+
+plot17 + 
+  scale_duke_discrete() +
+  theme_duke()
+
+plot17 + 
   scale_duke_discrete() +
   theme_minimal()
 ```
