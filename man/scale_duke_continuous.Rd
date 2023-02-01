@@ -9,7 +9,7 @@ scale_duke_continuous(
   low = "#E2E6ED",
   high = "#00539B",
   space = "Lab",
-  na.value = "#B5B5B5",
+  na.value = "#666666",
   guide = "colourbar",
   aesthetics = c("colour", "color")
 )

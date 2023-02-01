@@ -49,15 +49,17 @@ plot +
 
 ## Scatter Plot - Discrete Color
 
-```{r scatter d}
+```{r scatter d, fig.asp= .618}
 plot1 <- ggplot(palmerpenguins::penguins, aes(x=bill_length_mm, y = bill_depth_mm)) +
   geom_point(aes(color = species)) +
   labs(title = "Bill Length vs. Bill Depth", caption = "(Colors used) \n Duke Royal Blue, Duke Navy Blue, Copper", x = "Bill Length (mm)", y = "Bill Depth (mm)")
 
 ggplot(palmerpenguins::penguins, aes(x=bill_length_mm, y = bill_depth_mm)) +
   geom_point(aes(color = species)) +
-  theme_minimal() +
-  labs(title = "Bill Length vs. Bill Depth", subtitle = "This is the subtitle", caption = "(Colors used) \n Duke Royal Blue, Duke Navy Blue, Copper", x = "Bill Length (mm)", y = "Bill Depth (mm)")
+  labs(title = "Bill Length vs. Bill Depth", subtitle = "This is the subtitle", caption = "All text is in Duke Royal Blue", x = "Bill Length (mm)", y = "Bill Depth (mm)") +
+  facet_wrap(~species) +
+  theme_duke() +
+  scale_duke_discrete()
 
 plot1 + 
   scale_duke_discrete() +
@@ -76,6 +78,16 @@ plot2 <- ggplot(palmerpenguins::penguins, aes(x=species, fill = species)) +
   geom_bar() +
   labs(title = "Distribution of Penguin Species", caption = "(Colors from left to right) \n Duke Royal Blue, Duke Navy Blue, Copper", x = "Species", y = "Count") +
   theme(legend.position = "none")
+
+m_penguins <- penguins %>%
+  dplyr::filter(sex == "male")
+
+plot2.1 <- ggplot(m_penguins, aes(x = sex, fill = sex)) +
+  geom_bar()
+  
+plot2.1 + 
+  scale_duke_discrete() +
+  theme_duke()
 
 plot2 +
   scale_duke_discrete() +

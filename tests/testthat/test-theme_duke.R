@@ -15,9 +15,10 @@ test_that("using theme_duke produces desired stylistic changes", {
   p <- p + theme_duke()
   expect_true(p$theme$plot.caption$family == "hyperlegible")
 
-  # Adding theme_duke() makes the grid lines blue
+  # Adding theme_duke() makes the axis text lines navy blue
   p <- p + theme_duke()
-  expect_true(p$theme$panel.grid$colour == "#00539B")
+  expect_true(p$theme$axis.text.x$colour == "#012169" &
+                p$theme$axis.text.y$colour == "#012169" )
 
 })
 
