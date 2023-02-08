@@ -23,7 +23,7 @@ theme_duke<- function(base_size = 11, base_family = "",
   tryCatch(sysfonts::font_add(family = "Garamond 3 LT Std",
                      regular = "Garamond3LTStd.otf"),
            error = function(e) {warning("Garamond 3 LT Std is not available on
-your system. Please download and install for custom font functionality.\n")})
+your system. Please download [Garamond 3 Lt Std](https://github.com/aidangildea/duke/raw/master/Fonts/Garamond3LTStd.otf) for custom font functionality.\n")})
   # tryCatch(sysfonts::font_add(family = "EBGaramond",
   #                    regular = "EBGaramond-Regular.ttf"),
   #          error = function(e) {warning("EB Garamond is not available on your system. Please download and install for custom font functionality.\n")})
@@ -32,7 +32,8 @@ your system. Please download and install for custom font functionality.\n")})
   #          error = function(e) {warning("OpenSans is not available on your system. Please download and install for custom font functionality.\n")})
   tryCatch(sysfonts::font_add(family = "hyperlegible",
                      regular = "Atkinson-Hyperlegible-Regular-102.otf"),
-           error = function(e) {warning("Atkinson-Hyperlegible is not available on your system. Please download and install for custom font functionality.\n")})
+           error = function(e) {warning("Atkinson-Hyperlegible is not available
+on your system. Please download [Atkinson-Hyperlegible](https://github.com/aidangildea/duke/raw/master/Fonts/Atkinson-Hyperlegible-Regular-102.otf)custom font functionality.\n")})
 
   fonts <- as.data.frame(sysfonts::font_files()$family)
 
