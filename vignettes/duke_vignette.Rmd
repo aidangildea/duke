@@ -52,8 +52,8 @@ plot +
 ## Scatter Plot - Discrete Color
 
 ```{r scatter d, fig.asp= .618}
-plot1 <- ggplot(palmerpenguins::penguins, aes(x=bill_length_mm, y = bill_depth_mm)) +
-  geom_point(aes(color = species)) +
+plot1 <- ggplot(palmerpenguins::penguins, aes(x=bill_length_mm, y = bill_depth_mm, color = species)) +
+  geom_point() +
   labs(title = "Bill Length vs. Bill Depth", caption = "(Colors used) \n Duke Royal Blue, Duke Navy Blue, Copper", x = "Bill Length (mm)", y = "Bill Depth (mm)")
 
 ggplot(palmerpenguins::penguins, aes(x=bill_length_mm, y = bill_depth_mm)) +
@@ -64,8 +64,8 @@ ggplot(palmerpenguins::penguins, aes(x=bill_length_mm, y = bill_depth_mm)) +
   scale_duke_discrete()
 
 plot1 + 
-  scale_duke_discrete() +
-  theme_duke()
+  theme_duke() +
+  scale_duke_discrete()
 
 plot1 + 
   scale_duke_discrete() +

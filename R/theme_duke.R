@@ -119,6 +119,7 @@ theme_duke <- function(base_size = 11, base_family = "",
       axis.text.x = ggplot2::element_text(family = axis, colour = "#012169"),
       axis.text.y = ggplot2::element_text(family = axis, colour = "#012169"),
       # legend title and text aesthetics
+      #legend.position = "right",
       legend.text = ggplot2::element_text(family = legend, color = "#00539B"),
       legend.title = ggplot2::element_text(family = legend, color = "#00539B"),
       # background panel for facet plot titles
