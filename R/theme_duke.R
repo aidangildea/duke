@@ -22,13 +22,14 @@ theme_duke<- function(base_size = 11, base_family = "",
   # If error occurs, custom error message is printed
   tryCatch(sysfonts::font_add(family = "Garamond 3 LT Std",
                      regular = "Garamond3LTStd.otf"),
-           error = function(e) {warning("Garamond 3 LT Std is not available on your system. Please download and install for custom font functionality.\n")})
-  tryCatch(sysfonts::font_add(family = "EBGaramond",
-                     regular = "EBGaramond-Regular.ttf"),
-           error = function(e) {warning("EB Garamond is not available on your system. Please download and install for custom font functionality.\n")})
-  tryCatch(sysfonts::font_add(family = "opensans",
-                     regular = "OpenSans-Regular.ttf"),
-           error = function(e) {warning("OpenSans is not available on your system. Please download and install for custom font functionality.\n")})
+           error = function(e) {warning("Garamond 3 LT Std is not available on
+your system. Please download and install for custom font functionality.\n")})
+  # tryCatch(sysfonts::font_add(family = "EBGaramond",
+  #                    regular = "EBGaramond-Regular.ttf"),
+  #          error = function(e) {warning("EB Garamond is not available on your system. Please download and install for custom font functionality.\n")})
+  # tryCatch(sysfonts::font_add(family = "opensans",
+  #                    regular = "OpenSans-Regular.ttf"),
+  #          error = function(e) {warning("OpenSans is not available on your system. Please download and install for custom font functionality.\n")})
   tryCatch(sysfonts::font_add(family = "hyperlegible",
                      regular = "Atkinson-Hyperlegible-Regular-102.otf"),
            error = function(e) {warning("Atkinson-Hyperlegible is not available on your system. Please download and install for custom font functionality.\n")})

@@ -21,6 +21,8 @@ library(duke)
 library(palmerpenguins)
 library(ggmosaic)
 library(ggplot2)
+library(magrittr)
+library(dplyr)
 attach(penguins)
 ```
 
@@ -80,7 +82,7 @@ plot2 <- ggplot(palmerpenguins::penguins, aes(x=species, fill = species)) +
   theme(legend.position = "none")
 
 m_penguins <- penguins %>%
-  dplyr::filter(sex == "male")
+  dplyr::filter(sex == "Male")
 
 plot2.1 <- ggplot(m_penguins, aes(x = sex, fill = sex)) +
   geom_bar()
@@ -88,6 +90,8 @@ plot2.1 <- ggplot(m_penguins, aes(x = sex, fill = sex)) +
 plot2.1 + 
   scale_duke_discrete() +
   theme_duke()
+
+temp <- data.frame(ggplot_build(plot2.1)$data[[1]]) 
 
 plot2 +
   scale_duke_discrete() +
