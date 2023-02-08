@@ -1,5 +1,5 @@
 ---
-title: "duke_vignette"
+title: "duke package"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{duke_vignette}
