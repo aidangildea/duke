@@ -107,17 +107,21 @@ theme_duke <- function(base_size = 11, base_family = "",
     ggplot2::theme(
       # title text aesthetics
       plot.title =  ggplot2::element_text(family = title, face = "bold",
-                                          colour = "#00539B", size = 15),
+                                          colour = "#00539B", size = 30),
       # subtitle text aesthetics
       plot.subtitle = ggplot2::element_text(family = title, colour = "#00539B", vjust = -1),
       # caption text aesthetics
       plot.caption =  ggplot2::element_text(family = caption, colour = "#00539B",
-                                            size = 10, hjust = 1, vjust = -.7),
+                                            size = 20, hjust = 1, vjust = -.7),
       # axis title and text aesthetics
-      axis.title.x =   ggplot2::element_text(family = axis, colour = "#00539B"),
-      axis.title.y =  ggplot2::element_text(family = axis, colour = "#00539B"),
-      axis.text.x = ggplot2::element_text(family = axis, colour = "#012169"),
-      axis.text.y = ggplot2::element_text(family = axis, colour = "#012169"),
+      axis.title.x =   ggplot2::element_text(family = axis, colour = "#00539B",
+                                             size = 20),
+      axis.title.y =  ggplot2::element_text(family = axis, colour = "#00539B",
+                                              size = 20),
+      axis.text.x = ggplot2::element_text(family = axis, colour = "#012169",
+                                          size = 15),
+      axis.text.y = ggplot2::element_text(family = axis, colour = "#012169",
+                                          size = 15),
       # legend title and text aesthetics
       #legend.position = "right",
       legend.text = ggplot2::element_text(family = legend, color = "#00539B"),
