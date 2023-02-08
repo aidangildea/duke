@@ -49,7 +49,7 @@ library(duke)
 
 plot <- ggplot2::ggplot(iris, ggplot2::aes(Sepal.Length, Sepal.Width)) +
   ggplot2::geom_point(ggplot2::aes(colour = Species)) +
-  ggplot2::labs(title = "Title", caption = "Caption", x = "X Var", y = "Y Var")
+  ggplot2::labs(title = "Sepal Length vs. Sepal Width", caption = "Data sourced from iris in datasets package. ", x = "Sepal Length", y = "Sepal Width")
 
 plot
 ```

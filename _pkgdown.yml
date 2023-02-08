@@ -1,7 +1,6 @@
 url: https://aidangildea.github.io/duke/
 template:
   bootstrap: 5
-  theme: breeze-light
 navbar:
   structure:
     left:  [intro, reference, articles, tutorials, news]
