@@ -11,11 +11,13 @@
 #' @importFrom sysfonts 'font_add'
 #' @importFrom sysfonts 'font_files'
 #' @importFrom showtext 'showtext_auto'
+#' @importFrom utils 'menu'
+#' @importFrom utils 'browseURL'
 #' @examples
 #' plot <- ggplot2::ggplot(cars, ggplot2::aes(speed, dist)) +
 #' ggplot2::geom_point() + ggplot2::labs(title = "Duke Blue")
 #' plot + theme_duke()
-theme_duke<- function(base_size = 11, base_family = "",
+theme_duke <- function(base_size = 11, base_family = "",
                      base_line_size = base_size / 22,
                      base_rect_size = base_size / 22) {
 
@@ -27,12 +29,13 @@ theme_duke<- function(base_size = 11, base_family = "",
                        regular = "Garamond3LTStd.otf"),
     error = function(e) {
       message("Garamond 3 LT Std is not available on your system.\n")
+      if (interactive()) {
       resp <-
-        menu(c("Yes", "No"), title = "Do you want to download Garamond 3 LT Std locally?")
+        utils::menu(c("Yes", "No"), title = "Do you want to download Garamond 3 LT Std locally?")
       if (resp == "Yes" | resp == 1) {
         message("Downloading Garamond 3 LT Std. Install and rerun code for proper use.\n")
         utils::browseURL("https://github.com/aidangildea/duke/raw/master/Fonts/Garamond3LTStd.otf")
-      }
+      }}
     }
   )
 
@@ -41,19 +44,17 @@ theme_duke<- function(base_size = 11, base_family = "",
                        regular = "Atkinson-Hyperlegible-Regular-102.otf"),
     error = function(e) {
       message("Atkinson-Hyperlegible is not available on your system.\n")
+      if (interactive()) {
       resp <-
-        menu(c("Yes", "No"), title = "Do you want to download Atkinson-Hyperlegible locally?")
+        utils::menu(c("Yes", "No"), title = "Do you want to download Atkinson-Hyperlegible locally?")
       if (resp == "Yes" | resp == 1) {
         message("Downloading Atkinson-Hyperlegible. Install and rerun code for proper use.\n")
         utils::browseURL(
           "https://github.com/aidangildea/duke/raw/master/Fonts/Atkinson-Hyperlegible-Regular-102.otf"
         )
-      }
+      }}
     }
   )
-
-
-
 
 #   tryCatch(sysfonts::font_add(family = "Garamond 3 LT Std",
 #                      regular = "Garamond3LTStd.otf"),

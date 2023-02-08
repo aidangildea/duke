@@ -40,8 +40,7 @@ For further information on how to use ggplot2, please visit its [GitHub reposito
 
 ## Example
 
-First, create a standard ggplot2 visualization. In this example, we will use 
-a scatter plot. 
+By using `duke` functions, you can easily convert your visualizations to Duke official colors.
 
 ```{r plot}
 library(ggplot2)
@@ -49,20 +48,27 @@ library(duke)
 
 plot <- ggplot2::ggplot(iris, ggplot2::aes(Sepal.Length, Sepal.Width)) +
   ggplot2::geom_point(ggplot2::aes(colour = Species)) +
-  ggplot2::labs(title = "Sepal Length vs. Sepal Width", caption = "Data sourced from iris in datasets package. ", x = "Sepal Length", y = "Sepal Width")
+  ggplot2::labs(title = "Sepal Length vs. Sepal Width", 
+  caption = "Data sourced from iris in datasets package.", 
+  x = "Sepal Length", y = "Sepal Width")
 
-plot
+plot2 <- ggplot2::ggplot(iris, ggplot2::aes(Sepal.Length, Sepal.Width)) +
+  ggplot2::geom_point(ggplot2::aes(colour = Sepal.Length)) +
+  ggplot2::labs(title = "Sepal Length vs. Sepal Width", 
+  caption = "Data sourced from iris in datasets package.", 
+  x = "Sepal Length", y = "Sepal Width")
 ```
-
-Then, simply convert your visualization to Duke official colors by calling `theme_duke()` and `scale_duke_discrete`.
 
 ```{r themeduke}
 plot + 
   theme_duke() +
   scale_duke_discrete()
+
+plot2 + 
+  theme_duke() +
+  scale_duke_continuous()
 ```
 
 ## Questions
 
-For further questions about this package and its use, please reach out to Aidan Gildea
-at aidan.gildea@duke.edu.
+For further questions about this package and its use, please reach out to Aidan Gildea at aidan.gildea@duke.edu.
