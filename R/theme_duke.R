@@ -33,7 +33,7 @@ theme_duke <- function(base_size = 11, base_family = "",
       resp <-
         utils::menu(c("Yes", "No"), title = "Do you want to download Garamond 3 LT Std locally?")
       if (resp == "Yes" | resp == 1) {
-        message("Downloading Garamond 3 LT Std. Install and rerun code for proper use.\n")
+        message("Downloading Garamond 3 LT Std. Install the font and rerun code for proper use.\n")
         utils::browseURL("https://github.com/aidangildea/duke/raw/master/Fonts/Garamond3LTStd.otf")
       }}
     }
@@ -48,7 +48,7 @@ theme_duke <- function(base_size = 11, base_family = "",
       resp <-
         utils::menu(c("Yes", "No"), title = "Do you want to download Atkinson-Hyperlegible locally?")
       if (resp == "Yes" | resp == 1) {
-        message("Downloading Atkinson-Hyperlegible. Install and rerun code for proper use.\n")
+        message("Downloading Atkinson-Hyperlegible. Install the font and rerun code for proper use.\n")
         utils::browseURL(
           "https://github.com/aidangildea/duke/raw/master/Fonts/Atkinson-Hyperlegible-Regular-102.otf"
         )
@@ -109,7 +109,7 @@ theme_duke <- function(base_size = 11, base_family = "",
       plot.title =  ggplot2::element_text(family = title, face = "bold",
                                           colour = "#00539B", size = 30),
       # subtitle text aesthetics
-      plot.subtitle = ggplot2::element_text(family = title, colour = "#00539B", vjust = -1),
+      plot.subtitle = ggplot2::element_text(family = title, colour = "#00539B"),
       # caption text aesthetics
       plot.caption =  ggplot2::element_text(family = caption, colour = "#00539B",
                                             size = 20, hjust = 1, vjust = -.7),
@@ -117,7 +117,7 @@ theme_duke <- function(base_size = 11, base_family = "",
       axis.title.x =   ggplot2::element_text(family = axis, colour = "#00539B",
                                              size = 20),
       axis.title.y =  ggplot2::element_text(family = axis, colour = "#00539B",
-                                              size = 20),
+                                              size = 20, angle = 90),
       axis.text.x = ggplot2::element_text(family = axis, colour = "#012169",
                                           size = 15),
       axis.text.y = ggplot2::element_text(family = axis, colour = "#012169",

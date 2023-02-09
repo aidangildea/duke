@@ -82,7 +82,7 @@ plot2 <- ggplot(palmerpenguins::penguins, aes(x=species, fill = species)) +
   theme(legend.position = "none")
 
 m_penguins <- penguins %>%
-  dplyr::filter(sex == "Male")
+  dplyr::filter(sex == "male")
 
 plot2.1 <- ggplot(m_penguins, aes(x = sex, fill = sex)) +
   geom_bar()
