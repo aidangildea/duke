@@ -53,8 +53,10 @@ plot +
 
 ```{r scatter d, fig.asp= .618}
 plot1 <- ggplot(palmerpenguins::penguins, aes(x=bill_length_mm, y = bill_depth_mm, color = species)) +
-  geom_point() +
-  labs(title = "Bill Length vs. Bill Depth", caption = "(Colors used) \n Duke Royal Blue, Duke Navy Blue, Copper", x = "Bill Length (mm)", y = "Bill Depth (mm)")
+  geom_point(size =3) +
+  labs(title = "Bill Length vs. Bill Depth", caption = "(Colors used) \n Duke Royal Blue, Eno, Copper", x = "Bill Length (mm)", y = "Bill Depth (mm)")
+  #guides(fill=guide_legend(title="New Legend Title"))
+  
 
 ggplot(palmerpenguins::penguins, aes(x=bill_length_mm, y = bill_depth_mm)) +
   geom_point(aes(color = species)) +

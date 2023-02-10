@@ -17,6 +17,8 @@ scale_duke_discrete(
 \item{na.value}{Color used for NA values}
 
 \item{aesthetics}{String or vector of strings detailing what aesthetic features this disrete scale can apply to.}
+
+\item{guide}{the name used to create the guide. See \href{https://www.rdocumentation.org/link/guides?package=ggplot2&version=2.1.0}{\code{guides}} for more info.}
 }
 \value{
 a visualization with discrete duke color scale
