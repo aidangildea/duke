@@ -8,6 +8,9 @@
 #' @return a plot with Duke colors
 #' @export
 #' @importFrom ggplot2 '%+replace%'
+#' @importFrom ggplot2 'rel'
+#' @importFrom ggplot2 'margin'
+#' @importFrom ggplot2 'element_text'
 #' @importFrom sysfonts 'font_add'
 #' @importFrom sysfonts 'font_files'
 #' @importFrom showtext 'showtext_auto'
@@ -108,9 +111,9 @@ theme_duke <- function(base_size = 11, base_family = "",
   ) %+replace%
     ggplot2::theme(
       # title text aesthetics
-      plot.title =  ggplot2::element_text(size = rel(2.5),
+      plot.title =  ggplot2::element_text(size = ggplot2::rel(2.5),
                                           #hjust = 0, vjust = 1,
-                                          margin = margin(b = half_line),
+                                          margin = ggplot2::margin(b = half_line),
                                           family = title, face = "bold",
                                           colour = "#00539B" #, size = 30
                                           ),
@@ -118,36 +121,36 @@ theme_duke <- function(base_size = 11, base_family = "",
       # subtitle text aesthetics
       plot.subtitle = ggplot2::element_text(# font size "regular"
                                             hjust = 0, vjust = 1,
-                                            margin = margin(b = half_line),
+                                            margin = ggplot2::margin(b = half_line),
                                             family = title, colour = "#00539B"),
       # caption text aesthetics
       plot.caption =  ggplot2::element_text(# font size "small"
-                                            size = rel(1.5),
+                                            size = ggplot2::rel(1.5),
                                             hjust = 1, vjust = 1,
-                                            margin = margin(t = half_line),
+                                            margin = ggplot2::margin(t = half_line),
                                             family = caption, colour = "#00539B"
                                             #size = 20, hjust = 1, vjust = -.7
                                             ),
       plot.caption.position = "panel",
       # axis title and text aesthetics
-      axis.title.x =   ggplot2::element_text(size = rel(2),
-                                             margin = margin(t = half_line / 2),
+      axis.title.x =   ggplot2::element_text(size = ggplot2::rel(2),
+                                             margin = ggplot2::margin(t = half_line / 2),
                                              vjust = 1,
                                              family = axis, colour = "#00539B"
                                              #size = 20
                                              ),
-      axis.title.y =  ggplot2::element_text(size = rel(2), angle = 90,
-                                            margin = margin(r = half_line / 2),
+      axis.title.y =  ggplot2::element_text(size = ggplot2::rel(2), angle = 90,
+                                            margin = ggplot2::margin(r = half_line / 2),
                                             vjust = 1,
                                             family = axis, colour = "#00539B"
                                             #size = 20
                                             ),
-      axis.text =          element_text(size = rel(1.5), colour = "#012169"),
+      axis.text =          ggplot2::element_text(size = ggplot2::rel(1.5), colour = "#012169"),
       axis.text.x = ggplot2::element_text(margin =
-                                            margin(t = 0.8 * half_line / 2),
+                                            ggplot2::margin(t = 0.8 * half_line / 2),
                                             vjust = 1, family = axis),
       axis.text.y = ggplot2::element_text(margin =
-                                            margin(r = 0.8 * half_line / 2),
+                                            ggplot2::margin(r = 0.8 * half_line / 2),
                                           hjust = 1, family = axis),
       # legend title and text aesthetics
       #legend.position = "right",

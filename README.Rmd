@@ -59,7 +59,7 @@ plot2 <- ggplot2::ggplot(iris, ggplot2::aes(Sepal.Length, Sepal.Width)) +
   x = "Sepal Length", y = "Sepal Width")
 ```
 
-```{r themeduke}
+```{r themeduke, message= false}
 plot + 
   theme_duke() +
   scale_duke_discrete()

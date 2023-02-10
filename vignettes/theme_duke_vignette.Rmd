@@ -1,8 +1,7 @@
 ---
 title: "theme_duke()"
-author: "Aidan Gildea"
-date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
+options: rmarkdown.html_vignette.check_title = FALSE
 vignette: >
   %\VignetteIndexEntry{theme_duke}
   %\VignetteEngine{knitr::rmarkdown}
@@ -21,7 +20,7 @@ knitr::opts_chunk$set(
 This vignette is intended to demonstrate the breadth of `theme_duke()` and its
 various applications. Similar to the other functions within the `theme()`, this function can be applied to all `ggplot2` visualizations. 
 
-## Plot Examples
+# Plot Examples
 
 For these visualizations, we will use the R dummy data set `palmerpenguins`.
 
@@ -33,7 +32,7 @@ library(ggplot2)
 attach(penguins)
 ```
 
-## Using `theme_duke()` on scatter plots
+## Scatter Plot
 
 ```{r scatter}
 plot <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(bill_length_mm, flipper_length_mm)) +
@@ -45,7 +44,7 @@ plot +
 ```
 
 
-## Using `theme_duke()` on bar plots
+## Bar Plot
 
 ```{r bar}
 plot <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(species)) +
@@ -55,7 +54,7 @@ plot <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(species)) +
 plot + theme_duke()
 ```
 
-## Using `theme_duke()` on histograms
+## Histogram
 
 ```{r hist}
 ## if one variable, do we want fill to be duke blue
@@ -67,7 +66,7 @@ plot <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(body_mass_g)) +
 plot + theme_duke()
 ```
 
-## Using `theme_duke()` on box plots
+## Box Plot
 
 ```{r box}
 plot <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(sex, body_mass_g)) +
@@ -77,7 +76,7 @@ plot <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(sex, body_mass_g)
 plot + theme_duke()
 ```
 
-## Using `theme_duke()` on density plots
+## Density Plot
 
 ```{r density}
 plot <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(bill_depth_mm)) +
@@ -88,7 +87,7 @@ plot + theme_duke()
 ```
 
 
-## Using `theme_duke()` on jitter plot
+## Jitter Plot
 
 ```{r jitter}
 plot <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(year, body_mass_g)) +

@@ -1,6 +1,7 @@
 ---
 title: "Overview of duke"
 output: rmarkdown::html_vignette
+options: rmarkdown.html_vignette.check_title = FALSE
 vignette: >
   %\VignetteIndexEntry{duke_vignette}
   %\VignetteEngine{knitr::rmarkdown}
@@ -51,7 +52,7 @@ plot +
 
 ## Scatter Plot - Discrete Color
 
-```{r scatter d, fig.asp= .618}
+```{r scatter d, fig.asp= .618, warning = FALSE}
 plot1 <- ggplot(palmerpenguins::penguins, aes(x=bill_length_mm, y = bill_depth_mm, color = species)) +
   geom_point(size =3) +
   labs(title = "Bill Length vs. Bill Depth", caption = "(Colors used) \n Duke Royal Blue, Eno, Copper", x = "Bill Length (mm)", y = "Bill Depth (mm)")

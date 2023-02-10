@@ -14,7 +14,7 @@
 #' plot3 <- ggplot2::ggplot(iris, ggplot2::aes(x=Species, fill = Species)) + ggplot2::geom_bar()
 #' plot3 + scale_duke_discrete()
 scale_duke_discrete <- function(..., na.value = "#B5B5B5",
-                                #guide = "legend",
+                                guide = "legend",
                                 aesthetics = c("colour", "color", "fill")) {
   ggplot2::discrete_scale(aesthetics, "duke", duke_pal(),
                  na.value = na.value, guide = "legend", ...)

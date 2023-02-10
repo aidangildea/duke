@@ -1,8 +1,7 @@
 ---
 title: "scale_duke_discrete()"
-author: "Aidan Gildea"
-date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
+options: rmarkdown.html_vignette.check_title = FALSE
 vignette: >
   %\VignetteIndexEntry{scale_duke_discrete_vignette}
   %\VignetteEngine{knitr::rmarkdown}
@@ -33,7 +32,7 @@ library(ggmosaic)
 attach(penguins)
 ```
 
-## Using `scale_duke_discrete()` on bar plots
+## Bar Plot
 
 ```{r bar plot}
 plot <- ggplot(palmerpenguins::penguins, aes(x=species, fill = species)) +
@@ -45,7 +44,7 @@ plot +
   scale_duke_discrete()
 ```
 
-## Using `scale_duke_discrete()` on mosaic plots 
+## Mosaic Plot 
 
 ```{r mosaic plot}
 plot2 <- ggplot(data = palmerpenguins::penguins) +
@@ -55,7 +54,7 @@ plot2 <- ggplot(data = palmerpenguins::penguins) +
 plot2 +
   scale_duke_discrete()
 ```
-## Using `scale_duke_discrete()` on scatter plots 
+## Scatter Plot
 
 ```{r scatter plot}
 plot3 <- ggplot(palmerpenguins::penguins, aes(x=bill_length_mm, y = bill_depth_mm)) +
