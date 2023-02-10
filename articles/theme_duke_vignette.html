@@ -72,10 +72,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="" class="logo" alt=""><h1>theme_duke()</h1>
-                        <h4 data-toc-skip class="author">Aidan
-Gildea</h4>
             
-            <h4 data-toc-skip class="date">2023-02-10</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/aidangildea/duke/blob/HEAD/vignettes/theme_duke_vignette.Rmd" class="external-link"><code>vignettes/theme_duke_vignette.Rmd</code></a></small>
       <div class="d-none name"><code>theme_duke_vignette.Rmd</code></div>
@@ -98,10 +95,9 @@ applied to all <code>ggplot2</code> visualizations.</p>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/aidangildea/duke" class="external-link">duke</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/attach.html" class="external-link">attach</a></span><span class="op">(</span><span class="va">penguins</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level2">
-<h2 id="using-theme_duke-on-scatter-plots">Using <code>theme_duke()</code> on scatter plots<a class="anchor" aria-label="anchor" href="#using-theme_duke-on-scatter-plots"></a>
-</h2>
+<div class="section level3">
+<h3 id="scatter-plot">Scatter Plot<a class="anchor" aria-label="anchor" href="#scatter-plot"></a>
+</h3>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">plot</span> <span class="op">&lt;-</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu">palmerpenguins</span><span class="fu">::</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/reference/penguins.html" class="external-link">penguins</a></span>, <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">bill_length_mm</span>, <span class="va">flipper_length_mm</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span><span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="va">species</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -117,9 +113,9 @@ applied to all <code>ggplot2</code> visualizations.</p>
 <span><span class="co">#&gt; Warning: Removed 2 rows containing missing values (`geom_point()`).</span></span></code></pre></div>
 <p><img src="theme_duke_vignette_files/figure-html/scatter-1.png" width="768"></p>
 </div>
-<div class="section level2">
-<h2 id="using-theme_duke-on-bar-plots">Using <code>theme_duke()</code> on bar plots<a class="anchor" aria-label="anchor" href="#using-theme_duke-on-bar-plots"></a>
-</h2>
+<div class="section level3">
+<h3 id="bar-plot">Bar Plot<a class="anchor" aria-label="anchor" href="#bar-plot"></a>
+</h3>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">plot</span> <span class="op">&lt;-</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu">palmerpenguins</span><span class="fu">::</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/reference/penguins.html" class="external-link">penguins</a></span>, <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">species</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_bar</a></span><span class="op">(</span><span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">species</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -133,9 +129,9 @@ applied to all <code>ggplot2</code> visualizations.</p>
 <span><span class="co">#&gt; Warning in theme_duke(): Defaulting to sans font for caption.</span></span></code></pre></div>
 <p><img src="theme_duke_vignette_files/figure-html/bar-1.png" width="768"></p>
 </div>
-<div class="section level2">
-<h2 id="using-theme_duke-on-histograms">Using <code>theme_duke()</code> on histograms<a class="anchor" aria-label="anchor" href="#using-theme_duke-on-histograms"></a>
-</h2>
+<div class="section level3">
+<h3 id="histogram">Histogram<a class="anchor" aria-label="anchor" href="#histogram"></a>
+</h3>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## if one variable, do we want fill to be duke blue</span></span>
 <span><span class="co">## have scale_color that would give custom colors to different dists.</span></span>
@@ -153,9 +149,9 @@ applied to all <code>ggplot2</code> visualizations.</p>
 <span><span class="co">#&gt; Warning: Removed 2 rows containing non-finite values (`stat_bin()`).</span></span></code></pre></div>
 <p><img src="theme_duke_vignette_files/figure-html/hist-1.png" width="768"></p>
 </div>
-<div class="section level2">
-<h2 id="using-theme_duke-on-box-plots">Using <code>theme_duke()</code> on box plots<a class="anchor" aria-label="anchor" href="#using-theme_duke-on-box-plots"></a>
-</h2>
+<div class="section level3">
+<h3 id="box-plot">Box Plot<a class="anchor" aria-label="anchor" href="#box-plot"></a>
+</h3>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">plot</span> <span class="op">&lt;-</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu">palmerpenguins</span><span class="fu">::</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/reference/penguins.html" class="external-link">penguins</a></span>, <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">sex</span>, <span class="va">body_mass_g</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html" class="external-link">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
@@ -170,9 +166,9 @@ applied to all <code>ggplot2</code> visualizations.</p>
 <span><span class="co">#&gt; Warning: Removed 2 rows containing non-finite values (`stat_boxplot()`).</span></span></code></pre></div>
 <p><img src="theme_duke_vignette_files/figure-html/box-1.png" width="768"></p>
 </div>
-<div class="section level2">
-<h2 id="using-theme_duke-on-density-plots">Using <code>theme_duke()</code> on density plots<a class="anchor" aria-label="anchor" href="#using-theme_duke-on-density-plots"></a>
-</h2>
+<div class="section level3">
+<h3 id="density-plot">Density Plot<a class="anchor" aria-label="anchor" href="#density-plot"></a>
+</h3>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">plot</span> <span class="op">&lt;-</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu">palmerpenguins</span><span class="fu">::</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/reference/penguins.html" class="external-link">penguins</a></span>, <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">bill_depth_mm</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density.html" class="external-link">geom_density</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
@@ -187,9 +183,9 @@ applied to all <code>ggplot2</code> visualizations.</p>
 <span><span class="co">#&gt; Warning: Removed 2 rows containing non-finite values (`stat_density()`).</span></span></code></pre></div>
 <p><img src="theme_duke_vignette_files/figure-html/density-1.png" width="768"></p>
 </div>
-<div class="section level2">
-<h2 id="using-theme_duke-on-jitter-plot">Using <code>theme_duke()</code> on jitter plot<a class="anchor" aria-label="anchor" href="#using-theme_duke-on-jitter-plot"></a>
-</h2>
+<div class="section level3">
+<h3 id="jitter-plot">Jitter Plot<a class="anchor" aria-label="anchor" href="#jitter-plot"></a>
+</h3>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">plot</span> <span class="op">&lt;-</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu">palmerpenguins</span><span class="fu">::</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/reference/penguins.html" class="external-link">penguins</a></span>, <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">body_mass_g</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_jitter.html" class="external-link">geom_jitter</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
@@ -203,6 +199,7 @@ applied to all <code>ggplot2</code> visualizations.</p>
 <span><span class="co">#&gt; Warning in theme_duke(): Defaulting to sans font for caption.</span></span>
 <span><span class="co">#&gt; Warning: Removed 2 rows containing missing values (`geom_point()`).</span></span></code></pre></div>
 <p><img src="theme_duke_vignette_files/figure-html/jitter-1.png" width="768"></p>
+</div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
