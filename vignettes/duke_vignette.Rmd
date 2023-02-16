@@ -81,8 +81,7 @@ plot1 +
 ```{r bar}
 plot2 <- ggplot(palmerpenguins::penguins, aes(x=species, fill = species)) +
   geom_bar() +
-  labs(title = "Distribution of Penguin Species", caption = "(Colors from left to right) \n Duke Royal Blue, Duke Navy Blue, Copper", x = "Species", y = "Count") +
-  theme(legend.position = "none")
+  labs(title = "Distribution of Penguin Species", caption = "(Colors from left to right) \n Duke Royal Blue, Duke Navy Blue, Copper", x = "Species", y = "Count")
 
 m_penguins <- penguins %>%
   dplyr::filter(sex == "male")
@@ -90,7 +89,7 @@ m_penguins <- penguins %>%
 plot2.1 <- ggplot(m_penguins, aes(x = sex, fill = sex)) +
   geom_bar()
   
-plot2.1 + 
+plot2 + 
   scale_duke_discrete() +
   theme_duke()
 
