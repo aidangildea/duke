@@ -8,7 +8,8 @@ scale_duke_fill_discrete(
   ...,
   na.value = "#B5B5B5",
   guide = "legend",
-  aesthetics = "fill"
+  aesthetics = "fill",
+  num = 1
 )
 }
 \arguments{

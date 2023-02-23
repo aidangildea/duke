@@ -9,7 +9,8 @@ scale_duke_color_discrete(
   ...,
   na.value = "#B5B5B5",
   guide = "legend",
-  aesthetics = c("color", "colour")
+  aesthetics = c("color", "colour"),
+  num = 1
 )
 }
 \arguments{

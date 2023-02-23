@@ -111,7 +111,7 @@ theme_duke <- function(base_size = 11, base_family = "",
   ) %+replace%
     ggplot2::theme(
       # title text aesthetics
-      plot.title =  ggplot2::element_text(size = ggplot2::rel(2.5),
+      plot.title =  ggplot2::element_text(size = ggplot2::rel(2),
                                           #hjust = 0, vjust = 1,
                                           margin = ggplot2::margin(b = half_line),
                                           family = title, face = "bold",
@@ -133,17 +133,17 @@ theme_duke <- function(base_size = 11, base_family = "",
                                             ),
       plot.caption.position = "panel",
       # axis title and text aesthetics
-      axis.title.x =   ggplot2::element_text(size = ggplot2::rel(2),
+      axis.title.x =   ggplot2::element_text(size = ggplot2::rel(1.75),
                                              margin = ggplot2::margin(t = half_line / 2),
-                                             vjust = 1,
+                                             vjust = -.5,
                                              family = axis, colour = "#00539B"
-                                             #size = 20
+
                                              ),
-      axis.title.y =  ggplot2::element_text(size = ggplot2::rel(2), angle = 90,
+      axis.title.y =  ggplot2::element_text(size = ggplot2::rel(1.75), angle = 90,
                                             margin = ggplot2::margin(r = half_line / 2),
                                             vjust = 1,
                                             family = axis, colour = "#00539B"
-                                            #size = 20
+
                                             ),
       axis.text =          ggplot2::element_text(size = ggplot2::rel(1.5), colour = "#012169"),
       axis.text.x = ggplot2::element_text(margin =

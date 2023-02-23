@@ -4,7 +4,10 @@
 \alias{duke_pal}
 \title{Duke Palette Function}
 \usage{
-duke_pal()
+duke_pal(num)
+}
+\arguments{
+\item{num}{palette value}
 }
 \value{
 Character vector of Duke palette hex codes.
@@ -13,5 +16,5 @@ Character vector of Duke palette hex codes.
 Duke Palette Function
 }
 \examples{
-duke_pal()
+duke_pal(1)
 }

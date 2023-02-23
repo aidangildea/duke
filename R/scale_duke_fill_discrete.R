@@ -14,7 +14,7 @@
 #' plot3 + scale_duke_discrete()
 scale_duke_fill_discrete <- function(..., na.value = "#B5B5B5",
                                      guide = "legend",
-                                     aesthetics = "fill") {
-  ggplot2::discrete_scale(aesthetics = aesthetics, "duke_d_fill", duke_pal(),
+                                     aesthetics = "fill", num = 1) {
+  ggplot2::discrete_scale(aesthetics = aesthetics, "duke_d_fill", duke_pal(num = num),
                           na.value = na.value, guide = guide, ...)
 }
