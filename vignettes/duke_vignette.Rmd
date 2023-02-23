@@ -29,6 +29,15 @@ attach(penguins)
 
 This vignette aims to comprehensively demonstrate the use and functionality of the package `duke`. `duke` is fully integrated with the `ggplot2` and allows for the creation of Duke official branded visualizations that are color blind friendly. 
 
+```{r}
+# Dumby Dataset for Increased Categories
+Student <- c("Jack", "Annie", "Paul", "Aidan", "Jake", "Josh", "Grace", "Suzy", "Beth", "Taylor", "Tanner", "Lisa", "Jimmy", "Larry", "Patricia", "Laura", "Yasmin", "Tim")
+Grade <- c("A+", "B", "A+", "C", "D", "A+", "E", "C", "B-", "B-", "D", "A-", "B+", "A-", "A-", "D", "B", "E")
+
+dumby_df <- data.frame(Student, Grade)
+```
+
+
 ## Scatter Plot - Continuous Color
 
 ```{r scatter c}
@@ -64,14 +73,14 @@ ggplot(palmerpenguins::penguins, aes(x=bill_length_mm, y = bill_depth_mm)) +
   labs(title = "Bill Length vs. Bill Depth", subtitle = "This is the subtitle", caption = "All text is in Duke Royal Blue", x = "Bill Length (mm)", y = "Bill Depth (mm)") +
   facet_wrap(~species) +
   theme_duke() +
-  scale_duke_discrete()
+  scale_duke_color_discrete()
 
 plot1 + 
   theme_duke() +
-  scale_duke_discrete()
+  scale_duke_color_discrete()
 
 plot1 + 
-  scale_duke_discrete() +
+  scale_duke_color_discrete() +
   theme_minimal()
 ```
 
@@ -90,18 +99,60 @@ plot2.1 <- ggplot(m_penguins, aes(x = sex, fill = sex)) +
   geom_bar()
   
 plot2 + 
-  scale_duke_discrete() +
+  scale_duke_fill_discrete() +
   theme_duke()
 
-temp <- data.frame(ggplot_build(plot2.1)$data[[1]]) 
-
-plot2 +
-  scale_duke_discrete() +
+plot2.1 +
+  scale_duke_fill_discrete() +
   theme_duke()
 
-plot2 + 
-  scale_duke_discrete() +
-  theme_minimal()
+# 8-category plot
+plot2.2 <- ggplot(dumby_df, aes(x = Grade, fill = Grade)) + 
+  geom_bar()
+
+plot2.2 + 
+  scale_duke_fill_discrete() +
+  theme_duke()
+
+# 7-category plot
+plot2.3 <- dumby_df %>%
+  slice(-13) %>%
+  ggplot(aes(x = Grade, fill = Grade)) + 
+  geom_bar()
+
+plot2.3 + 
+  scale_duke_fill_discrete() +
+  theme_duke()
+
+# 6-category plot
+plot2.4 <- dumby_df %>%
+  slice(-c(9, 10, 13)) %>%
+  ggplot(aes(x = Grade, fill = Grade)) + 
+  geom_bar()
+
+plot2.4 + 
+  scale_duke_fill_discrete() +
+  theme_duke()
+
+# 5-category plot
+plot2.4 <- dumby_df %>%
+  slice(-c(9, 10, 13, 7, 18)) %>%
+  ggplot(aes(x = Grade, fill = Grade)) + 
+  geom_bar()
+
+plot2.4 + 
+  scale_duke_fill_discrete() +
+  theme_duke()
+
+# 4-category plot
+plot2.5 <- dumby_df %>%
+  slice(-c(9, 10, 13, 7, 18, 4, 8)) %>%
+  ggplot(aes(x = Grade, fill = Grade)) + 
+  geom_bar()
+
+plot2.5 + 
+  scale_duke_fill_discrete() +
+  theme_duke()
 ```
 
 ## Histogram
@@ -112,11 +163,11 @@ plot3 <- ggplot2::ggplot(palmerpenguins::penguins, aes(body_mass_g)) +
   labs(title = "Distribution of Penguin Body Mass", caption = "(Colors used) \n Duke Royal Blue, Duke Navy Blue, Copper", x = "Body Mass (g)", y = "Count")
 
 plot3 + 
-  scale_duke_discrete() +
+  scale_duke_fill_discrete() +
   theme_duke()
 
 plot3 + 
-  scale_duke_discrete() +
+  scale_duke_fill_discrete() +
   theme_minimal()
 ```
 
@@ -142,11 +193,11 @@ plot5 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(bill_depth_mm)) 
   ggplot2::labs(title = "Density of Penguin Bill Depth", x = "Bill Depth (mm)", y = "Densiy")
 
 plot5 + 
-  scale_duke_discrete() +
+  scale_duke_fill_discrete() +
   theme_duke()
 
 plot5 + 
-  scale_duke_discrete() +
+  scale_duke_fill_discrete() +
   theme_minimal()
 ```
 
@@ -158,11 +209,11 @@ plot6 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(year, body_mass_
   ggplot2::labs(title = "Comparison of Body Mass By Year", x = "Year", y = "Body Mass (g)")
 
 plot6 + 
-  scale_duke_discrete() +
+  scale_duke_color_discrete() +
   theme_duke()
 
 plot6 + 
-  scale_duke_discrete() +
+  scale_duke_color_discrete() +
   theme_minimal()
 ```
 ## Jitter Plot - Discrete Color
@@ -190,11 +241,11 @@ plot7 <- ggplot(data = palmerpenguins::penguins) +
   labs(title = "Penguin Sex vs. Island", x = "Island", y = "Penguin Sex", caption = "(Color from top to bottom) \n Granite, Duke Navy Blue, Duke Royal Blue")
 
 plot7 +
-  scale_duke_discrete() +
+  scale_duke_fill_discrete() +
   theme_duke()
 
 plot7 +
-  scale_duke_discrete() +
+  scale_duke_fill_discrete() +
   theme_minimal()
 
 ```
@@ -206,11 +257,11 @@ plot8 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(bill_length_mm, 
   ggplot2::labs(title = "Bill Length/Depth by Island", x = "Bill Length (mm)", y = "Bill Depth (mm)")
 
 plot8 + 
-  scale_duke_discrete() +
+  scale_duke_fill_discrete() +
   theme_duke()
 
 plot8 + 
-  scale_duke_discrete() +
+  scale_duke_fill_discrete() +
   theme_minimal()
 ```
 
@@ -222,11 +273,11 @@ plot9 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(bill_length_mm, 
   ggplot2::labs(title = "Bill Length/Depth Quantiles", x = "Bill Length (mm)", y = "Bill Depth (mm)")
 
 plot9 + 
-  scale_duke_discrete() +
+  scale_duke_color_discrete() +
   theme_duke()
 
 plot9 + 
-  scale_duke_discrete() +
+  scale_duke_color_discrete() +
   theme_minimal()
 ```
 
@@ -237,11 +288,11 @@ plot10 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(body_mass_g, fi
   ggplot2::labs(title = "Area of Body Mass Index", x = "BMI")
 
 plot10 + 
-  scale_duke_discrete() +
+  scale_duke_fill_discrete() +
   theme_duke()
 
 plot10 + 
-  scale_duke_discrete() +
+  scale_duke_fill_discrete() +
   theme_minimal()
 ```
 
@@ -253,11 +304,11 @@ plot11 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(body_mass_g)) +
   ggplot2::labs(title = "Dotplot of BMI", x = "BMI")
 
 plot11 + 
-  scale_duke_discrete() +
+  scale_duke_fill_discrete() +
   theme_duke()
 
 plot11 + 
-  scale_duke_discrete() +
+  scale_duke_fill_discrete() +
   theme_minimal()
 ```
 
@@ -269,11 +320,11 @@ plot12 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(body_mass_g)) +
   ggplot2::labs(title = "Frequency Polynomial Plot of BMI", x = "BMI")
 
 plot12 + 
-  scale_duke_discrete() +
+  scale_duke_color_discrete() +
   theme_duke()
 
 plot12 + 
-  scale_duke_discrete() +
+  scale_duke_color_discrete() +
   theme_minimal()
 ```
 
@@ -285,11 +336,11 @@ plot13 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(species, body_m
   ggplot2::labs(title = "BMI By Species of BMI", x = "Species", y = "BMI")
 
 plot13 + 
-  scale_duke_discrete() +
+  scale_duke_color_discrete() +
   theme_duke()
 
 plot13 + 
-  scale_duke_discrete() +
+  scale_duke_color_discrete() +
   theme_minimal()
 ```
 
@@ -301,11 +352,11 @@ plot14 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(species, body_m
   ggplot2::labs(title = "BMI By Species", x = "Species", y = "BMI")
 
 plot14 + 
-  scale_duke_discrete() +
+  scale_duke_fill_discrete() +
   theme_duke()
 
 plot14 + 
-  scale_duke_discrete() +
+  scale_duke_fill_discrete() +
   theme_minimal()
 ```
 
@@ -317,11 +368,11 @@ plot15 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(species, island
   ggplot2::labs(title = "Species Count by Island", x = "Species", y = "Island")
 
 plot15 + 
-  scale_duke_discrete() +
+  scale_duke_color_discrete() +
   theme_duke()
 
 plot15 + 
-  scale_duke_discrete() +
+  scale_duke_color_discrete() +
   theme_minimal()
 ```
 
@@ -333,11 +384,11 @@ plot16 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(year, body_mass
   ggplot2::labs(title = "BMI By Year", x = "Year", y = "BMI")
 
 plot16 + 
-  scale_duke_discrete() +
+  scale_duke_color_discrete() +
   theme_duke()
 
 plot16 + 
-  scale_duke_discrete() +
+  scale_duke_color_discrete() +
   theme_minimal()
 ```
 
@@ -347,6 +398,6 @@ plot16 +
 plot1 +
   facet_wrap(~species) +
   theme_bw() +
-  scale_duke_discrete()
+  scale_duke_color_discrete()
 ```
 
