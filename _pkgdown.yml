@@ -1,8 +1,26 @@
 url: https://aidangildea.github.io/duke/
+
+authors:
+  Aidan Gildea:
+    href: https://aidangildea.netlify.app
+
 template:
   bootstrap: 5
+  bslib:
+    base_font: {google: "Atkinson Hyperlegible"}
+    heading_font: {google: "Atkinson Hyperlegible"}
+
+development:
+  mode: auto
+
 navbar:
+  type: inverse
   structure:
     left:  [intro, reference, articles, tutorials, news]
     right: [search, github]
+
+
+
+
+
 
