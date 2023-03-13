@@ -24,11 +24,15 @@ knitr::opts_chunk$set(
 
 ## Installation
 
+You can install the official version of `duke` from CRAN with:
+
 ``` r
 # Install duke directly:
 install.packages("duke")
+```
+Or alternatively, you can install the development version from GitHub:
 
-# Or alternatively, install development version from GitHub
+``` r
 # install.packages("devtools")
 devtools::install_github("aidangildea/duke")
 ```
@@ -42,6 +46,7 @@ For further information on how to use ggplot2, please visit its [GitHub reposito
 
 By using `duke` functions, you can easily convert your visualizations to Duke official colors.
 
+Create visualizations using `ggplot2` package. 
 ```{r plot}
 library(ggplot2)
 library(duke)
@@ -58,6 +63,8 @@ plot2 <- ggplot2::ggplot(iris, ggplot2::aes(Sepal.Length, Sepal.Width)) +
   caption = "Data sourced from iris in datasets package.", 
   x = "Sepal Length", y = "Sepal Width")
 ```
+
+Then, by pairing them with `duke` functions, you can convert them into Duke-branded and colorblind friendly versions.
 
 ```{r themeduke, message= false}
 plot + 
