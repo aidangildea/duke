@@ -10,16 +10,19 @@
     <loc>https://aidangildea.github.io/duke/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://aidangildea.github.io/duke/articles/duke_vignette.html</loc>
+    <loc>https://aidangildea.github.io/duke/articles/duke.html</loc>
   </url>
   <url>
     <loc>https://aidangildea.github.io/duke/articles/index.html</loc>
   </url>
   <url>
-    <loc>https://aidangildea.github.io/duke/articles/scale_duke_continuous_vignette.html</loc>
+    <loc>https://aidangildea.github.io/duke/articles/scale_duke_color_discrete.html</loc>
   </url>
   <url>
-    <loc>https://aidangildea.github.io/duke/articles/scale_duke_discrete_vignette.html</loc>
+    <loc>https://aidangildea.github.io/duke/articles/scale_duke_continuous.html</loc>
+  </url>
+  <url>
+    <loc>https://aidangildea.github.io/duke/articles/scale_duke_fill_discrete.html</loc>
   </url>
   <url>
     <loc>https://aidangildea.github.io/duke/articles/theme_duke_vignette.html</loc>
@@ -37,10 +40,13 @@
     <loc>https://aidangildea.github.io/duke/reference/index.html</loc>
   </url>
   <url>
+    <loc>https://aidangildea.github.io/duke/reference/scale_duke_color_discrete.html</loc>
+  </url>
+  <url>
     <loc>https://aidangildea.github.io/duke/reference/scale_duke_continuous.html</loc>
   </url>
   <url>
-    <loc>https://aidangildea.github.io/duke/reference/scale_duke_discrete.html</loc>
+    <loc>https://aidangildea.github.io/duke/reference/scale_duke_fill_discrete.html</loc>
   </url>
   <url>
     <loc>https://aidangildea.github.io/duke/reference/theme_duke.html</loc>
