@@ -34,23 +34,34 @@ library(colorratio)
 #remotes::install_github("matt-dray/coloratio")
 ```
 
-# Color-Blindness Tests
+## Color-Blindness Tests
 
 ```{r}
-# with white text
+# with white
 AAA_colors <- c("#012169", "#00539B", "#005587", "#262626")
 AA_colors <- c("#C84E00", "#1D6363", "#0577B1", "#993399", "#666666")
 AA18_colors <-  c("#339898", "#988675")
-
 ```
+
+## Dummy Data Set
+To better investigate which color palette is preferable, we will create a dummy data set that has an 8-level categorical variable. This allows us to see how compatible and accessible colors are when placed on the same plot. 
 
 ```{r}
-knitr::knit_exit()
+# Dumby Dataset for Increased Categories
+Student <- c("Jack", "Annie", "Paul", "Aidan", "Jake", "Josh", "Grace", "Suzy", "Beth", "Taylor", "Tanner", "Lisa", "Jimmy", "Larry", "Patricia", "Laura", "Yasmin", "Tim")
+Grade <- c("A+", "B", "A+", "C", "D", "A+", "E", "C", "B-", "B-", "D", "A-", "B+", "A-", "A-", "D", "B", "E")
+Height <- c(60, 72, 54, 65, 77, 44, 56, 59, 47, 60, 62, 65, 73, 45, 54, 53, 58, 65)
+Weight <- c(145, 150, 147, 145, 143, 144, 140, 144, 149, 146, 142, 148, 143, 143, 144, 150, 148, 144)
+
+dumby_df <- data.frame(Student, Grade, Height, Weight)
 ```
+
 
 ## colorBlindness package
 
 ```{r, warning = FALSE}
+# testing different potential palettes 
+
 values1 <- c("#00539B", "#339898", "#C84E00", "#A1B70D", "#E89923",
                        "#993399", "#012169", "#262626")
 values2 <- c("#00539B", "#C84E00","#339898", "#A1B70D", "#993399", "#E89923",
@@ -59,9 +70,13 @@ values3 <- c("#00539B", "#C84E00","#339898", "#A1B70D", "#993399", "#988675",
                       "#012169", "#262626")  
 values4 <- c("#00539B", "#E89923", "#012169","#993399", "#339898","#A1B70D",
                           "#262626", "#C84E00")     
+
+# all available colors in the Duke color guide
+
 all_values <- c("#00539B", "#339898", "#C84E00", "#A1B70D", "#E89923",
                        "#993399", "#012169", "#262626", "#988675", "#FFD960", "#1D6363", "#E2E6ED", "#F3F2F1", "#FCF7E5", "#DAD0C6", "#666666", "#B5B5B5", "#E5E5E5", "#FFFFFF")
                     
+# displays color palettes by different color vision deficiencies
 colorBlindness::displayAllColors(values1)
 colorBlindness::displayAllColors(values2)
 colorBlindness::displayAllColors(values3)
@@ -96,18 +111,9 @@ barplot(rep(1,8), yaxt="n", col=dichromat(values3, type="deutan"), main="Deutano
 barplot(rep(1,8), yaxt="n", col=dichromat(values3, type="tritan"), main="Tritanopia")
 ```
 
+
+
 ## Colorblindr package
-
-```{r}
-# Dumby Dataset for Increased Categories
-Student <- c("Jack", "Annie", "Paul", "Aidan", "Jake", "Josh", "Grace", "Suzy", "Beth", "Taylor", "Tanner", "Lisa", "Jimmy", "Larry", "Patricia", "Laura", "Yasmin", "Tim")
-Grade <- c("A+", "B", "A+", "C", "D", "A+", "E", "C", "B-", "B-", "D", "A-", "B+", "A-", "A-", "D", "B", "E")
-
-Height <- c(60, 72, 54, 65, 77, 44, 56, 59, 47, 60, 62, 65, 73, 45, 54, 53, 58, 65)
-Weight <- c(145, 150, 147, 145, 143, 144, 140, 144, 149, 146, 142, 148, 143, 143, 144, 150, 148, 144)
-
-dumby_df <- data.frame(Student, Grade, Height, Weight)
-```
 
 ### Barplot
 
@@ -279,7 +285,6 @@ mat_melt <-  melt(ratioMatrix)
 ```
 
 ```{r heatmap}
-#heatmap(ratioMatrix, Rowv = NA, Colv = NA)
 ggp <- ggplot(mat_melt, aes(Var1, Var2)) +                           
 # Create heatmap with ggplot2
   geom_tile(aes(fill = value)) +
@@ -314,48 +319,46 @@ We must first take into account how the colors with interact with our minimalist
 
 According to the Duke Branding Office, it is important that either Duke Royal Blue or Duke Navy Blue is one of the primary colors used. Thus, we will incorporate one of the two as the first color in our palette.
 
-Duke Navy Blue, Piedmont, Persimmon, Duke Royal Blue, Eno, Copper, Cast Iron, Ironweed
-
-Colors to be used:
-Duke Navy Blue, Ginger Beer, Duke Royal Blue, Magnolia, Ironweed, Dandelion, Cast Iron, Piedmont  
-
-Duke Navy Blue, Piedmont, 
-** NEEDS TO BE ADJUSTED
+By taking our colors of interest, we will order them based on their contrast ratios. More specifically, color pairs with the smallest contrast ratios will be placed further away from one another on the palette. 
 
 ```{r}
-col_vals <- c("#012169", "#FCF7E5", "#00539B", "#1D6363", "#993399", "#FFD960", "#262626", "#A1B70D")
-col_names1 <- c("Duke Navy Blue", "Ginger Beer", "Duke Royal Blue", "Magnolia", "Ironweed", "Dandelion", "Cast Iron", "Piedmont")
+# Final Option #1
+final_vals1 <- c("#012169","#A1B70D", "#00539B", "#339898", "#C84E00", "#993399", "#262626", "#E89923")
+final_names1 <- c("Duke Navy Blue", "Piedmont", "Duke Royal Blue", "Eno", "Copper", "Ironweed", "Cast Iron", "Persimmon")
 
-col_names2 <- c("Duke Navy Blue", "Piedmont", "Persimmon", "Duke Royal Blue", "Eno", "Copper", "Cast Iron", "Ironweed")
+# Final Option #2
+final_vals2 <- c("#00539B", "#E89923", "#012169","#339898", "#993399", "#A1B70D", "#262626", "#C84E00") 
+final_names2 <- c("Duke Royal Blue", "Persimmon", "Duke Navy Blue", "Eno", "Ironweed", "Piedmont", "Cast Iron", "Copper")
 
 mat_melt %>%
-  dplyr::filter(Var1 %in% col_names2 & Var2 %in% col_names2) %>%
+  dplyr::filter(Var1 %in% final_names1 & Var2 %in% final_names1) %>%
+  dplyr::arrange(desc(value))
+
+mat_melt %>%
+  dplyr::filter(Var1 %in% final_names2 & Var2 %in% final_names2) %>%
   dplyr::arrange(desc(value))
 
 ggplot(penguins, aes(bill_length_mm, bill_depth_mm, color = species)) +
   geom_point() +
-  scale_color_manual(values = c("#012169","#C84E00", "#00539B"))
+  scale_color_manual(values = final_vals1)
 
-carsdf <- carsdf%>%
-  slice(1:4)
-
-ggplot(carsdf, aes(mpg, hp, color = names)) +
+ggplot(penguins, aes(bill_length_mm, bill_depth_mm, color = species)) +
   geom_point() +
-  scale_color_manual(values = c("#012169","#C84E00", "#00539B", "#A1B70D"))
-```
-By taking our colors of interest, we will order them based on their contrast ratios. More specifically, color pairs with the smallest contrast ratios will be placed further away from one another on the palette. 
-
-```{r}
-col_vals <- c("#012169","#A1B70D", "#00539B", "#339898", "#C84E00", "#993399", "#262626", "#E89923")
-
-col_names1 <- c("Duke Navy Blue", "Piedmont", "Duke Royal Blue", "Eno", "Copper", "Ironweed", "Persimmon", "Cast Iron")
+  scale_color_manual(values = final_vals2)
 
 dumby_df %>%
-  ggplot(aes(x = Weight, y = Height, color = Grade)) + 
-  geom_point() + 
+  ggplot(aes(x = Grade, fill = Grade)) + 
+  geom_bar()+ 
   labs(title = "Grade Distribution") +
   theme_duke() +
-  scale_color_manual(values =  c("#012169","#A1B70D", "#00539B", "#339898", "#C84E00", "#993399", "#262626", "#E89923"),  aesthetics = "colour")
+  scale_color_manual(values =  final_vals1,  aesthetics = "fill")
+
+dumby_df %>%
+  ggplot(aes(x = Grade, fill = Grade)) + 
+  geom_bar()+ 
+  labs(title = "Grade Distribution") +
+  theme_duke() +
+  scale_color_manual(values =  final_vals2,  aesthetics = "fill")
 ```
 
 Potential Order: Duke Navy Blue, Piedmont, Duke Royal Blue, Copper, Eno,Ironweed, Persimmon, Cast Iron
