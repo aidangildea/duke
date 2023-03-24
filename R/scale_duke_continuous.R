@@ -17,7 +17,7 @@
 #' plot3 <- ggplot2::ggplot(iris, ggplot2::aes(x=Petal.Length, y = Petal.Width)) +
 #'   ggplot2::geom_point()
 #' plot3 + scale_duke_continuous()
-scale_duke_continuous <- function(..., low = "#E2E6ED", high = "#00539B", space = "Lab",
+scale_duke_continuous <- function(..., low = "#00539B", high = "#E2E6ED", space = "Lab",
                                   na.value = "#666666", guide = "colourbar", aesthetics = c("colour", "color")){
   ggplot2::continuous_scale(aesthetics, "duke_c", scales::seq_gradient_pal(low, high, space),
                    na.value = na.value, guide = guide, ...)

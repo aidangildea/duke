@@ -30,7 +30,7 @@ library(colordistance)
 library(magrittr)
 library(duke)
 library(palmerpenguins)
-library(colorratio)
+#library(colorratio)
 #remotes::install_github("matt-dray/coloratio")
 ```
 
@@ -281,17 +281,21 @@ ratioMatrix = matrix(colorcontrasts, nrow = length(all_values), ncol = length(al
 rownames(ratioMatrix) <- c("Duke Royal Blue", "Eno", "Copper", "Piedmont", "Persimmon", "Ironweed", "Duke Navy Blue", "Cast Iron", "Dogwood", "Dandelion", "Magnolia", "Hatteras", "Whisper Gray", "Ginger Beer", "Shackleford", "Graphite", "Granite", "Limestone", "White")
 colnames(ratioMatrix) <-  c("Duke Royal Blue", "Eno", "Copper", "Piedmont", "Persimmon", "Ironweed", "Duke Navy Blue", "Cast Iron", "Dogwood", "Dandelion", "Magnolia", "Hatteras", "Whisper Gray", "Ginger Beer", "Shackleford", "Graphite", "Granite", "Limestone", "White")
 
-mat_melt <-  melt(ratioMatrix)
+mat_melt <-  reshape2::melt(ratioMatrix)
 ```
 
-```{r heatmap}
-ggp <- ggplot(mat_melt, aes(Var1, Var2)) +                           
+```{r heatmap, fig.asp=.618}
+png(file="~/Desktop/dukethesis/images/contrastheatmap.png")
+ggp <- ggplot(mat_melt, aes(Var1, Var2, fill = value)) +                          
 # Create heatmap with ggplot2
-  geom_tile(aes(fill = value)) +
-  labs(title = "Color-Contrast Ratios Between Color Pairings", x = "Color 1", y = "Color 2") +
+  geom_tile(#aes(fill = value)
+    ) +
+  labs(title = "Color-Contrast Ratios Between Color Pairings", x = "Color 1", 
+       y = "Color 2") +
   theme_duke() +
+  #scale_duke_continuous() +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
-ggp        
+ggp
 ```
 
 Based on the heatmap and matrix created above, the following coloring pairings meet the AA WCAG standard of a 4.5+ contrast ratio:
@@ -325,7 +329,6 @@ By taking our colors of interest, we will order them based on their contrast rat
 # Final Option #1
 final_vals1 <- c("#012169","#A1B70D", "#00539B", "#339898", "#C84E00", "#993399", "#262626", "#E89923")
 final_names1 <- c("Duke Navy Blue", "Piedmont", "Duke Royal Blue", "Eno", "Copper", "Ironweed", "Cast Iron", "Persimmon")
-
 # Final Option #2
 final_vals2 <- c("#00539B", "#E89923", "#012169","#339898", "#993399", "#A1B70D", "#262626", "#C84E00") 
 final_names2 <- c("Duke Royal Blue", "Persimmon", "Duke Navy Blue", "Eno", "Ironweed", "Piedmont", "Cast Iron", "Copper")
