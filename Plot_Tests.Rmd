@@ -51,7 +51,7 @@ plot3 +
   theme_minimal() +
   scale_duke_continuous()
 
-plot4 + scale_duke_discrete()
+plot4 + scale_duke_fill_discrete()
 ```
 
 

@@ -12,7 +12,7 @@
 #' @examples
 #' #' # Default example
 #' plot3 <- ggplot2::ggplot(iris, ggplot2::aes(x=Petal.Length, y = Petal.Width, color = Species)) + ggplot2::geom_point()
-#' plot3 + scale_duke_discrete()
+#' plot3 + scale_duke_color_discrete()
 
 scale_duke_color_discrete <- function(..., na.value = "#B5B5B5",
                                      guide = "legend",
