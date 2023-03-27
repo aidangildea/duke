@@ -44,22 +44,22 @@ theme_duke <- function(base_size = 11, base_family = "",
   #   }
   # )
 
-  tryCatch(
-    sysfonts::font_add(family = "hyperlegible",
-                       regular = "Atkinson-Hyperlegible-Regular-102.otf"),
-    error = function(e) {
-      message("Atkinson-Hyperlegible is not available on your system.\n")
-      if (interactive()) {
-      resp <-
-        utils::menu(c("Yes", "No"), title = "Do you want to download Atkinson-Hyperlegible locally?")
-      if (resp == "Yes" | resp == 1) {
-        message("Downloading Atkinson-Hyperlegible. Install the font and rerun code for proper use.\n")
-        utils::browseURL(
-          "https://github.com/aidangildea/duke/raw/master/Fonts/Atkinson-Hyperlegible-Regular-102.otf"
-        )
-      }}
-    }
-  )
+  #tryCatch(
+  #  sysfonts::font_add(family = "hyperlegible",
+  #                     regular = "Atkinson-Hyperlegible-Regular-102.otf"),
+  #  error = function(e) {
+  #    message("Atkinson-Hyperlegible is not available on your system.\n")
+  #    if (interactive()) {
+  #    resp <-
+  #      utils::menu(c("Yes", "No"), title = "Do you want to download Atkinson-Hyperlegible locally?")
+  #    if (resp == "Yes" | resp == 1) {
+  #      message("Downloading Atkinson-Hyperlegible. Install the font and rerun code for proper use.\n")
+  #      utils::browseURL(
+  #        "https://github.com/aidangildea/duke/raw/master/Fonts/Atkinson-Hyperlegible-Regular-102.otf"
+  #      )
+  #    }}
+  #  }
+  #)
 
 #   tryCatch(sysfonts::font_add(family = "Garamond 3 LT Std",
 #                      regular = "Garamond3LTStd.otf"),
