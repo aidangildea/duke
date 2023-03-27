@@ -31,7 +31,7 @@ library(magrittr)
 library(duke)
 library(palmerpenguins)
 #library(colorratio)
-#remotes::install_github("matt-dray/coloratio")
+#remotes::install_github("matt-dray/coloratio", force = TRUE)
 ```
 
 ## Color-Blindness Tests
@@ -130,24 +130,11 @@ cvd_grid(bplot + scale_duke_fill_discrete(1))
 ```{r, warning = FALSE}
 # Option 1
 b2 <- edit_colors(bplot +
-                    scale_duke_fill_discrete(num = 1), deutan, sev = 0.7)
+                    scale_duke_fill_discrete(), deutan, sev = 0.7)
 cowplot::plot_grid(bplot +
-                     scale_duke_fill_discrete(num = 1), b2)
+                     scale_duke_fill_discrete(), b2)
 
-# Option 2
-b3 <- edit_colors(bplot +
-                    scale_duke_fill_discrete(num = 2), deutan, sev = 0.7)
-cowplot::plot_grid(bplot +
-                     scale_duke_fill_discrete(num = 2), b3)
-
-# Option 3
-b4 <- edit_colors(bplot +
-                    scale_duke_fill_discrete(num = 3), deutan, sev = 0.7)
-cowplot::plot_grid(bplot +
-                     scale_duke_fill_discrete(num = 3), b4)
 ```
-
-### Scatterplot
 
 ```{r, message = FALSE}
 splot <- ggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm, 
@@ -162,27 +149,9 @@ cvd_grid(splot)
 ```{r, warning = FALSE, message=FALSE}
 # Option 1
 s2 <- edit_colors(splot +
-                    scale_duke_color_discrete(num = 1), deutan, sev = 0.7)
+                    scale_duke_color_discrete(), deutan, sev = 0.7)
 cowplot::plot_grid(splot +
-                     scale_duke_color_discrete(num = 1), s2)
-
-# Option 2
-s3 <- edit_colors(splot +
-                    scale_duke_color_discrete(num = 2), deutan, sev = 0.7)
-cowplot::plot_grid(splot +
-                    scale_duke_color_discrete(num = 2), s3)
-
-# Option 3
-s4 <- edit_colors(splot +
-                    scale_duke_color_discrete(num = 3), deutan, sev = 0.7)
-cowplot::plot_grid(splot +
-                    scale_duke_color_discrete(num = 3), s4)
-
-s5 <- edit_colors(splot +
-                    scale_duke_color_discrete(num = 4), deutan, sev = 0.7)
-cowplot::plot_grid(splot +
-                    scale_duke_color_discrete(num = 4), s5)
-
+                     scale_duke_color_discrete(), s2)
 ```
 
 ## colordistance package
@@ -367,9 +336,9 @@ dumby_df %>%
 Potential Order: Duke Navy Blue, Piedmont, Duke Royal Blue, Copper, Eno,Ironweed, Persimmon, Cast Iron
 ```{r}
 b5 <- edit_colors(bplot +
-                    scale_duke_fill_discrete(num = 5), deutan, sev = 0.7)
+                    scale_duke_fill_discrete(), deutan, sev = 0.7)
 cowplot::plot_grid(bplot +
-                     scale_duke_fill_discrete(num = 5), b5)
+                     scale_duke_fill_discrete(), b5)
 ```
 
 

@@ -6,8 +6,8 @@
 \usage{
 scale_duke_continuous(
   ...,
-  low = "#E2E6ED",
-  high = "#00539B",
+  low = "#00539B",
+  high = "#E2E6ED",
   space = "Lab",
   na.value = "#666666",
   guide = "colourbar",

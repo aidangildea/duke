@@ -9,8 +9,7 @@ scale_duke_color_discrete(
   ...,
   na.value = "#B5B5B5",
   guide = "legend",
-  aesthetics = c("color", "colour"),
-  num = 1
+  aesthetics = c("color", "colour")
 )
 }
 \arguments{
@@ -32,5 +31,5 @@ Partial code for this function can be attributed to \href{https://github.com/jrn
 \examples{
 #' # Default example
 plot3 <- ggplot2::ggplot(iris, ggplot2::aes(x=Petal.Length, y = Petal.Width, color = Species)) + ggplot2::geom_point()
-plot3 + scale_duke_discrete()
+plot3 + scale_duke_color_discrete()
 }
