@@ -11,7 +11,7 @@ scale_duke_continuous(
   space = "Lab",
   na.value = "#666666",
   guide = "colourbar",
-  aesthetics = c("colour", "color")
+  aesthetics = c("colour", "color", "fill")
 )
 }
 \arguments{

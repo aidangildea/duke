@@ -302,9 +302,22 @@ final_names1 <- c("Duke Navy Blue", "Piedmont", "Duke Royal Blue", "Eno", "Coppe
 final_vals2 <- c("#00539B", "#E89923", "#012169","#339898", "#993399", "#A1B70D", "#262626", "#C84E00") 
 final_names2 <- c("Duke Royal Blue", "Persimmon", "Duke Navy Blue", "Eno", "Ironweed", "Piedmont", "Cast Iron", "Copper")
 
-mat_melt %>%
-  dplyr::filter(Var1 %in% final_names1 & Var2 %in% final_names1) %>%
+final_melt <- mat_melt %>%
+  dplyr::filter(Var1 %in% final_names1 & Var2 %in% final_names1)
+
+ final_melt %>%
   dplyr::arrange(desc(value))
+ 
+ ggp_final <- ggplot(final_melt, aes(Var1, Var2, fill = value)) +       
+# Create heatmap with ggplot2
+  geom_tile(#aes(fill = value)
+    ) +
+  labs(title = "Color-Contrast Ratios Between Color Pairings", x = "Color 1", 
+       y = "Color 2") +
+  theme_duke() +
+  scale_duke_continuous() +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+ggp_final
 
 mat_melt %>%
   dplyr::filter(Var1 %in% final_names2 & Var2 %in% final_names2) %>%
