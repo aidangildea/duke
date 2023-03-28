@@ -296,19 +296,14 @@ By taking our colors of interest, we will order them based on their contrast rat
 
 ```{r}
 # Final Option #1
-final_vals1 <- c("#012169","#A1B70D", "#00539B", "#339898", "#C84E00", "#993399", "#262626", "#E89923")
-final_names1 <- c("Duke Navy Blue", "Piedmont", "Duke Royal Blue", "Eno", "Copper", "Ironweed", "Cast Iron", "Persimmon")
-# Final Option #2
-final_vals2 <- c("#00539B", "#E89923", "#012169","#339898", "#993399", "#A1B70D", "#262626", "#C84E00") 
-final_names2 <- c("Duke Royal Blue", "Persimmon", "Duke Navy Blue", "Eno", "Ironweed", "Piedmont", "Cast Iron", "Copper")
+final_vals1 <- c("#012169","#A1B70D", "#00539B", "#339898", "#C84E00", "#988675",  "#E89923", "#262626")
+final_names1 <- c("Duke Navy Blue", "Piedmont", "Duke Royal Blue", "Eno", "Copper", "Dogwood", "Persimmon", "Cast Iron")
 
 final_melt <- mat_melt %>%
   dplyr::filter(Var1 %in% final_names1 & Var2 %in% final_names1)
 
- final_melt %>%
-  dplyr::arrange(desc(value))
- 
- ggp_final <- ggplot(final_melt, aes(Var1, Var2, fill = value)) +       
+
+ ggp_final <- ggplot(final_melt1, aes(Var1, Var2, fill = value)) +      
 # Create heatmap with ggplot2
   geom_tile(#aes(fill = value)
     ) +
@@ -318,10 +313,6 @@ final_melt <- mat_melt %>%
   scale_duke_continuous() +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 ggp_final
-
-mat_melt %>%
-  dplyr::filter(Var1 %in% final_names2 & Var2 %in% final_names2) %>%
-  dplyr::arrange(desc(value))
 
 ggplot(penguins, aes(bill_length_mm, bill_depth_mm, color = species)) +
   geom_point() +
@@ -346,7 +337,18 @@ dumby_df %>%
   scale_color_manual(values =  final_vals2,  aesthetics = "fill")
 ```
 
-Potential Order: Duke Navy Blue, Piedmont, Duke Royal Blue, Copper, Eno,Ironweed, Persimmon, Cast Iron
+```{r}
+final_melt %>%
+  filter(value >= 3) %>% 
+  dplyr::filter(Var1 == "Duke Navy Blue" | Var2 == "Duke Navy Blue") %>%
+  arrange(desc(value)) %>%
+  distinct(Var1, .keep_all = TRUE)
+
+final_melt %>%
+  filter(value >= 3) %>%
+  nrow()
+```
+
 ```{r}
 b5 <- edit_colors(bplot +
                     scale_duke_fill_discrete(), deutan, sev = 0.7)
