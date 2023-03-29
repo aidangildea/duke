@@ -262,7 +262,7 @@ ggp <- ggplot(mat_melt, aes(Var1, Var2, fill = value)) +
   labs(title = "Color-Contrast Ratios Between Color Pairings", x = "Color 1", 
        y = "Color 2") +
   theme_duke() +
-  #scale_duke_continuous() +
+  scale_duke_continuous() +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 ggp
 ```
@@ -296,18 +296,22 @@ By taking our colors of interest, we will order them based on their contrast rat
 
 ```{r}
 # Final Option #1
-final_vals1 <- c("#012169","#A1B70D", "#00539B", "#339898", "#C84E00", "#988675",  "#E89923", "#262626")
-final_names1 <- c("Duke Navy Blue", "Piedmont", "Duke Royal Blue", "Eno", "Copper", "Dogwood", "Persimmon", "Cast Iron")
+final_vals <- c("#012169","#A1B70D", "#C84E00", "#00539B", "#339898", "#E89923", "#FFD960", "#262626")
+
+# old vals
+#c("#012169","#A1B70D", "#00539B", "#339898", "#C84E00", "#993399",
+                     #  "#262626", "#E89923")
+
+final_names <- c("Duke Navy Blue", "Piedmont", "Copper", "Duke Royal Blue", "Eno", "Persimmon", "Dandelion", "Cast Iron")
 
 final_melt <- mat_melt %>%
-  dplyr::filter(Var1 %in% final_names1 & Var2 %in% final_names1)
+  dplyr::filter(Var1 %in% final_names & Var2 %in% final_names)
 
-
- ggp_final <- ggplot(final_melt1, aes(Var1, Var2, fill = value)) +      
+ ggp_final <- ggplot(final_melt, aes(Var1, Var2, fill = value)) +      
 # Create heatmap with ggplot2
   geom_tile(#aes(fill = value)
     ) +
-  labs(title = "Color-Contrast Ratios Between Color Pairings", x = "Color 1", 
+  labs(title = "Color-Contrast Ratios Between Final Color Pairings", x = "Color 1", 
        y = "Color 2") +
   theme_duke() +
   scale_duke_continuous() +
@@ -338,15 +342,45 @@ dumby_df %>%
 ```
 
 ```{r}
-final_melt %>%
-  filter(value >= 3) %>% 
-  dplyr::filter(Var1 == "Duke Navy Blue" | Var2 == "Duke Navy Blue") %>%
+ratings <-final_melt %>%
+  #filter(value >= 3) %>% 
+  dplyr::filter(Var1 %in% final_names | Var2 %in% final_names, value != 1) %>%
   arrange(desc(value)) %>%
-  distinct(Var1, .keep_all = TRUE)
+  distinct(value, .keep_all = T)
+
+
+colnames(ratings) <- c("Color 1", "Color 2", "Contrast Ratio")
+
+saveRDS(ratings, "~/Desktop/dukethesis/saved/contrastratios.rds.gzip", 
+        compress = "gzip")
+
+  
+final_melt %>%
+  #filter(value >= 3) %>% 
+  dplyr::filter(Var1 %in% final_names | Var2 %in% final_names) %>%
+  arrange(desc(value)) %>%
+  filter(value != 1) %>%
+  distinct(value, .keep_all = T) %>%
+  nrow()
+  
+final_melt %>%
+  #filter(value >= 3) %>% 
+  dplyr::filter(Var1 %in% final_names | Var2 %in% final_names) %>%
+  arrange(desc(value)) %>%
+  filter(value != 1, value > 3) %>%
+  distinct(value, .keep_all = T) %>%
+  nrow()
+
+final_melt %>%
+  filter(Var1 %in% c("Duke Navy Blue", "Piedmont", "Copper", "Duke Royal Blue", "Eno"), Var2 %in% c("Duke Navy Blue", "Piedmont", "Copper", "Duke Royal Blue", "Eno")) %>%
+  arrange(desc(value)) %>%
+  distinct(Var1, Var2, .keep_all = TRUE)
 
 final_melt %>%
   filter(value >= 3) %>%
   nrow()
+
+displayColors(final_vals)
 ```
 
 ```{r}
