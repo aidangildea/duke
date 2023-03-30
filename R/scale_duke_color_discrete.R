@@ -12,6 +12,7 @@
 #'
 #' @examples
 #' library(ggplot2)
+#' library(palmerpenguins)
 #'
 #' # default
 #' ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm, color = species)) +
