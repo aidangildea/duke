@@ -27,7 +27,15 @@ a plot with Duke colors
 Theme Duke
 }
 \examples{
-plot <- ggplot2::ggplot(cars, ggplot2::aes(speed, dist)) +
-ggplot2::geom_point() + ggplot2::labs(title = "Duke Blue")
+
+library(ggplot2)
+plot <- ggplot(cars, aes(speed, dist)) +
+  geom_point() +
+  labs(title = "Duke Blue")
+
+# default theme
+plot
+
+# Duke theme
 plot + theme_duke()
 }
