@@ -2,8 +2,7 @@
 % Please edit documentation in R/scale_duke_color_discrete.R
 \name{scale_duke_color_discrete}
 \alias{scale_duke_color_discrete}
-\title{Apply discrete color scale
-Partial code for this function can be attributed to \href{https://github.com/jrnold/ggthemes/blob/main/R/colorblind.R}{ggthemes}.}
+\title{Apply discrete color scale}
 \usage{
 scale_duke_color_discrete(
   ...,
@@ -25,25 +24,17 @@ scale_duke_color_discrete(
 a visualization with discrete duke color scale
 }
 \description{
-Apply discrete color scale
 Partial code for this function can be attributed to \href{https://github.com/jrnold/ggthemes/blob/main/R/colorblind.R}{ggthemes}.
 }
 \examples{
-<<<<<<< HEAD
-
 library(ggplot2)
 
 # default
 ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm, color = species)) +
   geom_point()
 
-# vs. with scale_duke_discrete()
+# vs. with scale_duke_color_discrete()
 ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm, color = species)) +
   geom_point() +
   scale_duke_color_discrete()
-=======
-#' # Default example
-plot3 <- ggplot2::ggplot(iris, ggplot2::aes(x=Petal.Length, y = Petal.Width, color = Species)) + ggplot2::geom_point()
-plot3 + scale_duke_color_discrete()
->>>>>>> 0550c0a412d390e9e57adce75d4e6f5efcbc5646
 }
