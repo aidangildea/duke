@@ -120,6 +120,7 @@ theme_duke <- function(base_size = 11, base_family = "",
       #plot.title.position = "panel",
       # subtitle text aesthetics
       plot.subtitle = ggplot2::element_text(# font size "regular"
+                                            size = ggplot2::rel(1.5),
                                             hjust = 0, vjust = 1,
                                             margin = ggplot2::margin(b = half_line),
                                             family = title, colour = "#00539B"),

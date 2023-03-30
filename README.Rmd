@@ -38,7 +38,7 @@ devtools::install_github("aidangildea/duke")
 ```
 ## Usage
 
-This package is fully integrated with ggplot2, and therefore, allows you to customize several visualization features. Aesthetic functions such as [`theme_duke()`](https://aidangildea.github.io/duke/articles/theme_duke_vignette.html) and [`scale_color_duke()`](https://aidangildea.github.io/duke/articles/scale_duke_discrete_vignette.html) quickly make your graphs visually pleasing and accessible to your audience.
+This package is fully integrated with ggplot2, and therefore, allows you to customize several visualization features. Aesthetic functions such as [`theme_duke()`](https://aidangildea.github.io/duke/articles/theme_duke_vignette.html) and [`scale_color_duke()`](https://aidangildea.github.io/duke/articles/scale_duke_color_discrete_vignette.html) quickly make your graphs visually pleasing and accessible to your audience.
 
 For further information on how to use ggplot2, please visit its [GitHub repository](https://github.com/tidyverse/ggplot2).
 
@@ -69,7 +69,7 @@ Then, by pairing them with `duke` functions, you can convert them into Duke-bran
 ```{r themeduke, message= false}
 plot + 
   theme_duke() +
-  scale_duke_discrete()
+  scale_duke_color_discrete()
 
 plot2 + 
   theme_duke() +

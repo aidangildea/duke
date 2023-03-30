@@ -11,7 +11,6 @@
 #' @export
 #'
 #' @examples
-#'
 #' library(ggplot2)
 #'
 #' # default
@@ -25,9 +24,9 @@
 
 scale_duke_color_discrete <- function(..., na.value = "#B5B5B5",
                                       guide = "legend",
-                                      aesthetics = c("color", "colour"), num = 1) {
+                                      aesthetics = c("color", "colour")) {
   ggplot2::discrete_scale(
-    aesthetics = aesthetics, "duke_d_color", duke_pal(num = num),
+    aesthetics = aesthetics, "duke_d_color", duke_pal(),
     na.value = na.value, guide = guide, ...
   )
 }

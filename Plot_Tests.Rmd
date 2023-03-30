@@ -1,0 +1,58 @@
+---
+title: "plot"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+```{r}
+library(ggplot2)
+library(showtext)
+```
+
+
+```{r iris}
+summary(iris)
+```
+
+## Including Plots
+
+Let's try building some visualizations with theme_duke().
+
+```{r pressure, echo=FALSE}
+plot <- ggplot2::ggplot(iris, ggplot2::aes(Sepal.Length, Sepal.Width)) +
+  ggplot2::geom_point(ggplot2::aes(colour = Species)) +
+  ggplot2::labs(title = "This Title is in Duke Royal Blue!", caption = "This caption is in Duke Navy Blue!", x = "This is copper!", y = "This is Persimmon!")
+
+plot + theme_duke()
+```
+
+```{r}
+plot2 <- ggplot(iris, aes(x=Petal.Length, fill = Species)) +
+  geom_histogram() +
+  labs(title = "Royal Blue", caption = "Navy Blue")
+
+plot3 <- ggplot(iris, aes(x=Petal.Length, y = Petal.Width, color = Petal.Length)) +
+  geom_point() +
+  labs(title = "Royal Blue", caption = "Navy Blue")
+
+plot4 <- ggplot(iris, aes(x=Species, fill = Species)) +
+  geom_bar() +
+  labs(title = "Royal Blue", caption = "Navy Blue")
+
+plot2 + theme_duke()
+
+# Work up from here
+plot3 + 
+  theme_minimal() +
+  scale_duke_continuous()
+
+plot4 + scale_duke_fill_discrete()
+```
+
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

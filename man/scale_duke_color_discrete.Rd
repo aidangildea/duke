@@ -9,8 +9,7 @@ scale_duke_color_discrete(
   ...,
   na.value = "#B5B5B5",
   guide = "legend",
-  aesthetics = c("color", "colour"),
-  num = 1
+  aesthetics = c("color", "colour")
 )
 }
 \arguments{
@@ -30,6 +29,7 @@ Apply discrete color scale
 Partial code for this function can be attributed to \href{https://github.com/jrnold/ggthemes/blob/main/R/colorblind.R}{ggthemes}.
 }
 \examples{
+<<<<<<< HEAD
 
 library(ggplot2)
 
@@ -41,4 +41,9 @@ ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm, color = species)) +
 ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm, color = species)) +
   geom_point() +
   scale_duke_color_discrete()
+=======
+#' # Default example
+plot3 <- ggplot2::ggplot(iris, ggplot2::aes(x=Petal.Length, y = Petal.Width, color = Species)) + ggplot2::geom_point()
+plot3 + scale_duke_color_discrete()
+>>>>>>> 0550c0a412d390e9e57adce75d4e6f5efcbc5646
 }
