@@ -63,9 +63,7 @@ plot +
 ```{r scatter d, fig.asp= .618, warning = FALSE}
 plot1 <- ggplot(palmerpenguins::penguins, aes(x=bill_length_mm, y = bill_depth_mm, color = species)) +
   geom_point(size =3) +
-  labs(title = "Bill Length vs. Bill Depth", caption = "(Colors used) \n Duke Royal Blue, Eno, Copper", x = "Bill Length (mm)", y = "Bill Depth (mm)")
-  #guides(fill=guide_legend(title="New Legend Title"))
-  
+  labs(title = "Bill Length vs. Bill Depth", x = "Bill Length (mm)", y = "Bill Depth (mm)")
 
 ggplot(palmerpenguins::penguins, aes(x=bill_length_mm, y = bill_depth_mm)) +
   geom_point(aes(color = species)) +
@@ -89,21 +87,18 @@ plot1 +
 ```{r bar}
 plot2 <- ggplot(palmerpenguins::penguins, aes(x=species, fill = species)) +
   geom_bar() +
-  labs(title = "Distribution of Penguin Species", caption = "(Colors from left to right) \n Duke Royal Blue, Duke Navy Blue, Copper", x = "Species", y = "Count")
+  labs(title = "Distribution of Penguin Species", x = "Species", y = "Count")
 
 m_penguins <- penguins %>%
   dplyr::filter(sex == "male")
 
 plot2.1 <- ggplot(m_penguins, aes(x = sex, fill = sex)) +
   geom_bar()
-  
-plot2 + 
-  scale_duke_fill_discrete() +
-  theme_duke()
 
 plot2.1 +
   scale_duke_fill_discrete() +
-  theme_duke()
+  theme_duke() 
+  
 
 # 8-category plot
 plot2.2 <- ggplot(dumby_df, aes(x = Grade, fill = Grade)) + 
@@ -229,6 +224,32 @@ plot6.1 +
 plot6.1 + 
   scale_duke_continuous() +
   theme_minimal()
+```
+## Line Plot
+
+```{r line plot}
+yearly_avg <- penguins %>%
+  filter(!is.na(bill_length_mm)) %>%
+  group_by(island, year) %>%
+  summarize(island, year, mean = mean(bill_length_mm)) %>%
+  distinct(island, year, .keep_all = T)
+
+lineplot <- ggplot(data = yearly_avg, aes(x = as.factor(year), y = mean, group = island)) +
+  geom_line(aes(color=island), linewidth = 1) + 
+  geom_point(aes(color=island)) +
+  labs(title = "Average Island Bill Length(mm) Per Year", x = "Year", y = "Average Bill Length (mm)") +
+  theme_duke() +
+  scale_duke_color_discrete()
+lineplot
+
+# with point shape and line pattern
+lineplot.2 <- ggplot(data = yearly_avg, aes(x = as.factor(year), y = mean, group = island)) +
+  geom_line(aes(color=island, linetype=island), linewidth = 1) + 
+  geom_point(aes(color=island, shape = island)) +
+  labs(title = "Average Island Bill Length(mm) Per Year", x = "Year", y = "Average Bill Length (mm)") +
+  theme_duke() +
+  scale_duke_color_discrete()
+lineplot.2
 ```
 
 
