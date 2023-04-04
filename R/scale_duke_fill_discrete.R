@@ -1,4 +1,8 @@
-#' Title
+#' Apply discrete color scale to fill aesthetic
+#'
+#' Introduces a Duke branded and accessible discrete color palette to ggplot
+#' geometric objects using fill argument. It prioritizes high contrast colors
+#' aligned with Web Content Accessibility Guidelines (WCAG).
 #'
 #' @param ... Arguments passed on to `discrete_scale`.
 #' @param na.value Color used for NA values

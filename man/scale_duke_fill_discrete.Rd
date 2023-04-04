@@ -2,7 +2,7 @@
 % Please edit documentation in R/scale_duke_fill_discrete.R
 \name{scale_duke_fill_discrete}
 \alias{scale_duke_fill_discrete}
-\title{Title}
+\title{Apply discrete color scale to fill aesthetic}
 \usage{
 scale_duke_fill_discrete(
   ...,
@@ -24,14 +24,19 @@ scale_duke_fill_discrete(
 a visualization with discrete duke color scale in fill
 }
 \description{
-Title
+Introduces a Duke branded and accessible discrete color palette to ggplot
+geometric objects using fill argument. It prioritizes high contrast colors
+aligned with Web Content Accessibility Guidelines (WCAG).
 }
 \examples{
+library(ggplot2)
+library(palmerpenguins)
+
 # default
 ggplot(penguins, aes(x = species, fill = species)) +
-  geom_point()
+  geom_bar()
 
-# vs. with scale_duke_color_discrete()
+# vs. with Duke scale
 ggplot(penguins, aes(x = species, fill = species)) +
   geom_bar() +
   scale_duke_fill_discrete()

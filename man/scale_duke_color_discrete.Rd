@@ -24,7 +24,13 @@ scale_duke_color_discrete(
 a visualization with discrete duke color scale
 }
 \description{
-Partial code for this function can be attributed to \href{https://github.com/jrnold/ggthemes/blob/main/R/colorblind.R}{ggthemes}.
+Introduces a Duke branded and accessible discrete color palette to ggplot
+geometric objects using color argument. It prioritizes high contrast colors
+aligned with Web Content Accessibility Guidelines (WCAG).
+}
+\details{
+Partial code for this function can be attributed to
+\href{https://github.com/jrnold/ggthemes/blob/main/R/colorblind.R}{ggthemes}.
 }
 \examples{
 library(ggplot2)
@@ -34,7 +40,7 @@ library(palmerpenguins)
 ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm, color = species)) +
   geom_point()
 
-# vs. with scale_duke_color_discrete()
+# vs. with Duke scale
 ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm, color = species)) +
   geom_point() +
   scale_duke_color_discrete()

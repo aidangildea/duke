@@ -3,8 +3,10 @@ title: "Overview of duke"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Overview of duke}
-  %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r, include = FALSE}
@@ -12,44 +14,48 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.width = 8,
-  fig.asp = .618
+  fig.asp = 0.618
 )
 ```
 
-```{r setup}
+```{r}
+#| label: setup
+#| message: false
+
 library(duke)
 library(palmerpenguins)
-library(ggmosaic)
-library(ggplot2)
-library(magrittr)
 library(dplyr)
-attach(penguins)
+library(ggplot2)
+library(ggmosaic)
 ```
 
 This vignette aims to comprehensively demonstrate the use and functionality of the package `duke`. `duke` is fully integrated with the `ggplot2` and allows for the creation of Duke official branded visualizations that are color blind friendly. 
 
 ```{r}
-# Dumby Dataset for Increased Categories
-Student <- c("Jack", "Annie", "Paul", "Aidan", "Jake", "Josh", "Grace", "Suzy", "Beth", "Taylor", "Tanner", "Lisa", "Jimmy", "Larry", "Patricia", "Laura", "Yasmin", "Tim")
-Grade <- c("A+", "B", "A+", "C", "D", "A+", "E", "C", "B-", "B-", "D", "A-", "B+", "A-", "A-", "D", "B", "E")
+student_names <- c("Jack", "Annie", "Paul", "Aidan", "Jake", "Josh", "Grace", "Suzy", "Beth", "Taylor", "Tanner", "Lisa", "Jimmy", "Larry", "Patricia", "Laura", "Yasmin", "Tim")
+student_grades <- c("A+", "B", "A+", "C", "D", "A+", "E", "C", "B-", "B-", "D", "A-", "B+", "A-", "A-", "D", "B", "E")
 
-dumby_df <- data.frame(Student, Grade)
+students <- tibble(student = student_names, grade = student_grades)
 ```
 
 
 ## Scatter Plot - Continuous Color
 
 ```{r scatter c}
-plot <- ggplot(palmerpenguins::penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +
+plot <- ggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +
   geom_point(aes(color = body_mass_g)) +
-  labs(title = "Bill Length vs. Bill Depth", x = "Bill Length (mm)", y = "Bill Depth (mm)")
+  labs(
+    title = "Bill Length vs. Bill Depth", 
+    x = "Bill Length (mm)", 
+    y = "Bill Depth (mm)"
+  )
 
 plot +
   scale_duke_continuous() +
   theme_duke()
 
 plot +
-  geom_point(shape = species) +
+  geom_point(aes(shape = species)) +
   scale_duke_continuous() +
   theme_duke()
 
@@ -60,14 +66,20 @@ plot +
 
 ## Scatter Plot - Discrete Color
 
-```{r scatter d, fig.asp= .618, warning = FALSE}
-plot1 <- ggplot(palmerpenguins::penguins, aes(x = bill_length_mm, y = bill_depth_mm, color = species)) +
-  geom_point(size = 3) +
+```{r scatter d, warning = FALSE}
+plot1 <- ggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm, color = species)) +
+  geom_point(size = 2) +
   labs(title = "Bill Length vs. Bill Depth", x = "Bill Length (mm)", y = "Bill Depth (mm)")
 
-ggplot(palmerpenguins::penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +
+ggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +
   geom_point(aes(color = species)) +
-  labs(title = "Bill Length vs. Bill Depth", subtitle = "This is the subtitle", caption = "All text is in Duke Royal Blue", x = "Bill Length (mm)", y = "Bill Depth (mm)") +
+  labs(
+    title = "Bill Length vs. Bill Depth", 
+    subtitle = "This is the subtitle", 
+    caption = "All text is in Duke Royal Blue", 
+    x = "Bill Length (mm)", 
+    y = "Bill Depth (mm)"
+  ) +
   facet_wrap(~species) +
   theme_duke() +
   scale_duke_color_discrete()
@@ -85,7 +97,7 @@ plot1 +
 ## Bar Plot
 
 ```{r bar}
-plot2 <- ggplot(palmerpenguins::penguins, aes(x = species, fill = species)) +
+plot2 <- ggplot(penguins, aes(x = species, fill = species)) +
   geom_bar() +
   labs(title = "Distribution of Penguin Species", x = "Species", y = "Count")
 
@@ -101,7 +113,7 @@ plot2.1 +
 
 
 # 8-category plot
-plot2.2 <- ggplot(dumby_df, aes(x = Grade, fill = Grade)) +
+plot2.2 <- ggplot(students, aes(x = grade, fill = grade)) +
   geom_bar()
 
 plot2.2 +
@@ -109,9 +121,9 @@ plot2.2 +
   theme_duke()
 
 # 7-category plot
-plot2.3 <- dumby_df %>%
+plot2.3 <- students %>%
   slice(-13) %>%
-  ggplot(aes(x = Grade, fill = Grade)) +
+  ggplot(aes(x = grade, fill = grade)) +
   geom_bar()
 
 plot2.3 +
@@ -119,9 +131,9 @@ plot2.3 +
   theme_duke()
 
 # 6-category plot
-plot2.4 <- dumby_df %>%
+plot2.4 <- students %>%
   slice(-c(9, 10, 13)) %>%
-  ggplot(aes(x = Grade, fill = Grade)) +
+  ggplot(aes(x = grade, fill = grade)) +
   geom_bar()
 
 plot2.4 +
@@ -129,9 +141,9 @@ plot2.4 +
   theme_duke()
 
 # 5-category plot
-plot2.4 <- dumby_df %>%
+plot2.4 <- students %>%
   slice(-c(9, 10, 13, 7, 18)) %>%
-  ggplot(aes(x = Grade, fill = Grade)) +
+  ggplot(aes(x = grade, fill = grade)) +
   geom_bar()
 
 plot2.4 +
@@ -139,9 +151,9 @@ plot2.4 +
   theme_duke()
 
 # 4-category plot
-plot2.5 <- dumby_df %>%
+plot2.5 <- students %>%
   slice(-c(9, 10, 13, 7, 18, 4, 8)) %>%
-  ggplot(aes(x = Grade, fill = Grade)) +
+  ggplot(aes(x = grade, fill = grade)) +
   geom_bar()
 
 plot2.5 +
@@ -152,7 +164,7 @@ plot2.5 +
 ## Histogram
 
 ```{r hist}
-plot3 <- ggplot2::ggplot(palmerpenguins::penguins, aes(body_mass_g)) +
+plot3 <- ggplot2::ggplot(penguins, aes(body_mass_g)) +
   geom_histogram(ggplot2::aes(fill = species), alpha = 0.8) +
   labs(title = "Distribution of Penguin Body Mass", caption = "(Colors used) \n Duke Royal Blue, Duke Navy Blue, Copper", x = "Body Mass (g)", y = "Count")
 
@@ -168,7 +180,7 @@ plot3 +
 ## Box Plot
 
 ```{r box}
-plot4 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(sex, body_mass_g)) +
+plot4 <- ggplot2::ggplot(penguins, ggplot2::aes(sex, body_mass_g)) +
   ggplot2::geom_boxplot() +
   ggplot2::labs(title = "Comparison of Body Mass By Sex", x = "Sex", y = "Body Mass (g)")
 
@@ -182,7 +194,7 @@ plot4 +
 ## Density Plot
 
 ```{r density}
-plot5 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(bill_depth_mm)) +
+plot5 <- ggplot2::ggplot(penguins, ggplot2::aes(bill_depth_mm)) +
   ggplot2::geom_density(ggplot2::aes(fill = species)) +
   ggplot2::labs(title = "Density of Penguin Bill Depth", x = "Bill Depth (mm)", y = "Densiy")
 
@@ -198,7 +210,7 @@ plot5 +
 ## Jitter Plot - Discrete Color
 
 ```{r jitter d}
-plot6 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(year, body_mass_g)) +
+plot6 <- ggplot2::ggplot(penguins, ggplot2::aes(year, body_mass_g)) +
   ggplot2::geom_jitter(ggplot2::aes(color = species)) +
   ggplot2::labs(title = "Comparison of Body Mass By Year", x = "Year", y = "Body Mass (g)")
 
@@ -213,7 +225,7 @@ plot6 +
 ## Jitter Plot - Discrete Color
 
 ```{r jitter c}
-plot6.1 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(year, body_mass_g)) +
+plot6.1 <- ggplot2::ggplot(penguins, ggplot2::aes(year, body_mass_g)) +
   ggplot2::geom_jitter(ggplot2::aes(color = bill_length_mm)) +
   ggplot2::labs(title = "Comparison of Body Mass By Year", x = "Year", y = "Body Mass (g)")
 
@@ -225,6 +237,7 @@ plot6.1 +
   scale_duke_continuous() +
   theme_minimal()
 ```
+
 ## Line Plot
 
 ```{r line plot}
@@ -256,7 +269,7 @@ lineplot.2
 ## Mosaic Plot 
 
 ```{r mosaic plot}
-plot7 <- ggplot(data = palmerpenguins::penguins) +
+plot7 <- ggplot(data = penguins) +
   ggmosaic::geom_mosaic(aes(x = ggmosaic::product(sex, island), fill = sex)) +
   labs(title = "Penguin Sex vs. Island", x = "Island", y = "Penguin Sex", caption = "(Color from top to bottom) \n Granite, Duke Navy Blue, Duke Royal Blue")
 
@@ -270,8 +283,9 @@ plot7 +
 ```
 
 # Label Plot
+
 ```{r label}
-plot8 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(bill_length_mm, bill_depth_mm, fill = island)) +
+plot8 <- ggplot2::ggplot(penguins, ggplot2::aes(bill_length_mm, bill_depth_mm, fill = island)) +
   ggplot2::geom_label(aes(label = island)) +
   ggplot2::labs(title = "Bill Length/Depth by Island", x = "Bill Length (mm)", y = "Bill Depth (mm)")
 
@@ -284,10 +298,10 @@ plot8 +
   theme_minimal()
 ```
 
-# Quantile Plot
+## Quantile Plot
 
 ```{r quantile}
-plot9 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(bill_length_mm, bill_depth_mm, color = species)) +
+plot9 <- ggplot2::ggplot(penguins, ggplot2::aes(bill_length_mm, bill_depth_mm, color = species)) +
   ggplot2::geom_quantile() +
   ggplot2::labs(title = "Bill Length/Depth Quantiles", x = "Bill Length (mm)", y = "Bill Depth (mm)")
 
@@ -300,9 +314,10 @@ plot9 +
   theme_minimal()
 ```
 
-# Area Plot
+## Area Plot
+
 ```{r area}
-plot10 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(body_mass_g, fill = species)) +
+plot10 <- ggplot2::ggplot(penguins, ggplot2::aes(body_mass_g, fill = species)) +
   ggplot2::geom_area(stat = "bin") +
   ggplot2::labs(title = "Area of Body Mass Index", x = "BMI")
 
@@ -315,10 +330,10 @@ plot10 +
   theme_minimal()
 ```
 
-# Dot Plot
+## Dot Plot
 
 ```{r dotpot}
-plot11 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(body_mass_g)) +
+plot11 <- ggplot2::ggplot(penguins, ggplot2::aes(body_mass_g)) +
   ggplot2::geom_dotplot(aes(fill = species)) +
   ggplot2::labs(title = "Dotplot of BMI", x = "BMI")
 
@@ -331,10 +346,10 @@ plot11 +
   theme_minimal()
 ```
 
-# Frequency Polynomial Plot
+## Frequency Polynomial Plot
 
 ```{r freqplot}
-plot12 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(body_mass_g)) +
+plot12 <- ggplot2::ggplot(penguins, ggplot2::aes(body_mass_g)) +
   ggplot2::geom_freqpoly(aes(color = species)) +
   ggplot2::labs(title = "Frequency Polynomial Plot of BMI", x = "BMI")
 
@@ -347,10 +362,10 @@ plot12 +
   theme_minimal()
 ```
 
-# Column Plot
+## Column Plot
 
 ```{r colplot}
-plot13 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(species, body_mass_g, color = species)) +
+plot13 <- ggplot2::ggplot(penguins, ggplot2::aes(species, body_mass_g, color = species)) +
   ggplot2::geom_col() +
   ggplot2::labs(title = "BMI By Species of BMI", x = "Species", y = "BMI")
 
@@ -363,10 +378,10 @@ plot13 +
   theme_minimal()
 ```
 
-# Violin Plot
+## Violin Plot
 
 ```{r violinplot}
-plot14 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(species, body_mass_g, fill = species)) +
+plot14 <- ggplot2::ggplot(penguins, ggplot2::aes(species, body_mass_g, fill = species)) +
   geom_violin(scale = "area") +
   ggplot2::labs(title = "BMI By Species", x = "Species", y = "BMI")
 
@@ -379,10 +394,10 @@ plot14 +
   theme_minimal()
 ```
 
-# Count Plot
+## Count Plot
 
 ```{r countplot}
-plot15 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(species, island, color = species)) +
+plot15 <- ggplot2::ggplot(penguins, ggplot2::aes(species, island, color = species)) +
   geom_count() +
   ggplot2::labs(title = "Species Count by Island", x = "Species", y = "Island")
 
@@ -395,10 +410,10 @@ plot15 +
   theme_minimal()
 ```
 
-# Step Plot
+## Step Plot
 
 ```{r stepplot}
-plot16 <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(year, body_mass_g, color = species)) +
+plot16 <- ggplot2::ggplot(penguins, ggplot2::aes(year, body_mass_g, color = species)) +
   geom_step()
 ggplot2::labs(title = "BMI By Year", x = "Year", y = "BMI")
 
@@ -411,7 +426,7 @@ plot16 +
   theme_minimal()
 ```
 
-# Coordinate Polar
+## Coordinate Polar
 
 ```{r coordpol}
 plot1 +
@@ -419,4 +434,3 @@ plot1 +
   theme_bw() +
   scale_duke_color_discrete()
 ```
-
