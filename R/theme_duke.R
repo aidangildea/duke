@@ -180,10 +180,14 @@ theme_duke <- function(base_size = 11, base_family = "",
       ),
       # legend title and text aesthetics
       # legend.position = "right",
-      legend.text = ggplot2::element_text(size = ggplot2::rel(1.5),
-                                           family = legend, color = "#00539B"),
-      legend.title = ggplot2::element_text(size = ggplot2::rel(1.5),
-                                            family = legend, color = "#00539B"),
+      legend.text = ggplot2::element_text(
+        size = ggplot2::rel(1.5),
+        family = legend, color = "#00539B"
+      ),
+      legend.title = ggplot2::element_text(
+        size = ggplot2::rel(1.5),
+        family = legend, color = "#00539B"
+      ),
       # background panel for facet plot titles
       strip.background = ggplot2::element_rect(fill = "#E2E6ED", color = "#E2E6ED"),
       # text for facet plots
@@ -193,7 +197,3 @@ theme_duke <- function(base_size = 11, base_family = "",
       complete = TRUE
     )
 }
-
-
-
-

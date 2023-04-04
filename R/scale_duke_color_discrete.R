@@ -22,7 +22,6 @@
 #' ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm, color = species)) +
 #'   geom_point() +
 #'   scale_duke_color_discrete()
-
 scale_duke_color_discrete <- function(..., na.value = "#B5B5B5",
                                       guide = "legend",
                                       aesthetics = c("color", "colour")) {

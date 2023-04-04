@@ -24,7 +24,7 @@ various applications. Similar to the other functions within the `theme()`, this 
 For these visualizations, we will use the R dummy data set `palmerpenguins`.
 
 ```{r penguins}
-#install.packages("palmerpenguins")
+# install.packages("palmerpenguins")
 library(palmerpenguins)
 library(duke)
 library(ggplot2)
@@ -38,7 +38,7 @@ plot <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(bill_length_mm, f
   ggplot2::geom_point(ggplot2::aes(colour = species)) +
   ggplot2::labs(title = "Bill Length vs. Flipper Length", caption = "There are three different species of penguins.", x = "Bill Length (mm)", y = "Flipper Length (mm)")
 
-plot + 
+plot +
   theme_duke()
 ```
 

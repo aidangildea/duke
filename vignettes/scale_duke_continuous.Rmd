@@ -38,6 +38,6 @@ plot <- ggplot2::ggplot(palmerpenguins::penguins, ggplot2::aes(bill_length_mm, f
   ggplot2::geom_point(ggplot2::aes(colour = bill_length_mm)) +
   ggplot2::labs(title = "Bill Length vs. Flipper Length", caption = "There are three different species of penguins.", x = "Bill Length (mm)", y = "Flipper Length (mm)")
 
-plot + 
+plot +
   scale_duke_continuous()
 ```

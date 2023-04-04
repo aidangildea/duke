@@ -10,11 +10,14 @@
 #'
 #' @examples
 #' #' # Default example
-#' plot3 <- ggplot2::ggplot(iris, ggplot2::aes(x=Species, fill = Species)) + ggplot2::geom_bar()
+#' plot3 <- ggplot2::ggplot(iris, ggplot2::aes(x = Species, fill = Species)) +
+#'   ggplot2::geom_bar()
 #' plot3 + scale_duke_fill_discrete()
 scale_duke_fill_discrete <- function(..., na.value = "#B5B5B5",
                                      guide = "legend",
                                      aesthetics = "fill") {
-  ggplot2::discrete_scale(aesthetics = aesthetics, "duke_d_fill", duke_pal(),
-                          na.value = na.value, guide = guide, ...)
+  ggplot2::discrete_scale(
+    aesthetics = aesthetics, "duke_d_fill", duke_pal(),
+    na.value = na.value, guide = guide, ...
+  )
 }
