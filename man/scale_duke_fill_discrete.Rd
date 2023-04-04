@@ -16,7 +16,7 @@ scale_duke_fill_discrete(
 
 \item{na.value}{Color used for NA values}
 
-\item{guide}{the name used to create the guide. See \href{https://www.rdocumentation.org/link/guides?package=ggplot2&version=2.1.0}{\code{guides}} for more info.}
+\item{guide}{the name used to create the guide. See \href{https://ggplot2.tidyverse.org/reference/guides.html}{\code{guides()}} for more info.}
 
 \item{aesthetics}{String or vector of strings detailing what aesthetic features this discrete scale can apply to.}
 }
@@ -27,7 +27,12 @@ a visualization with discrete duke color scale in fill
 Title
 }
 \examples{
-#' # Default example
-plot3 <- ggplot2::ggplot(iris, ggplot2::aes(x=Species, fill = Species)) + ggplot2::geom_bar()
-plot3 + scale_duke_fill_discrete()
+# default
+ggplot(penguins, aes(x = species, fill = species)) +
+  geom_point()
+
+# vs. with scale_duke_color_discrete()
+ggplot(penguins, aes(x = species, fill = species)) +
+  geom_bar() +
+  scale_duke_fill_discrete()
 }

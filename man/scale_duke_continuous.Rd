@@ -37,7 +37,7 @@ Apply continuous color scale
 }
 \examples{
 # Default example from Hatteras to Duke Royal Blue
-plot3 <- ggplot2::ggplot(iris, ggplot2::aes(x=Petal.Length, y = Petal.Width)) +
+plot3 <- ggplot2::ggplot(iris, ggplot2::aes(x = Petal.Length, y = Petal.Width)) +
   ggplot2::geom_point()
 plot3 + scale_duke_continuous()
 }

@@ -18,7 +18,7 @@
 #' ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm, color = species)) +
 #'   geom_point()
 #'
-#' # vs. with scale_duke_color_discrete()
+#' # vs. with Duke scale
 #' ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm, color = species)) +
 #'   geom_point() +
 #'   scale_duke_color_discrete()

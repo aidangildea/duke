@@ -13,10 +13,17 @@
 #' @importFrom tibble 'tibble'
 #'
 #' @examples
-#' # Default example from Hatteras to Duke Royal Blue
-#' plot3 <- ggplot2::ggplot(iris, ggplot2::aes(x = Petal.Length, y = Petal.Width)) +
-#'   ggplot2::geom_point()
-#' plot3 + scale_duke_continuous()
+#' library(ggplot2)
+#' library(palmerpenguins)
+#'
+#' # default
+#' ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm, color = body_mass_g)) +
+#'   geom_point()
+#'
+#' # vs. with Duke scale
+#' ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm, color = body_mass_g)) +
+#'   geom_point() +
+#'   scale_duke_continuous()
 scale_duke_continuous <- function(..., low = "#00539B", high = "#E2E6ED", space = "Lab",
                                   na.value = "#666666", guide = "colourbar", aesthetics = c("colour", "color", "fill")) {
   ggplot2::continuous_scale(aesthetics, "duke_c", scales::seq_gradient_pal(low, high, space),
