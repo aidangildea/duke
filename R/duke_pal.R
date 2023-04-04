@@ -1,7 +1,7 @@
 #' Duke Palette Function
 #'
 #'
-#' @return Character vector of Duke palette hex codes.
+#' @return Character vector of Duke palette HEX codes.
 #' @export
 #' @importFrom scales "manual_pal"
 #'
