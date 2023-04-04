@@ -1,5 +1,9 @@
 #' Theme Duke
 #'
+#' Implements the overall aesthetic and thematic features of the plot.
+#' Striving for a minimalist design, it defines the background, grid line,
+#' text, and legend arguments of the visualization.
+#'
 #' @param base_size the base size
 #' @param base_family the base family
 #' @param base_line_size the baseline size
@@ -19,108 +23,48 @@
 #' @examples
 #'
 #' library(ggplot2)
-#' plot <- ggplot(cars, aes(speed, dist)) +
+#' library(palmerpenguins)
+#'
+#' # default
+#' p <- ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm, color = species)) +
 #'   geom_point() +
-#'   labs(title = "Duke Blue")
+#'   labs(
+#'     title = "Bill length and depth of penguins",
+#'     subtitle = "Dimensions for Adelie, Chinstrap, and Gentoo Penguins",
+#'     x = "Bill depth (mm)",
+#'     y = "Bill length (mm)",
+#'     color = "Species",
+#'     caption = "Source: palmerpenguins package."
+#'   )
+#' p
 #'
-#' # default theme
-#' plot
+#' # vs. with Duke theme
+#' p +
+#'   theme_duke()
 #'
-#' # Duke theme
-#' plot + theme_duke()
-theme_duke <- function(base_size = 11, base_family = "",
-                       base_line_size = base_size / 22,
-                       base_rect_size = base_size / 22) {
+#' # vs. with Duke theme and scale
+#' p +
+#'   scale_duke_color_discrete() +
+#'   theme_duke()
+#'
+#' # with Duke theme, scale, and further customization to theme
+#' p +
+#'   scale_duke_color_discrete() +
+#'   theme_duke() +
+#'   theme(
+#'     plot.title = element_text(color = "red", size = 20),
+#'     plot.background = element_rect(fill = "pink", color = "yellow"),
+#'     panel.grid = element_blank()
+#'   )
+theme_duke <- function(
+    base_size = 11,
+    base_family = base_family,
+    base_line_size = base_size / 22,
+    base_rect_size = base_size / 22
+    ) {
   half_line <- base_size / 2
+  base_family <- "Atkinson Hyperlegible"
 
-  # Downloading fonts
-  # If error occurs, custom error message is printed
-
-  # tryCatch(
-  #   sysfonts::font_add(family = "Garamond 3 LT Std",
-  #                      regular = "Garamond3LTStd.otf"),
-  #   error = function(e) {
-  #     message("Garamond 3 LT Std is not available on your system.\n")
-  #     if (interactive()) {
-  #     resp <-
-  #       utils::menu(c("Yes", "No"), title = "Do you want to download Garamond 3 LT Std locally?")
-  #     if (resp == "Yes" | resp == 1) {
-  #       message("Downloading Garamond 3 LT Std. Install the font and rerun code for proper use.\n")
-  #       utils::browseURL("https://github.com/aidangildea/duke/raw/master/Fonts/Garamond3LTStd.otf")
-  #     }}
-  #   }
-  # )
-
-  # tryCatch(
-  #  sysfonts::font_add(family = "hyperlegible",
-  #                     regular = "Atkinson-Hyperlegible-Regular-102.otf"),
-  #  error = function(e) {
-  #    message("Atkinson-Hyperlegible is not available on your system.\n")
-  #    if (interactive()) {
-  #    resp <-
-  #      utils::menu(c("Yes", "No"), title = "Do you want to download Atkinson-Hyperlegible locally?")
-  #    if (resp == "Yes" | resp == 1) {
-  #      message("Downloading Atkinson-Hyperlegible. Install the font and rerun code for proper use.\n")
-  #      utils::browseURL(
-  #        "https://github.com/aidangildea/duke/raw/master/Fonts/Atkinson-Hyperlegible-Regular-102.otf"
-  #      )
-  #    }}
-  #  }
-  # )
-
-  #   tryCatch(sysfonts::font_add(family = "Garamond 3 LT Std",
-  #                      regular = "Garamond3LTStd.otf"),
-  #            warning = function(e) {warning("Garamond 3 LT Std is not available on
-  # your system. Please download [Garamond 3 Lt Std](https://github.com/aidangildea/duke/raw/master/Fonts/Garamond3LTStd.otf) for custom font functionality.\n")})
-  # tryCatch(sysfonts::font_add(family = "EBGaramond",
-  #                    regular = "EBGaramond-Regular.ttf"),
-  #          error = function(e) {warning("EB Garamond is not available on your system. Please download and install for custom font functionality.\n")})
-  # tryCatch(sysfonts::font_add(family = "opensans",
-  #                    regular = "OpenSans-Regular.ttf"),
-  #          error = function(e) {warning("OpenSans is not available on your system. Please download and install for custom font functionality.\n")})
-  #   tryCatch(sysfonts::font_add(family = "hyperlegible",
-  #                      regular = "Atkinson-Hyperlegible-Regular-102.otf"),
-  #            error = function(e) {warning("Atkinson-Hyperlegible is not available
-  # on your system. Please download [Atkinson-Hyperlegible](https://github.com/aidangildea/duke/raw/master/Fonts/Atkinson-Hyperlegible-Regular-102.otf)custom font functionality.\n")})
-
-
-  fonts <- as.data.frame(sysfonts::font_files()$family)
-
-  if (any(fonts == "Atkinson Hyperlegible")) {
-    title <- "hyperlegible"
-  } else {
-    title <- "sans"
-    warning("Defaulting to sans font for title.\n")
-  }
-  if (any(fonts == "Atkinson Hyperlegible")) {
-    legend <- "hyperlegible"
-  } else {
-    legend <- "sans"
-    warning("Defaulting to sans font for legend.\n")
-  }
-  if (any(fonts == "Atkinson Hyperlegible")) {
-    axis <- "hyperlegible"
-  } else {
-    axis <- "sans"
-    # had opensans earlier, trying new fonts
-    warning("Defaulting to sans font for axis.\n")
-  }
-  if (any(fonts == "Atkinson Hyperlegible")) {
-    caption <- "hyperlegible"
-  } else {
-    caption <- "sans"
-    warning("Defaulting to sans font for caption.\n")
-  }
-
-  # if(any(fonts == "EB Garamond")) {
-  #   legend <- "EBGaramond" } else {legend <- "sans"
-  #   warning("Defaulting to sans font.")}
-  # if(any(fonts == "EB Garamond")) {
-  #   axis <- "EBGaramond" } else {axis <- "sans"
-  #   # had opensans earlier, trying new fonts
-  #   warning("Defaulting to sans font.")}
-
-  showtext::showtext_auto()
   # Starts with theme_grey and then modify some parts
   ggplot2::theme_minimal(
     base_size = base_size,
@@ -131,69 +75,76 @@ theme_duke <- function(base_size = 11, base_family = "",
     ggplot2::theme(
       # title text aesthetics
       plot.title = ggplot2::element_text(
-        size = ggplot2::rel(2),
-        # hjust = 0, vjust = 1,
+        hjust = 0, vjust = 1,
         margin = ggplot2::margin(b = half_line),
-        family = title, face = "bold",
-        colour = "#00539B" # , size = 30
+        family = base_family, face = "bold",
+        colour = "#00539B"
       ),
       # plot.title.position = "panel",
       # subtitle text aesthetics
-      plot.subtitle = ggplot2::element_text( # font size "regular"
-        size = ggplot2::rel(1.5),
+      plot.subtitle = ggplot2::element_text(
         hjust = 0, vjust = 1,
         margin = ggplot2::margin(b = half_line),
-        family = title, colour = "#00539B"
+        family = base_family, colour = "#00539B"
       ),
       # caption text aesthetics
-      plot.caption = ggplot2::element_text( # font size "small"
-        size = ggplot2::rel(1.5),
+      plot.caption = ggplot2::element_text(
         hjust = 1, vjust = 1,
         margin = ggplot2::margin(t = half_line),
-        family = caption, colour = "#00539B"
-        # size = 20, hjust = 1, vjust = -.7
+        family = base_family, colour = "#00539B"
       ),
-      plot.caption.position = "panel",
       # axis title and text aesthetics
       axis.title.x = ggplot2::element_text(
-        size = ggplot2::rel(1.75),
         margin = ggplot2::margin(t = half_line / 2),
-        vjust = -.5,
-        family = axis, colour = "#00539B"
+        vjust = -0.5,
+        family = base_family, colour = "#00539B"
       ),
       axis.title.y = ggplot2::element_text(
-        size = ggplot2::rel(1.75), angle = 90,
         margin = ggplot2::margin(r = half_line / 2),
         vjust = 1,
-        family = axis, colour = "#00539B"
+        angle = 90,
+        family = base_family, colour = "#00539B"
       ),
-      axis.text = ggplot2::element_text(size = ggplot2::rel(1.5), colour = "#012169"),
+      axis.text = ggplot2::element_text(
+        colour = "#012169"
+      ),
       axis.text.x = ggplot2::element_text(
-        margin =
-          ggplot2::margin(t = 0.8 * half_line / 2),
-        vjust = 1, family = axis
+        margin = ggplot2::margin(t = 0.8 * half_line / 2),
+        vjust = 1,
+        family = base_family
       ),
       axis.text.y = ggplot2::element_text(
-        margin =
-          ggplot2::margin(r = 0.8 * half_line / 2),
-        hjust = 1, family = axis
+        margin = ggplot2::margin(r = 0.8 * half_line / 2),
+        hjust = 1,
+        family = base_family
       ),
       # legend title and text aesthetics
-      # legend.position = "right",
-      legend.text = ggplot2::element_text(size = ggplot2::rel(1.5),
-                                           family = legend, color = "#00539B"),
-      legend.title = ggplot2::element_text(size = ggplot2::rel(1.5),
-                                            family = legend, color = "#00539B"),
+      legend.text = ggplot2::element_text(
+        family = base_family,
+        color = "#00539B"
+      ),
+      legend.title = ggplot2::element_text(
+        family = base_family,
+        color = "#00539B"
+      ),
       # background panel for facet plot titles
       strip.background = ggplot2::element_rect(fill = "#E2E6ED", color = "#E2E6ED"),
       # text for facet plots
-      strip.text = ggplot2::element_text(family = axis, colour = "#012169"),
-      strip.text.x = ggplot2::element_text(family = axis, colour = "#012169"),
-      strip.text.y = ggplot2::element_text(family = axis, colour = "#012169"),
+      strip.text = ggplot2::element_text(
+        margin = ggplot2::margin(t = half_line / 2, b = half_line / 2),
+        family = base_family,
+        colour = "#012169"
+      ),
+      strip.text.x = ggplot2::element_text(
+        margin = ggplot2::margin(t = half_line / 2, b = half_line / 2),
+        family = base_family,
+        colour = "#012169"
+      ),
+      strip.text.y = ggplot2::element_text(
+        margin = ggplot2::margin(t = half_line / 2, b = half_line / 2),
+        family = base_family,
+        colour = "#012169"
+      ),
       complete = TRUE
     )
 }
-
-
-
-

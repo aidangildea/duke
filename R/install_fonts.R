@@ -1,9 +1,7 @@
 install_font <- function(family_name, sub_dir) {
-
   loc <- system.file("fonts", sub_dir, package = "duke")
 
   if (platform() == "mac") {
-
     font_library <- path.expand("~/Library/Fonts")
 
     if (!dir.exists(font_library)) {
@@ -16,17 +14,13 @@ install_font <- function(family_name, sub_dir) {
       from = list.files(path = loc, full.names = TRUE),
       to = font_library
     ) -> res
-
   } else {
-
     message(
       "The ", family_name, " font files are in:\n",
       system.file("fonts", sub_dir, package = "duke"),
       "\nand should be installed on your system."
     )
-
   }
-
 }
 
 #' Install Atkinson Hyperlegible

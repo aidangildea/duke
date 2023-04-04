@@ -6,7 +6,7 @@
 \usage{
 theme_duke(
   base_size = 11,
-  base_family = "",
+  base_family = base_family,
   base_line_size = base_size/22,
   base_rect_size = base_size/22
 )
@@ -24,18 +24,44 @@ theme_duke(
 a plot with Duke colors
 }
 \description{
-Theme Duke
+Implements the overall aesthetic and thematic features of the plot.
+Striving for a minimalist design, it defines the background, grid line,
+text, and legend arguments of the visualization.
 }
 \examples{
 
 library(ggplot2)
-plot <- ggplot(cars, aes(speed, dist)) +
+library(palmerpenguins)
+
+# default
+p <- ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm, color = species)) +
   geom_point() +
-  labs(title = "Duke Blue")
+  labs(
+    title = "Bill length and depth of penguins",
+    subtitle = "Dimensions for Adelie, Chinstrap, and Gentoo Penguins",
+    x = "Bill depth (mm)",
+    y = "Bill length (mm)",
+    color = "Species",
+    caption = "Source: palmerpenguins package."
+  )
+p
 
-# default theme
-plot
+# vs. with Duke theme
+p +
+  theme_duke()
 
-# Duke theme
-plot + theme_duke()
+# vs. with Duke theme and scale
+p +
+  scale_duke_color_discrete() +
+  theme_duke()
+
+# with Duke theme, scale, and further customization to theme
+p +
+  scale_duke_color_discrete() +
+  theme_duke() +
+  theme(
+    plot.title = element_text(color = "red", size = 20),
+    plot.background = element_rect(fill = "pink", color = "yellow"),
+    panel.grid = element_blank()
+  )
 }

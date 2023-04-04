@@ -21,7 +21,7 @@ This vignette is intended to demonstrate the functionality of `scale_duke_fill_d
 For these visualization, we will use the R dummy data set `palmerpenguins`.
 
 ```{r penguins}
-#install.packages("palmerpenguins")
+# install.packages("palmerpenguins")
 library(palmerpenguins)
 library(duke)
 library(ggplot2)
@@ -32,11 +32,11 @@ attach(penguins)
 ## Bar Plot
 
 ```{r bar plot}
-plot <- ggplot(palmerpenguins::penguins, aes(x=species, fill = species)) +
+plot <- ggplot(palmerpenguins::penguins, aes(x = species, fill = species)) +
   geom_bar() +
   labs(title = "Distribution of Species", caption = "(Colors used) \n Duke Royal Blue, Duke Navy Blue, Copper", x = "Species", y = "Count")
 
-plot + 
+plot +
   scale_duke_fill_discrete()
 ```
 
@@ -44,9 +44,9 @@ plot +
 
 ```{r histogram plot}
 plot2 <- ggplot(palmerpenguins::penguins, aes(x = bill_length_mm)) +
-  geom_histogram(aes(fill= species)) +
+  geom_histogram(aes(fill = species)) +
   labs(title = "Distribution of Bill Length", caption = "(Colors used) \n Duke Royal Blue, Duke Navy Blue, Copper", x = "Bill Length (mm)", y = "Count")
 
-plot2 + 
+plot2 +
   scale_duke_fill_discrete()
 ```
