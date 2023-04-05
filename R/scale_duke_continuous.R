@@ -15,7 +15,6 @@
 #'
 #' @return a visualization with continuous duke color scale
 #' @export
-#' @importFrom tibble 'tibble'
 #'
 #' @examples
 #' library(ggplot2)

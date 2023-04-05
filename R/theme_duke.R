@@ -15,11 +15,6 @@
 #' @importFrom ggplot2 'rel'
 #' @importFrom ggplot2 'margin'
 #' @importFrom ggplot2 'element_text'
-#' @importFrom sysfonts 'font_add'
-#' @importFrom sysfonts 'font_files'
-#' @importFrom showtext 'showtext_auto'
-#' @importFrom utils 'menu'
-#' @importFrom utils 'browseURL'
 #' @examples
 #'
 #' library(ggplot2)
@@ -58,14 +53,23 @@
 #'   )
 theme_duke <- function(
     base_size = 11,
-    base_family = base_family,
+    base_family = c("Atkinson Hyperlegible", "EB Garamond"),
     base_line_size = base_size / 22,
     base_rect_size = base_size / 22
     ) {
-  half_line <- base_size / 2
-  base_family <- "Atkinson Hyperlegible"
 
-  # Starts with theme_grey and then modify some parts
+  # Define fonts
+  base_family <- base_family
+  if (base_family == "Atkinson Hyperlegible"){
+    install_atkinson_hyperlegible()
+  } else if (base_family == "EB Garamond"){
+    install_eb_garamond()
+  }
+
+  # Define half_line
+  half_line <- base_size / 2
+
+  # Starts with v and then modify some parts
   ggplot2::theme_minimal(
     base_size = base_size,
     base_family = base_family,

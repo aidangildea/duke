@@ -6,7 +6,7 @@
 \usage{
 theme_duke(
   base_size = 11,
-  base_family = base_family,
+  base_family = c("Atkinson Hyperlegible", "EB Garamond"),
   base_line_size = base_size/22,
   base_rect_size = base_size/22
 )
