@@ -6,7 +6,7 @@
 \usage{
 theme_duke(
   base_size = 11,
-  base_family = "Atkinson Hyperlegible",
+  base_family = "",
   base_line_size = base_size/22,
   base_rect_size = base_size/22
 )
@@ -14,7 +14,7 @@ theme_duke(
 \arguments{
 \item{base_size}{the base size}
 
-\item{base_family}{the base family}
+\item{base_family}{the base family, AtkinsonHyperlegible by default.}
 
 \item{base_line_size}{the baseline size}
 
@@ -27,6 +27,18 @@ a plot with Duke colors
 Implements the overall aesthetic and thematic features of the plot.
 Striving for a minimalist design, it defines the background, grid line,
 text, and legend arguments of the visualization.
+}
+\details{
+This theme aims to use Atkinson Hyperlegible font for text in plots
+by default. This font focuses on letterform distinction to increase character
+recognition, ultimately improving readability. Currently, the font will be
+used if it's installed on the user's system. If not, a message will be
+printed directing users to where font can be downloaded and font used in plots
+will default to "sans". \code{base_family} can also be set to "EB Garamond", which
+is the recommended Duke serif font. If installed on the user's system, this
+font can be used in plots with \code{theme_duke(base_family = "EB Garamond")}. If
+not, a message will be printed directing users to where font can be downloaded
+and font used in plots will default to "serif".
 }
 \examples{
 

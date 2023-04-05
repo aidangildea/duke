@@ -5,14 +5,24 @@
 #' text, and legend arguments of the visualization.
 #'
 #' @param base_size the base size
-#' @param base_family the base family
+#' @param base_family the base family, AtkinsonHyperlegible by default.
 #' @param base_line_size the baseline size
 #' @param base_rect_size the base rect
+#'
+#' @details This theme aims to use Atkinson Hyperlegible font for text in plots
+#' by default. This font focuses on letterform distinction to increase character
+#' recognition, ultimately improving readability. Currently, the font will be
+#' used if it's installed on the user's system. If not, a message will be
+#' printed directing users to where font can be downloaded and font used in plots
+#' will default to "sans". `base_family` can also be set to "EB Garamond", which
+#' is the recommended Duke serif font. If installed on the user's system, this
+#' font can be used in plots with `theme_duke(base_family = "EB Garamond")`. If
+#' not, a message will be printed directing users to where font can be downloaded
+#' and font used in plots will default to "serif".
 #'
 #' @return a plot with Duke colors
 #' @export
 #' @importFrom ggplot2 '%+replace%'
-#' @importFrom ggplot2 'rel'
 #' @importFrom ggplot2 'margin'
 #' @importFrom ggplot2 'element_text'
 #' @examples
@@ -53,17 +63,45 @@
 #'   )
 theme_duke <- function(
     base_size = 11,
-    base_family = "Atkinson Hyperlegible",
+    base_family = "",
     base_line_size = base_size / 22,
     base_rect_size = base_size / 22
     ) {
 
   # Define fonts
   base_family <- base_family
-  if (base_family == "Atkinson Hyperlegible"){
-    install_atkinson_hyperlegible()
-  } else if (base_family == "EB Garamond"){
-    install_eb_garamond()
+
+  # Fonts workaround
+  if (base_family == "AtkinsonHyperlegible"){
+
+    # Commenting this out for now, not working on all systems.
+    # Alternate temporary approach below.
+    # install_atkinson_hyperlegible()
+
+    if (!(base_family %in% systemfonts::system_fonts()$family |
+          base_family %in% systemfonts::registry_fonts()$family)){
+      message(
+        "Please install the font Atkinson Hyperlegible on your system.\nYou can install it from https://fonts.google.com/specimen/Atkinson+Hyperlegible.\nDefaulting to sans font."
+      )
+      base_family <- "sans"
+
+    }
+
+  } else if (base_family == "EBGaramond"){
+
+    # Commenting this out for now, not working on all systems.
+    # Alternate temporary approach below.
+    # install_eb_garamond()
+
+    if (!(base_family %in% systemfonts::system_fonts()$family |
+          base_family %in% systemfonts::registry_fonts()$family)){
+      message(
+        "Please install the font EB Garamond on your system.\nYou can install it from https://fonts.google.com/specimen/EB+Garamond.\nDefaulting to serif font."
+      )
+      base_family = "serif"
+
+    }
+
   }
 
   # Define half_line
@@ -77,27 +115,30 @@ theme_duke <- function(
     base_rect_size = base_rect_size
   ) %+replace%
     ggplot2::theme(
-      # title text aesthetics
+
+      # title text
       plot.title = ggplot2::element_text(
         hjust = 0, vjust = 1,
         margin = ggplot2::margin(b = half_line),
         family = base_family, face = "bold",
         colour = "#00539B"
       ),
-      # plot.title.position = "panel",
-      # subtitle text aesthetics
+
+      # subtitle text
       plot.subtitle = ggplot2::element_text(
         hjust = 0, vjust = 1,
         margin = ggplot2::margin(b = half_line),
         family = base_family, colour = "#00539B"
       ),
-      # caption text aesthetics
+
+      # caption text
       plot.caption = ggplot2::element_text(
         hjust = 1, vjust = 1,
         margin = ggplot2::margin(t = half_line),
         family = base_family, colour = "#00539B"
       ),
-      # axis title and text aesthetics
+
+      # axis title and text
       axis.title.x = ggplot2::element_text(
         margin = ggplot2::margin(t = half_line / 2),
         vjust = -0.5,
@@ -122,7 +163,8 @@ theme_duke <- function(
         hjust = 1,
         family = base_family
       ),
-      # legend title and text aesthetics
+
+      # legend title and text
       legend.text = ggplot2::element_text(
         family = base_family,
         color = "#00539B"
@@ -131,8 +173,10 @@ theme_duke <- function(
         family = base_family,
         color = "#00539B"
       ),
+
       # background panel for facet plot titles
       strip.background = ggplot2::element_rect(fill = "#E2E6ED", color = "#E2E6ED"),
+
       # text for facet plots
       strip.text = ggplot2::element_text(
         margin = ggplot2::margin(t = half_line / 2, b = half_line / 2),
@@ -149,6 +193,7 @@ theme_duke <- function(
         family = base_family,
         colour = "#012169"
       ),
+
       complete = TRUE
     )
 }
