@@ -2,8 +2,6 @@
 output: github_document
 ---
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -58,7 +56,7 @@ plot <- ggplot2::ggplot(iris, ggplot2::aes(Sepal.Length, Sepal.Width)) +
   x = "Sepal Length", y = "Sepal Width")
 
 plot2 <- ggplot2::ggplot(iris, ggplot2::aes(Sepal.Length, Sepal.Width)) +
-  ggplot2::geom_point(ggplot2::aes(colour = Sepal.Length)) +
+  ggplot2::geom_point(ggplot2::aes(color = Sepal.Length)) +
   ggplot2::labs(title = "Sepal Length vs. Sepal Width", 
   caption = "Data sourced from iris in datasets package.", 
   x = "Sepal Length", y = "Sepal Width")
