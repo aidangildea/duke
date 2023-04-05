@@ -14,7 +14,7 @@ theme_duke(
 \arguments{
 \item{base_size}{the base size}
 
-\item{base_family}{the base family}
+\item{base_family}{the base family, AtkinsonHyperlegible by default.}
 
 \item{base_line_size}{the baseline size}
 
@@ -24,18 +24,56 @@ theme_duke(
 a plot with Duke colors
 }
 \description{
-Theme Duke
+Implements the overall aesthetic and thematic features of the plot.
+Striving for a minimalist design, it defines the background, grid line,
+text, and legend arguments of the visualization.
+}
+\details{
+This theme aims to use Atkinson Hyperlegible font for text in plots
+by default. This font focuses on letterform distinction to increase character
+recognition, ultimately improving readability. Currently, the font will be
+used if it's installed on the user's system. If not, a message will be
+printed directing users to where font can be downloaded and font used in plots
+will default to "sans". \code{base_family} can also be set to "EB Garamond", which
+is the recommended Duke serif font. If installed on the user's system, this
+font can be used in plots with \code{theme_duke(base_family = "EB Garamond")}. If
+not, a message will be printed directing users to where font can be downloaded
+and font used in plots will default to "serif".
 }
 \examples{
 
 library(ggplot2)
-plot <- ggplot(cars, aes(speed, dist)) +
+library(palmerpenguins)
+
+# default
+p <- ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm, color = species)) +
   geom_point() +
-  labs(title = "Duke Blue")
+  labs(
+    title = "Bill length and depth of penguins",
+    subtitle = "Dimensions for Adelie, Chinstrap, and Gentoo Penguins",
+    x = "Bill depth (mm)",
+    y = "Bill length (mm)",
+    color = "Species",
+    caption = "Source: palmerpenguins package."
+  )
+p
 
-# default theme
-plot
+# vs. with Duke theme
+p +
+  theme_duke()
 
-# Duke theme
-plot + theme_duke()
+# vs. with Duke theme and scale
+p +
+  scale_duke_color_discrete() +
+  theme_duke()
+
+# with Duke theme, scale, and further customization to theme
+p +
+  scale_duke_color_discrete() +
+  theme_duke() +
+  theme(
+    plot.title = element_text(color = "red", size = 20),
+    plot.background = element_rect(fill = "pink", color = "yellow"),
+    panel.grid = element_blank()
+  )
 }

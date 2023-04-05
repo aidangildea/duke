@@ -1,34 +1,3 @@
-install_font <- function(family_name, sub_dir) {
-
-  loc <- system.file("fonts", sub_dir, package = "duke")
-
-  if (platform() == "mac") {
-
-    font_library <- path.expand("~/Library/Fonts")
-
-    if (!dir.exists(font_library)) {
-      dir.create(font_library, showWarnings = TRUE, mode = "0700")
-    }
-
-    message("Copying ", family_name, " to ", font_library)
-
-    file.copy(
-      from = list.files(path = loc, full.names = TRUE),
-      to = font_library
-    ) -> res
-
-  } else {
-
-    message(
-      "The ", family_name, " font files are in:\n",
-      system.file("fonts", sub_dir, package = "duke"),
-      "\nand should be installed on your system."
-    )
-
-  }
-
-}
-
 #' Install Atkinson Hyperlegible
 #'
 #' Atkinson Hyperlegible font is named after Braille Institute founder,
@@ -42,7 +11,23 @@ install_font <- function(family_name, sub_dir) {
 #' @examples
 #' install_atkinson_hyperlegible()
 install_atkinson_hyperlegible <- function() {
-  install_font("Atkinson Hyperlegible", "atkinson-hyperlegible")
+
+  family_name <- "AtkinsonHyperlegible"
+
+  if (!(family_name %in% systemfonts::system_fonts()$family |
+        family_name %in% systemfonts::registry_fonts()$family)) {
+
+    sub_dir <- "atkinson-hyperlegible"
+
+    message(paste("Installing font:", family_name))
+    systemfonts::register_font(
+      name = family_name,
+      plain = system.file("fonts", sub_dir, "AtkinsonHyperlegible-Regular.ttf", package = "duke"),
+      bold = system.file("fonts", sub_dir, "AtkinsonHyperlegible-Bold.ttf", package = "duke"),
+      bolditalic = system.file("fonts", sub_dir, "AtkinsonHyperlegible-BoldItalic.ttf", package = "duke"),
+      italic = system.file("fonts", sub_dir, "AtkinsonHyperlegible-Italic.ttf", package = "duke")
+    )
+  }
 }
 
 #' Install Garamond EB
@@ -56,7 +41,24 @@ install_atkinson_hyperlegible <- function() {
 #' @references [Duke Brand Typography](https://brand.duke.edu/typography/#official)
 #' @export
 #' @examples
-#' install_garamond()
-install_garamond <- function() {
-  install_font("EB Garamond", "eb-garamond")
+#' install_eb_garamond()
+install_eb_garamond <- function() {
+
+  family_name <- "EBGaramond"
+
+  if (!(family_name %in% systemfonts::system_fonts()$family |
+        family_name %in% systemfonts::registry_fonts()$family)) {
+
+    sub_dir <- "eb-garamond"
+
+    message(paste("Installing font:", family_name))
+    systemfonts::register_font(
+      name = family_name,
+      plain = system.file("fonts", sub_dir, "EBGaramond-Regular.ttf", package = "duke"),
+      bold = system.file("fonts", sub_dir, "EBGaramond-Bold.ttf", package = "duke"),
+      bolditalic = system.file("fonts", sub_dir, "EBGaramond-BoldItalic.ttf", package = "duke"),
+      italic = system.file("fonts", sub_dir, "EBGaramond-Italic.ttf", package = "duke")
+    )
+  }
+
 }

@@ -11,11 +11,8 @@ RoxygenNote: 7.2.3
 Imports: 
     ggplot2,
     scales,
-    showtext,
-    sysfonts,
-    tibble
-URL: https://github.com/aidangildea/duke,
-    https://aidangildea.github.io/duke/
+    systemfonts
+URL: https://github.com/aidangildea/duke, https://aidangildea.github.io/duke/
 BugReports: https://github.com/aidangildea/duke/issues
 Depends: 
     R (>= 2.10)

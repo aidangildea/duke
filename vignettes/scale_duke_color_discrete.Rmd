@@ -11,8 +11,8 @@ vignette: >
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-   fig.width = 8,
-  fig.asp = .618
+  fig.width = 8,
+  fig.asp = 0.618
 )
 ```
 
@@ -23,7 +23,7 @@ This vignette is intended to demonstrate the functionality of `scale_duke_color_
 For these visualization, we will use the R dummy data set `palmerpenguins`.
 
 ```{r penguins}
-#install.packages("palmerpenguins")
+# install.packages("palmerpenguins")
 library(palmerpenguins)
 library(duke)
 library(ggplot2)
@@ -34,22 +34,22 @@ attach(penguins)
 ## Scatter Plot
 
 ```{r scatter plot}
-plot <- ggplot(palmerpenguins::penguins, aes(x=bill_length_mm, y = bill_depth_mm)) +
+plot <- ggplot(palmerpenguins::penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +
   geom_point(aes(color = species)) +
   labs(title = "Bill Length vs. Bill Depth", caption = "(Colors used) \n Duke Royal Blue, Duke Navy Blue, Copper", x = "Bill Length (mm)", y = "Bill Depth (mm)")
 
-plot + 
+plot +
   scale_duke_color_discrete()
 ```
 
 ## Jitter Plot
 
 ```{r jitter plot}
-plot2 <- ggplot(palmerpenguins::penguins, aes(x=island, y = bill_depth_mm)) +
+plot2 <- ggplot(palmerpenguins::penguins, aes(x = island, y = bill_depth_mm)) +
   geom_jitter(aes(color = species)) +
   labs(title = "Bill Length vs. Bill Depth", caption = "(Colors used) \n Duke Royal Blue, Duke Navy Blue, Copper", x = "Bill Length (mm)", y = "Bill Depth (mm)")
 
-plot2 + 
+plot2 +
   scale_duke_color_discrete()
 ```
 

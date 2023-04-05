@@ -7,7 +7,7 @@
 duke_pal()
 }
 \value{
-Character vector of Duke palette hex codes.
+Character vector of Duke palette HEX codes.
 }
 \description{
 Duke Palette Function

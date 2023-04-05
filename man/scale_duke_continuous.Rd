@@ -33,11 +33,21 @@ scale_duke_continuous(
 a visualization with continuous duke color scale
 }
 \description{
-Apply continuous color scale
+Integrates a Duke branded and accessible continuous color scale to ggplot
+geometric objects. It is applicable for both fill and color arguments.
+Defines gradient scale from dark to light to improve visibility and contrast
+for readers.
 }
 \examples{
-# Default example from Hatteras to Duke Royal Blue
-plot3 <- ggplot2::ggplot(iris, ggplot2::aes(x=Petal.Length, y = Petal.Width)) +
-  ggplot2::geom_point()
-plot3 + scale_duke_continuous()
+library(ggplot2)
+library(palmerpenguins)
+
+# default
+ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm, color = body_mass_g)) +
+  geom_point()
+
+# vs. with Duke scale
+ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm, color = body_mass_g)) +
+  geom_point() +
+  scale_duke_continuous()
 }
