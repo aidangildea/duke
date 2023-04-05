@@ -14,19 +14,18 @@ knitr::opts_chunk$set(
 )
 ```
 
-This vignette is intended to demonstrate the functionality of `scale_duke_fill_discrete()`. The function allows users to utilize a discrete color scale of Duke official branding colors on ggplot2 visualizations. It is fully integrated with ggplot2 visualizations.
+This vignette is intended to demonstrate the functionality of `scale_duke_fill_discrete()`. The function allows users to utilize a discrete color scale of Duke official branding colors on ggplot2 visualizations. 
+It is fully integrated with ggplot2 visualizations.
 
 # Plot Examples
 
-For these visualization, we will use the R dummy data set `palmerpenguins`.
+For these visualizations, we will use the `penguins` dataset from the **palmerpenguins** package.
 
 ```{r penguins}
-# install.packages("palmerpenguins")
 library(palmerpenguins)
 library(duke)
 library(ggplot2)
 library(ggmosaic)
-attach(penguins)
 ```
 
 ## Bar Plot

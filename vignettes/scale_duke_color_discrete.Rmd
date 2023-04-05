@@ -16,27 +16,31 @@ knitr::opts_chunk$set(
 )
 ```
 
-This vignette is intended to demonstrate the functionality of `scale_duke_color_discrete()`. The function allows users to utilize a discrete color scale of Duke official branding colors on ggplot2 visualizations. It is fully integrated with ggplot2 visualizations.
+This vignette is intended to demonstrate the functionality of `scale_duke_color_discrete()`. The function allows users to utilize a discrete color scale of Duke official branding colors on ggplot2 visualizations. 
+It is fully integrated with ggplot2 visualizations.
 
 # Plot Examples
 
-For these visualization, we will use the R dummy data set `palmerpenguins`.
+For these visualizations, we will use the `penguins` dataset from the **palmerpenguins** package.
 
 ```{r penguins}
-# install.packages("palmerpenguins")
 library(palmerpenguins)
 library(duke)
 library(ggplot2)
 library(ggmosaic)
-attach(penguins)
 ```
 
 ## Scatter Plot
 
 ```{r scatter plot}
-plot <- ggplot(palmerpenguins::penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +
+plot <- ggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +
   geom_point(aes(color = species)) +
-  labs(title = "Bill Length vs. Bill Depth", caption = "(Colors used) \n Duke Royal Blue, Duke Navy Blue, Copper", x = "Bill Length (mm)", y = "Bill Depth (mm)")
+  labs(
+    title = "Bill Length vs. Bill Depth", 
+    caption = "(Colors used) \n Duke Royal Blue, Duke Navy Blue, Copper", 
+    x = "Bill Length (mm)", 
+    y = "Bill Depth (mm)"
+  )
 
 plot +
   scale_duke_color_discrete()
@@ -45,11 +49,16 @@ plot +
 ## Jitter Plot
 
 ```{r jitter plot}
-plot2 <- ggplot(palmerpenguins::penguins, aes(x = island, y = bill_depth_mm)) +
+plot <- ggplot(penguins, aes(x = island, y = bill_depth_mm)) +
   geom_jitter(aes(color = species)) +
-  labs(title = "Bill Length vs. Bill Depth", caption = "(Colors used) \n Duke Royal Blue, Duke Navy Blue, Copper", x = "Bill Length (mm)", y = "Bill Depth (mm)")
+  labs(
+    title = "Bill Length vs. Bill Depth", 
+    caption = "(Colors used) \n Duke Royal Blue, Duke Navy Blue, Copper", 
+    x = "Bill Length (mm)", 
+    y = "Bill Depth (mm)"
+  )
 
-plot2 +
+plot +
   scale_duke_color_discrete()
 ```
 

@@ -17,19 +17,18 @@ knitr::opts_chunk$set(
 ```
 
 This vignette is intended to demonstrate the breadth of `scale_duke_continuous()` and its
-various applications. Similar to the other existing color scale functions, this function
-can be applied to all `ggplot2` visualizations. 
+various applications. 
+It is fully integrated with ggplot2 visualizations.
 
-For these visualizations, we will use the R dummy data set `palmerpenguins`.
+# Plot Examples
+
+For these visualizations, we will use the `penguins` dataset from the **palmerpenguins** package.
 
 ```{r setup}
 library(duke)
 library(palmerpenguins)
 library(ggplot2)
-attach(penguins)
 ```
-
-# Plot Examples
 
 ## Scatter Plots
 
