@@ -53,7 +53,7 @@
 #'   )
 theme_duke <- function(
     base_size = 11,
-    base_family = c("Atkinson Hyperlegible", "EB Garamond"),
+    base_family = "Atkinson Hyperlegible",
     base_line_size = base_size / 22,
     base_rect_size = base_size / 22
     ) {
