@@ -71,7 +71,7 @@ plot2 <- ggplot(iris, aes(Sepal.Length, Sepal.Width)) +
   y = "Sepal Width")
 ```
 
-Then, by pairing them with `duke` functions, you can convert them into Duke-branded and colorblind friendly versions.
+Then, by pairing them with functions from this package, you can convert them into Duke-branded and colorblind-friendly versions.
 
 ```{r themeduke, message = FALSE}
 plot1 +
