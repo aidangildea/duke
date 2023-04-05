@@ -7,7 +7,9 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.path = "man/figures/README-",
-  out.width = "100%"
+  out.width = "100%",
+  fig.width = 8,
+  fig.asp = 0.618
 )
 ```
 
@@ -34,6 +36,7 @@ Or alternatively, you can install the development version from GitHub:
 # install.packages("devtools")
 devtools::install_github("aidangildea/duke")
 ```
+
 ## Usage
 
 This package is fully integrated with ggplot2, and therefore, allows you to customize several visualization features. Aesthetic functions such as [`theme_duke()`](https://aidangildea.github.io/duke/articles/theme_duke_vignette.html) and [`scale_color_duke()`](https://aidangildea.github.io/duke/articles/scale_duke_color_discrete_vignette.html) quickly make your graphs visually pleasing and accessible to your audience.
@@ -42,33 +45,36 @@ For further information on how to use ggplot2, please visit its [GitHub reposito
 
 ## Example
 
-By using `duke` functions, you can easily convert your visualizations to Duke official colors.
+By using **duke** functions, you can easily convert your visualizations to Duke official colors.
 
-Create visualizations using `ggplot2` package. 
+Create visualizations using **ggplot2** package. 
+
 ```{r plot}
 library(ggplot2)
 library(duke)
 
-plot <- ggplot2::ggplot(iris, ggplot2::aes(Sepal.Length, Sepal.Width)) +
-  ggplot2::geom_point(ggplot2::aes(colour = Species)) +
-  ggplot2::labs(
+plot1 <- ggplot(iris, aes(Sepal.Length, Sepal.Width)) +
+  geom_point(aes(colour = Species)) +
+  labs(
     title = "Sepal Length vs. Sepal Width",
     caption = "Data sourced from iris in datasets package.",
-    x = "Sepal Length", y = "Sepal Width"
+    x = "Sepal Length", 
+    y = "Sepal Width"
   )
 
-plot2 <- ggplot2::ggplot(iris, ggplot2::aes(Sepal.Length, Sepal.Width)) +
+plot2 <- ggplot(iris, aes(Sepal.Length, Sepal.Width)) +
 
-  ggplot2::geom_point(ggplot2::aes(color = Sepal.Length)) +
-  ggplot2::labs(title = "Sepal Length vs. Sepal Width", 
+  geom_point(aes(color = Sepal.Length)) +
+  labs(title = "Sepal Length vs. Sepal Width", 
   caption = "Data sourced from iris in datasets package.", 
-  x = "Sepal Length", y = "Sepal Width")
+  x = "Sepal Length", 
+  y = "Sepal Width")
 ```
 
 Then, by pairing them with `duke` functions, you can convert them into Duke-branded and colorblind friendly versions.
 
-```{r themeduke, message= false}
-plot +
+```{r themeduke, message = FALSE}
+plot1 +
   theme_duke() +
   scale_duke_color_discrete()
 
@@ -79,4 +85,4 @@ plot2 +
 
 ## Questions
 
-For further questions about this package and its use, please reach out to Aidan Gildea at aidan.gildea@duke.edu.
+For further questions about this package and its use, please open an issue.
