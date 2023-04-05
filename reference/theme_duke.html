@@ -68,7 +68,7 @@ text, and legend arguments of the visualization.</p>
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">theme_duke</span><span class="op">(</span></span>
 <span>  base_size <span class="op">=</span> <span class="fl">11</span>,</span>
-<span>  base_family <span class="op">=</span> <span class="va">base_family</span>,</span>
+<span>  base_family <span class="op">=</span> <span class="st">""</span>,</span>
 <span>  base_line_size <span class="op">=</span> <span class="va">base_size</span><span class="op">/</span><span class="fl">22</span>,</span>
 <span>  base_rect_size <span class="op">=</span> <span class="va">base_size</span><span class="op">/</span><span class="fl">22</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -81,7 +81,7 @@ text, and legend arguments of the visualization.</p>
 
 
 <dt>base_family</dt>
-<dd><p>the base family</p></dd>
+<dd><p>the base family, AtkinsonHyperlegible by default.</p></dd>
 
 
 <dt>base_line_size</dt>
@@ -97,6 +97,19 @@ text, and legend arguments of the visualization.</p>
     
 
 <p>a plot with Duke colors</p>
+    </div>
+    <div class="section level2">
+    <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
+    <p>This theme aims to use Atkinson Hyperlegible font for text in plots
+by default. This font focuses on letterform distinction to increase character
+recognition, ultimately improving readability. Currently, the font will be
+used if it's installed on the user's system. If not, a message will be
+printed directing users to where font can be downloaded and font used in plots
+will default to "sans". <code>base_family</code> can also be set to "EB Garamond", which
+is the recommended Duke serif font. If installed on the user's system, this
+font can be used in plots with <code>theme_duke(base_family = "EB Garamond")</code>. If
+not, a message will be printed directing users to where font can be downloaded
+and font used in plots will default to "serif".</p>
     </div>
 
     <div class="section level2">
