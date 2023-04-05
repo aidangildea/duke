@@ -63,12 +63,13 @@ plot1 <- ggplot(iris, aes(Sepal.Length, Sepal.Width)) +
   )
 
 plot2 <- ggplot(iris, aes(Sepal.Length, Sepal.Width)) +
-
   geom_point(aes(color = Sepal.Length)) +
-  labs(title = "Sepal Length vs. Sepal Width", 
-  caption = "Data sourced from iris in datasets package.", 
-  x = "Sepal Length", 
-  y = "Sepal Width")
+  labs(
+    title = "Sepal Length vs. Sepal Width", 
+    caption = "Data sourced from iris in datasets package.", 
+    x = "Sepal Length", 
+    y = "Sepal Width"
+  )
 ```
 
 Then, by pairing them with functions from this package, you can convert them into Duke-branded and colorblind-friendly versions.
