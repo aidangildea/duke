@@ -1,9 +1,11 @@
-#' Duke Palette Function
+#' Duke Color Palette (Discrete) and Scales
 #'
+#' An eight-color colorblind friendly qualitative discrete palette that is
+#' based on colors on the Duke branding guidelines.
 #'
+#' @references https://brand.duke.edu/colors/
 #' @return Character vector of Duke palette HEX codes.
 #' @export
-#' @importFrom scales "manual_pal"
 #'
 #' @examples
 #' duke_pal()

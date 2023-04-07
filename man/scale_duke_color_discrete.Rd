@@ -2,23 +2,17 @@
 % Please edit documentation in R/scale_duke_color_discrete.R
 \name{scale_duke_color_discrete}
 \alias{scale_duke_color_discrete}
+\alias{scale_duke_colour_discrete}
 \title{Apply discrete color scale}
 \usage{
-scale_duke_color_discrete(
-  ...,
-  na.value = "#B5B5B5",
-  guide = "legend",
-  aesthetics = c("color", "colour")
-)
+scale_duke_color_discrete(..., na.value = "#B5B5B5")
+
+scale_duke_colour_discrete(..., na.value = "#B5B5B5")
 }
 \arguments{
 \item{...}{Arguments passed on to \code{discrete_scale}.}
 
 \item{na.value}{Color used for NA values}
-
-\item{guide}{the name used to create the guide. See \href{https://www.rdocumentation.org/link/guides?package=ggplot2&version=2.1.0}{\code{guides}} for more info.}
-
-\item{aesthetics}{String or vector of strings detailing what aesthetic features this discrete scale can apply to.}
 }
 \value{
 a visualization with discrete duke color scale
@@ -34,6 +28,7 @@ Partial code for this function can be attributed to
 }
 \examples{
 library(ggplot2)
+library(dplyr)
 library(palmerpenguins)
 
 # default
@@ -44,4 +39,23 @@ ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm, color = species)) +
 ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm, color = species)) +
   geom_point() +
   scale_duke_color_discrete()
+
+# vs. with Duke scale, UK spelling
+ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm, colour = species)) +
+  geom_point() +
+  scale_duke_colour_discrete()
+
+# Make some species NAs to demonstrate na.value usage
+penguins_with_NAs <- penguins |>
+  mutate(species = if_else(species == "Gentoo", NA, species))
+
+# with default na.value
+ggplot(penguins_with_NAs, aes(x = body_mass_g, color = species)) +
+  geom_density() +
+  scale_duke_color_discrete()
+
+# with custom na.value
+ggplot(penguins_with_NAs, aes(x = body_mass_g, color = species)) +
+  geom_density() +
+  scale_duke_color_discrete(na.value = "pink")
 }

@@ -9,14 +9,13 @@
 #'
 #' @param ... Arguments passed on to `discrete_scale`.
 #' @param na.value Color used for NA values
-#' @param guide the name used to create the guide. See [`guides`](https://www.rdocumentation.org/link/guides?package=ggplot2&version=2.1.0) for more info.
-#' @param aesthetics String or vector of strings detailing what aesthetic features this discrete scale can apply to.
 #'
 #' @return a visualization with discrete duke color scale
 #' @export
 #'
 #' @examples
 #' library(ggplot2)
+#' library(dplyr)
 #' library(palmerpenguins)
 #'
 #' # default
@@ -27,11 +26,37 @@
 #' ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm, color = species)) +
 #'   geom_point() +
 #'   scale_duke_color_discrete()
-scale_duke_color_discrete <- function(..., na.value = "#B5B5B5",
-                                      guide = "legend",
-                                      aesthetics = c("color", "colour")) {
+#'
+#' # vs. with Duke scale, UK spelling
+#' ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm, colour = species)) +
+#'   geom_point() +
+#'   scale_duke_colour_discrete()
+#'
+#' # Make some species NAs to demonstrate na.value usage
+#' penguins_with_NAs <- penguins |>
+#'   mutate(species = if_else(species == "Gentoo", NA, species))
+#'
+#' # with default na.value
+#' ggplot(penguins_with_NAs, aes(x = body_mass_g, color = species)) +
+#'   geom_density() +
+#'   scale_duke_color_discrete()
+#'
+#' # with custom na.value
+#' ggplot(penguins_with_NAs, aes(x = body_mass_g, color = species)) +
+#'   geom_density() +
+#'   scale_duke_color_discrete(na.value = "pink")
+scale_duke_color_discrete <- function(..., na.value = "#B5B5B5") {
+
   ggplot2::discrete_scale(
-    aesthetics = aesthetics, "duke_d_color", duke_pal(),
-    na.value = na.value, guide = guide, ...
+    aesthetics = "color",
+    "duke_d_color",
+    duke_pal(),
+    na.value = na.value,
+    ...
   )
+
 }
+
+#' @rdname scale_duke_color_discrete
+#' @export
+scale_duke_colour_discrete <- scale_duke_color_discrete

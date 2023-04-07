@@ -3,6 +3,8 @@ url: https://aidangildea.github.io/duke/
 authors:
   Aidan Gildea:
     href: https://aidangildea.netlify.app
+  Mine Çetinkaya-Rundel:
+    href: https://mine-cr.com
 
 template:
   bootstrap: 5

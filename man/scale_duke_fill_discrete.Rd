@@ -4,21 +4,12 @@
 \alias{scale_duke_fill_discrete}
 \title{Apply discrete color scale to fill aesthetic}
 \usage{
-scale_duke_fill_discrete(
-  ...,
-  na.value = "#B5B5B5",
-  guide = "legend",
-  aesthetics = "fill"
-)
+scale_duke_fill_discrete(..., na.value = "#B5B5B5")
 }
 \arguments{
 \item{...}{Arguments passed on to \code{discrete_scale}.}
 
 \item{na.value}{Color used for NA values}
-
-\item{guide}{the name used to create the guide. See \href{https://ggplot2.tidyverse.org/reference/guides.html}{\code{guides()}} for more info.}
-
-\item{aesthetics}{String or vector of strings detailing what aesthetic features this discrete scale can apply to.}
 }
 \value{
 a visualization with discrete duke color scale in fill
@@ -30,6 +21,7 @@ aligned with Web Content Accessibility Guidelines (WCAG).
 }
 \examples{
 library(ggplot2)
+library(dplyr)
 library(palmerpenguins)
 
 # default
@@ -40,4 +32,18 @@ ggplot(penguins, aes(x = species, fill = species)) +
 ggplot(penguins, aes(x = species, fill = species)) +
   geom_bar() +
   scale_duke_fill_discrete()
+
+# Make some species NAs to demonstrate na.value usage
+penguins_with_NAs <- penguins |>
+  mutate(species = if_else(species == "Gentoo", NA, species))
+
+# with default na.value
+ggplot(penguins_with_NAs, aes(x = species, fill = species)) +
+  geom_bar() +
+  scale_duke_fill_discrete()
+
+# with custom na.value
+ggplot(penguins_with_NAs, aes(x = species, fill = species)) +
+  geom_bar() +
+  scale_duke_fill_discrete(na.value = "pink")
 }
