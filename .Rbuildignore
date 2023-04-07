@@ -6,7 +6,3 @@
 ^docs$
 ^pkgdown$
 ^\.github$
-^Color_Guide.R
-^Plot_Tests.Rmd
-^docs$
-^Meta$
