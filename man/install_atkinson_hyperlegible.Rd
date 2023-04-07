@@ -16,6 +16,3 @@ anyone to use!
 \note{
 \href{http://brailleinstitute.org/wp-content/uploads/2020/11/Atkinson-Hyperlegible-Font-License-2020-1104.pdf}{License}
 }
-\examples{
-install_atkinson_hyperlegible()
-}

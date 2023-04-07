@@ -2,7 +2,7 @@
 % Please edit documentation in R/duke_pal.R
 \name{duke_pal}
 \alias{duke_pal}
-\title{Duke Palette Function}
+\title{Duke Color Palette (Discrete) and Scales}
 \usage{
 duke_pal()
 }
@@ -10,8 +10,12 @@ duke_pal()
 Character vector of Duke palette HEX codes.
 }
 \description{
-Duke Palette Function
+An eight-color colorblind friendly qualitative discrete palette that is
+based on colors on the Duke branding guidelines.
 }
 \examples{
 duke_pal()
+}
+\references{
+https://brand.duke.edu/colors/
 }

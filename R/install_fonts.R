@@ -7,9 +7,6 @@
 #' anyone to use!
 #'
 #' @note [License](http://brailleinstitute.org/wp-content/uploads/2020/11/Atkinson-Hyperlegible-Font-License-2020-1104.pdf)
-#' @export
-#' @examples
-#' install_atkinson_hyperlegible()
 install_atkinson_hyperlegible <- function() {
 
   family_name <- "AtkinsonHyperlegible"
@@ -39,9 +36,6 @@ install_atkinson_hyperlegible <- function() {
 #'
 #' @note [Open Font License](https://fonts.google.com/specimen/EB+Garamond/about)
 #' @references [Duke Brand Typography](https://brand.duke.edu/typography/#official)
-#' @export
-#' @examples
-#' install_eb_garamond()
 install_eb_garamond <- function() {
 
   family_name <- "EBGaramond"

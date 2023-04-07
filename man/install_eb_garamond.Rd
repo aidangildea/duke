@@ -15,9 +15,6 @@ exercise discretion when using it at smaller font sizes.
 \note{
 \href{https://fonts.google.com/specimen/EB+Garamond/about}{Open Font License}
 }
-\examples{
-install_eb_garamond()
-}
 \references{
 \href{https://brand.duke.edu/typography/#official}{Duke Brand Typography}
 }

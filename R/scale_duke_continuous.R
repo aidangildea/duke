@@ -30,7 +30,10 @@
 #'   scale_duke_continuous()
 scale_duke_continuous <- function(..., low = "#00539B", high = "#E2E6ED", space = "Lab",
                                   na.value = "#666666", guide = "colourbar", aesthetics = c("colour", "color", "fill")) {
-  ggplot2::continuous_scale(aesthetics, "duke_c", scales::seq_gradient_pal(low, high, space),
-    na.value = na.value, guide = guide, ...
+  ggplot2::continuous_scale(
+    aesthetics, "duke_c",
+    scales::seq_gradient_pal(low, high, space),
+    na.value = na.value,
+    guide = guide, ...
   )
 }
