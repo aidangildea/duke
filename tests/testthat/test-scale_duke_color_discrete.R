@@ -31,3 +31,14 @@ test_that("use of colour does not affect implementation", {
   correct_color <- c("#012169", "#C84E00", "#00539B", "#339898")
   expect_equal(ggplot2::layer_data(p3)$colour, correct_color)
 })
+
+test_that("appropriate fill for factors over 8-levels", {
+  df <- data.frame(x = 1:9, y = 9:1, z = factor(letters[1:9]))
+  p4 <- ggplot2::ggplot(df,
+                        ggplot2::aes(x, y, color = z)) +
+    ggplot2::geom_point() +
+    scale_duke_color_discrete()
+
+  expect_warning(ggplot2::ggplot_build(p4),
+                 "This manual palette can handle a maximum of 8 values. You have supplied 9.")
+})
