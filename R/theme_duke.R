@@ -1,8 +1,8 @@
-#' Theme Duke
+#' Implements theme components.
 #'
-#' Implements the overall aesthetic and thematic features of the plot.
-#' Striving for a minimalist design, it defines the background, grid line,
-#' text, and legend arguments of the visualization.
+#' Defines the overall aesthetic and thematic features of the plot. This
+#' function specifies simple background, grid line, text, and legend arguments
+#' to create minimalist design. Its use is intended for ggplot objects.
 #'
 #' @param base_size the base size
 #' @param base_family the base family, AtkinsonHyperlegible by default.

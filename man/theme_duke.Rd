@@ -2,7 +2,7 @@
 % Please edit documentation in R/theme_duke.R
 \name{theme_duke}
 \alias{theme_duke}
-\title{Theme Duke}
+\title{Implements theme components.}
 \usage{
 theme_duke(
   base_size = 11,
@@ -24,9 +24,9 @@ theme_duke(
 a plot with Duke colors
 }
 \description{
-Implements the overall aesthetic and thematic features of the plot.
-Striving for a minimalist design, it defines the background, grid line,
-text, and legend arguments of the visualization.
+Defines the overall aesthetic and thematic features of the plot. This
+function specifies simple background, grid line, text, and legend arguments
+to create minimalist design. Its use is intended for ggplot objects.
 }
 \details{
 This theme aims to use Atkinson Hyperlegible font for text in plots

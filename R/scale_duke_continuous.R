@@ -1,6 +1,6 @@
-#' Apply continuous color scale
+#' Continuous scale constructor.
 #'
-#' Integrates a Duke branded and accessible continuous color scale to ggplot
+#' Applies a Duke branded and accessible continuous color scale to ggplot
 #' geometric objects. It is applicable for both fill and color arguments.
 #' Defines gradient scale from dark to light to improve visibility and contrast
 #' for readers.

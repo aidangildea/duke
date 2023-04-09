@@ -2,7 +2,7 @@
 % Please edit documentation in R/scale_duke_continuous.R
 \name{scale_duke_continuous}
 \alias{scale_duke_continuous}
-\title{Apply continuous color scale}
+\title{Continuous scale constructor.}
 \usage{
 scale_duke_continuous(
   ...,
@@ -33,7 +33,7 @@ scale_duke_continuous(
 a visualization with continuous duke color scale
 }
 \description{
-Integrates a Duke branded and accessible continuous color scale to ggplot
+Applies a Duke branded and accessible continuous color scale to ggplot
 geometric objects. It is applicable for both fill and color arguments.
 Defines gradient scale from dark to light to improve visibility and contrast
 for readers.

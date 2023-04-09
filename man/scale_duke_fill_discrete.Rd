@@ -2,7 +2,7 @@
 % Please edit documentation in R/scale_duke_fill_discrete.R
 \name{scale_duke_fill_discrete}
 \alias{scale_duke_fill_discrete}
-\title{Apply discrete color scale to fill aesthetic}
+\title{Discrete scale constructor for fill argument.}
 \usage{
 scale_duke_fill_discrete(..., na.value = "#B5B5B5")
 }
@@ -15,7 +15,7 @@ scale_duke_fill_discrete(..., na.value = "#B5B5B5")
 a visualization with discrete duke color scale in fill
 }
 \description{
-Introduces a Duke branded and accessible discrete color palette to ggplot
+Applies a Duke branded and accessible discrete color palette to ggplot
 geometric objects using fill argument. It prioritizes high contrast colors
 aligned with Web Content Accessibility Guidelines (WCAG).
 }

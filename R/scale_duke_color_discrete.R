@@ -1,6 +1,6 @@
-#' Apply discrete color scale
+#' Discrete scale constructor for color argument.
 #'
-#' Introduces a Duke branded and accessible discrete color palette to ggplot
+#' Applies a Duke branded and accessible discrete color palette to ggplot
 #' geometric objects using color argument. It prioritizes high contrast colors
 #' aligned with Web Content Accessibility Guidelines (WCAG).
 #'

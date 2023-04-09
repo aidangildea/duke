@@ -3,7 +3,7 @@
 \name{scale_duke_color_discrete}
 \alias{scale_duke_color_discrete}
 \alias{scale_duke_colour_discrete}
-\title{Apply discrete color scale}
+\title{Discrete scale constructor for color argument.}
 \usage{
 scale_duke_color_discrete(..., na.value = "#B5B5B5")
 
@@ -18,7 +18,7 @@ scale_duke_colour_discrete(..., na.value = "#B5B5B5")
 a visualization with discrete duke color scale
 }
 \description{
-Introduces a Duke branded and accessible discrete color palette to ggplot
+Applies a Duke branded and accessible discrete color palette to ggplot
 geometric objects using color argument. It prioritizes high contrast colors
 aligned with Web Content Accessibility Guidelines (WCAG).
 }
