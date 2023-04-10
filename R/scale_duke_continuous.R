@@ -5,7 +5,7 @@
 #' Defines gradient scale from dark to light to improve visibility and contrast
 #' for readers.
 #'
-#' @param ... Arguments passed on to [continuous_scale](http://127.0.0.1:65374/help/library/ggplot2/help/continuous_scale).
+#' @param ... Arguments passed on to [continuous_scale()](https://ggplot2.tidyverse.org/reference/continuous_scale.html?q=continuous_scale).
 #' @param low Low end of color gradient.
 #' @param high High end of color gradient.
 #' @param space Color space in which to calculate gradient.

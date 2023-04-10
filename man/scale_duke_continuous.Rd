@@ -15,7 +15,7 @@ scale_duke_continuous(
 )
 }
 \arguments{
-\item{...}{Arguments passed on to \href{http://127.0.0.1:65374/help/library/ggplot2/help/continuous_scale}{continuous_scale}.}
+\item{...}{Arguments passed on to \href{https://ggplot2.tidyverse.org/reference/continuous_scale.html?q=continuous_scale}{continuous_scale()}.}
 
 \item{low}{Low end of color gradient.}
 
