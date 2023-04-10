@@ -5,7 +5,7 @@ Authors@R: c(
     person("Aidan", "Gildea", , "aidan.gildea@duke.edu", role = c("aut", "cre")),
     person("Mine", "\u00C7etinkaya-Rundel", email = "cetinkaya.mine@gmail.com", role = c("aut"), comment = c(ORCID = "0000-0001-6452-2420"))
     )
-Description: Generates ggplot2 visualizations with Duke’s official suite of colors in a color blind friendly way.
+Description: Generates visualizations with Duke’s official suite of colors in a color blind friendly way.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
