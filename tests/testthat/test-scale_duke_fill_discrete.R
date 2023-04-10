@@ -35,4 +35,16 @@ test_that("appropriate fill for factors over 8-levels", {
   expect_equal(ggplot2::layer_data(p3)$fill[9], "#B5B5B5")
 })
 
+test_that("appropriate fill for factors over 8-levels", {
+  df <- data.frame(x = c(rep("A", 10), rep("B", 5), rep("C", 8), rep("D", 4),
+                         rep("E", 11), rep("F", 2), rep("G", 7), rep("H", 5),
+                         rep("I", 3)))
+  p4 <- ggplot2::ggplot(df,
+                        ggplot2::aes(x, fill = x)) +
+    ggplot2::geom_bar() +
+    scale_duke_fill_discrete()
+
+  expect_warning(ggplot2::ggplot_build(p4),
+                 "This manual palette can handle a maximum of 8 values. You have supplied 9.")
+})
 
