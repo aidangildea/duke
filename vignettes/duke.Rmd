@@ -18,9 +18,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r}
-#| label: setup
-#| message: false
+```{r setup, warning = FALSE}
 
 library(duke)
 library(palmerpenguins)
@@ -31,7 +29,7 @@ library(ggmosaic)
 
 This vignette aims to comprehensively demonstrate the use and functionality of the package `duke`. `duke` is fully integrated with the `ggplot2` and allows for the creation of Duke official branded visualizations that are color blind friendly. 
 
-```{r}
+```{r students, warning = FALSE}
 student_names <- c("Jack", "Annie", "Paul", "Aidan", "Jake", "Josh", "Grace", "Suzy", "Beth", "Taylor", "Tanner", "Lisa", "Jimmy", "Larry", "Patricia", "Laura", "Yasmin", "Tim")
 student_grades <- c("A+", "B", "A+", "C", "D", "A+", "E", "C", "B-", "B-", "D", "A-", "B+", "A-", "A-", "D", "B", "E")
 
@@ -41,7 +39,7 @@ students <- tibble(student = student_names, grade = student_grades)
 
 ## Scatter Plot - Continuous Color
 
-```{r scatter c}
+```{r scatter c, warning = FALSE}
 plot <- ggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +
   geom_point(aes(color = body_mass_g)) +
   labs(
@@ -96,7 +94,7 @@ plot1 +
 
 ## Bar Plot
 
-```{r bar}
+```{r bar, warning = FALSE}
 plot2 <- ggplot(penguins, aes(x = species, fill = species)) +
   geom_bar() +
   labs(title = "Distribution of Penguin Species", x = "Species", y = "Count")
@@ -163,7 +161,7 @@ plot2.5 +
 
 ## Histogram
 
-```{r hist}
+```{r hist, warning = FALSE}
 plot3 <- ggplot2::ggplot(penguins, aes(body_mass_g)) +
   geom_histogram(ggplot2::aes(fill = species), alpha = 0.8) +
   labs(title = "Distribution of Penguin Body Mass", caption = "(Colors used) \n Duke Royal Blue, Duke Navy Blue, Copper", x = "Body Mass (g)", y = "Count")
@@ -179,7 +177,7 @@ plot3 +
 
 ## Box Plot
 
-```{r box}
+```{r box, warning = FALSE}
 plot4 <- ggplot2::ggplot(penguins, ggplot2::aes(sex, body_mass_g)) +
   ggplot2::geom_boxplot() +
   ggplot2::labs(title = "Comparison of Body Mass By Sex", x = "Sex", y = "Body Mass (g)")
@@ -193,7 +191,7 @@ plot4 +
 
 ## Density Plot
 
-```{r density}
+```{r density, warning = FALSE}
 plot5 <- ggplot2::ggplot(penguins, ggplot2::aes(bill_depth_mm)) +
   ggplot2::geom_density(ggplot2::aes(fill = species)) +
   ggplot2::labs(title = "Density of Penguin Bill Depth", x = "Bill Depth (mm)", y = "Densiy")
@@ -209,7 +207,7 @@ plot5 +
 
 ## Jitter Plot - Discrete Color
 
-```{r jitter d}
+```{r jitter d, warning = FALSE}
 plot6 <- ggplot2::ggplot(penguins, ggplot2::aes(year, body_mass_g)) +
   ggplot2::geom_jitter(ggplot2::aes(color = species)) +
   ggplot2::labs(title = "Comparison of Body Mass By Year", x = "Year", y = "Body Mass (g)")
@@ -224,7 +222,7 @@ plot6 +
 ```
 ## Jitter Plot - Discrete Color
 
-```{r jitter c}
+```{r jitter c, warning = FALSE}
 plot6.1 <- ggplot2::ggplot(penguins, ggplot2::aes(year, body_mass_g)) +
   ggplot2::geom_jitter(ggplot2::aes(color = bill_length_mm)) +
   ggplot2::labs(title = "Comparison of Body Mass By Year", x = "Year", y = "Body Mass (g)")
@@ -240,7 +238,7 @@ plot6.1 +
 
 ## Line Plot
 
-```{r line plot}
+```{r line plot, warning = FALSE}
 yearly_avg <- penguins %>%
   filter(!is.na(bill_length_mm)) %>%
   group_by(island, year) %>%
@@ -268,7 +266,7 @@ lineplot.2
 
 ## Mosaic Plot 
 
-```{r mosaic plot}
+```{r mosaic plot, warning = FALSE}
 plot7 <- ggplot(data = penguins) +
   ggmosaic::geom_mosaic(aes(x = ggmosaic::product(sex, island), fill = sex)) +
   labs(title = "Penguin Sex vs. Island", x = "Island", y = "Penguin Sex", caption = "(Color from top to bottom) \n Granite, Duke Navy Blue, Duke Royal Blue")
@@ -284,7 +282,7 @@ plot7 +
 
 # Label Plot
 
-```{r label}
+```{r label, warning = FALSE}
 plot8 <- ggplot2::ggplot(penguins, ggplot2::aes(bill_length_mm, bill_depth_mm, fill = island)) +
   ggplot2::geom_label(aes(label = island)) +
   ggplot2::labs(title = "Bill Length/Depth by Island", x = "Bill Length (mm)", y = "Bill Depth (mm)")
@@ -300,7 +298,7 @@ plot8 +
 
 ## Quantile Plot
 
-```{r quantile}
+```{r quantile, warning = FALSE}
 plot9 <- ggplot2::ggplot(penguins, ggplot2::aes(bill_length_mm, bill_depth_mm, color = species)) +
   ggplot2::geom_quantile() +
   ggplot2::labs(title = "Bill Length/Depth Quantiles", x = "Bill Length (mm)", y = "Bill Depth (mm)")
@@ -316,7 +314,7 @@ plot9 +
 
 ## Area Plot
 
-```{r area}
+```{r area, warning = FALSE}
 plot10 <- ggplot2::ggplot(penguins, ggplot2::aes(body_mass_g, fill = species)) +
   ggplot2::geom_area(stat = "bin") +
   ggplot2::labs(title = "Area of Body Mass Index", x = "BMI")
@@ -332,7 +330,7 @@ plot10 +
 
 ## Dot Plot
 
-```{r dotpot}
+```{r dotpot, warning = FALSE}
 plot11 <- ggplot2::ggplot(penguins, ggplot2::aes(body_mass_g)) +
   ggplot2::geom_dotplot(aes(fill = species)) +
   ggplot2::labs(title = "Dotplot of BMI", x = "BMI")
@@ -348,7 +346,7 @@ plot11 +
 
 ## Frequency Polynomial Plot
 
-```{r freqplot}
+```{r freqplot, warning = FALSE}
 plot12 <- ggplot2::ggplot(penguins, ggplot2::aes(body_mass_g)) +
   ggplot2::geom_freqpoly(aes(color = species)) +
   ggplot2::labs(title = "Frequency Polynomial Plot of BMI", x = "BMI")
@@ -364,7 +362,7 @@ plot12 +
 
 ## Column Plot
 
-```{r colplot}
+```{r colplot, warning = FALSE}
 plot13 <- ggplot2::ggplot(penguins, ggplot2::aes(species, body_mass_g, color = species)) +
   ggplot2::geom_col() +
   ggplot2::labs(title = "BMI By Species of BMI", x = "Species", y = "BMI")
@@ -380,7 +378,7 @@ plot13 +
 
 ## Violin Plot
 
-```{r violinplot}
+```{r violinplot, warning = FALSE}
 plot14 <- ggplot2::ggplot(penguins, ggplot2::aes(species, body_mass_g, fill = species)) +
   geom_violin(scale = "area") +
   ggplot2::labs(title = "BMI By Species", x = "Species", y = "BMI")
@@ -396,7 +394,7 @@ plot14 +
 
 ## Count Plot
 
-```{r countplot}
+```{r countplot, warning = FALSE}
 plot15 <- ggplot2::ggplot(penguins, ggplot2::aes(species, island, color = species)) +
   geom_count() +
   ggplot2::labs(title = "Species Count by Island", x = "Species", y = "Island")
@@ -412,7 +410,7 @@ plot15 +
 
 ## Step Plot
 
-```{r stepplot}
+```{r stepplot, warning = FALSE}
 plot16 <- ggplot2::ggplot(penguins, ggplot2::aes(year, body_mass_g, color = species)) +
   geom_step()
 ggplot2::labs(title = "BMI By Year", x = "Year", y = "BMI")
@@ -428,7 +426,7 @@ plot16 +
 
 ## Coordinate Polar
 
-```{r coordpol}
+```{r coordpol, warning = FALSE}
 plot1 +
   facet_wrap(~species) +
   theme_bw() +
