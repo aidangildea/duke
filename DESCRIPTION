@@ -1,13 +1,11 @@
 Package: duke
-Title: Makes color blind friendly visualizations with Duke's official colors
+Title: Creating a Color-Blind Friendly Duke Color Package
 Version: 0.0.0.9000
 Authors@R: c(
     person("Aidan", "Gildea", , "aidan.gildea@duke.edu", role = c("aut", "cre")),
     person("Mine", "\u00C7etinkaya-Rundel", email = "cetinkaya.mine@gmail.com", role = c("aut"), comment = c(ORCID = "0000-0001-6452-2420"))
     )
-Description: The aim of this package is to allow for users to create Duke 
-    official visualizations in a color blind friendly way. By doing so, we can 
-    ensure that visualizations within our community are accessible to everyone.
+Description: Generates ggplot2 visualizations with Duke’s official suite of colors in a color blind friendly way.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
