@@ -12,8 +12,7 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Imports: 
     ggplot2,
-    scales,
-    systemfonts
+    scales
 URL: https://github.com/aidangildea/duke, https://aidangildea.github.io/duke/
 BugReports: https://github.com/aidangildea/duke/issues
 Depends: 
