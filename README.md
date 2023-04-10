@@ -40,8 +40,6 @@ scales of your plots created with ggplot2.
 By using **duke** functions, you can easily convert your visualizations
 to Duke official colors.
 
-Create visualizations using **ggplot2** package.
-
 ``` r
 library(ggplot2)
 library(duke)
