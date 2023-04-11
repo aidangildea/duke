@@ -46,8 +46,6 @@ This package is fully integrated with ggplot2, and therefore, allows you to cust
 
 By using **duke** functions, you can easily convert your visualizations to Duke official colors.
 
-Create visualizations using **ggplot2** package. 
-
 ```{r plot}
 library(ggplot2)
 library(duke)
