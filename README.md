@@ -46,22 +46,22 @@ Create visualizations using **ggplot2** package.
 library(ggplot2)
 library(duke)
 
-plot1 <- ggplot(iris, aes(Sepal.Length, Sepal.Width)) +
-  geom_point(aes(colour = Species)) +
+plot1 <- ggplot(mpg, aes(cty, hwy)) +
+  geom_point(aes(colour = fl)) +
   labs(
-    title = "Sepal Length vs. Sepal Width",
-    caption = "Data sourced from iris in datasets package.",
-    x = "Sepal Length", 
-    y = "Sepal Width"
+    title = "City Miles per Gallon vs. Highway Miles per Gallon By Fuel Type",
+    caption = "Data sourced from mpg in ggplot2 package.",
+    x = "City Miles per Gallon (MPG)", 
+    y = "Highway Miles per Gallon (MPG)"
   )
 
-plot2 <- ggplot(iris, aes(Sepal.Length, Sepal.Width)) +
-  geom_point(aes(color = Sepal.Length)) +
+plot2 <- ggplot(mpg, aes(cty, hwy)) +
+  geom_point(aes(color = cyl)) +
   labs(
-    title = "Sepal Length vs. Sepal Width", 
-    caption = "Data sourced from iris in datasets package.", 
-    x = "Sepal Length", 
-    y = "Sepal Width"
+    title = "City Miles per Gallon vs. Highway Miles per Gallon By Cylinders", 
+    caption = "Data sourced from mpg in ggplot2 package.", 
+    x = "City Miles per Gallon (MPG)", 
+    y = "Highway Miles per Gallon (MPG)"
   )
 ```
 
