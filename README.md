@@ -3,9 +3,14 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/aidangildea/duke/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/aidangildea/duke/actions/workflows/R-CMD-check.yaml)
-[![CRAN
-status](https://www.r-pkg.org/badges/version/duke)](https://CRAN.R-project.org/package=duke)
+<a
+href="https://github.com/aidangildea/duke/actions/workflows/R-CMD-check.yaml"
+class="pkgdown-devel"><img
+src="https://github.com/aidangildea/duke/actions/workflows/R-CMD-check.yaml/badge.svg"
+alt="R-CMD-check" /></a>
+<a href="https://cran.r-project.org/package=duke"
+class="pkgdown-release"><img
+src="https://www.r-pkg.org/badges/version/duke" alt="CRAN Status" /></a>
 <!-- badges: end -->
 
 ## Overview
