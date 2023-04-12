@@ -4,6 +4,8 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/aidangildea/duke/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/aidangildea/duke/actions/workflows/R-CMD-check.yaml)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/duke)](https://CRAN.R-project.org/package=duke)
 <!-- badges: end -->
 
 ## Overview
