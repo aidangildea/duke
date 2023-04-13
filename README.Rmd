@@ -16,7 +16,8 @@ knitr::opts_chunk$set(
 # duke
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/aidangildea/duke/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/aidangildea/duke/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/aidangildea/duke/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/aidangildea/duke/actions/workflows/R-CMD-check.yaml){.pkgdown-devel}
+[![CRAN Status](https://www.r-pkg.org/badges/version/duke)](https://cran.r-project.org/package=duke){.pkgdown-release}
 <!-- badges: end -->
 
 ## Overview
