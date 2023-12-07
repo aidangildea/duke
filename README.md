@@ -1,6 +1,8 @@
 
 # duke
 
+<a href="https://aidangildea.github.io/duke/"><img src="man/figures/logo.png" align="right" height="113" /></a>
+
 <!-- badges: start -->
 
 <a
