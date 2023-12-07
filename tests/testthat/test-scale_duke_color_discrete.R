@@ -12,7 +12,7 @@ test_that("factors assume appropriate colors for 3-category variable", {
 test_that("factors assume appropriate colors for 8-category variable", {
   df <- data.frame(x = 1:8, y = 8:1, z = factor(letters[1:8]))
   p2 <- ggplot2::ggplot(df,
-              ggplot2::aes(x, y, color = z, shape = z)) +
+              ggplot2::aes(x, y, color = z)) +
     ggplot2::geom_point() +
     scale_duke_color_discrete()
 
