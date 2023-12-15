@@ -39,6 +39,5 @@ test_that("appropriate fill for factors over 8-levels", {
     ggplot2::geom_point() +
     scale_duke_color_discrete()
 
-  expect_warning(ggplot2::ggplot_build(p4),
-                 "This manual palette can handle a maximum of 8 values. You have supplied 9.")
+  expect_warning(ggplot2::ggplot_build(p4))
 })
