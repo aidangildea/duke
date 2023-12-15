@@ -1,6 +1,6 @@
 Package: duke
 Title: Creating a Color-Blind Friendly Duke Color Package
-Version: 0.0.2
+Version: 0.0.3
 Authors@R: c(
     person("Aidan", "Gildea", , "aidan.gildea23@gmail.com", role = c("aut", "cre")),
     person("Mine", "\u00C7etinkaya-Rundel", email = "cetinkaya.mine@gmail.com", role = c("aut"), comment = c(ORCID = "0000-0001-6452-2420"))
