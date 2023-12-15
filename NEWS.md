@@ -1,4 +1,5 @@
 # duke 0.0.3
+* Fixing test file issues to resolve R CMD Check errors.
 
 # duke 0.0.2
 
