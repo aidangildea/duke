@@ -1,3 +1,8 @@
+## Resubmission
+This is a resubmission. In this version I have:
+
+* Updated testthat files to resolve R CMD check issues.
+
 ## Test environments
 
 * local OS X install, R 4.2.3
